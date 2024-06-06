@@ -1,4 +1,3 @@
-export * from './dynamic-icon';
 export * from './header';
 export * from './nav-disclosure';
 export * from './nav-item';

@@ -13,7 +13,7 @@ import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
-import { useActionKey } from '../hooks';
+import { useActionKey } from '../../../hooks';
 import { LayoutFeatures, LayoutNavigation, LayoutTheme } from '../layout.model';
 import { NavDisclosure } from './nav-disclosure';
 import { NavItem } from './nav-item';

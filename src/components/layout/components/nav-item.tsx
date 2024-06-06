@@ -1,7 +1,7 @@
 import { NavLink } from 'react-router-dom';
 import { twMerge } from 'tailwind-merge';
 
-import { DynamicIcon } from './dynamic-icon';
+import { DynamicIcon } from '../../dynamic-icon';
 
 export interface NavItemProps {
   label: string;

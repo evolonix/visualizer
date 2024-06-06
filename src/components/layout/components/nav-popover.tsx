@@ -8,7 +8,7 @@ import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
 import clsx from 'clsx';
 import { NavigationSubItem } from '../layout.model';
-import { DynamicIcon } from './dynamic-icon';
+import { DynamicIcon } from '../../dynamic-icon';
 import { NavItem } from './nav-item';
 
 export interface NavPopoverProps {

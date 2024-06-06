@@ -1,7 +1,7 @@
 import clsx from 'clsx';
 
 import { NavigationItem } from '../layout.model';
-import { DynamicIcon } from './dynamic-icon';
+import { DynamicIcon } from '../../dynamic-icon';
 
 export interface NavIconProps {
   item: NavigationItem;
