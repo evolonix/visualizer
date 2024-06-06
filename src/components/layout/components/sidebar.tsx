@@ -35,7 +35,7 @@ export const Sidebar = ({
         className={({ open }) =>
           clsx(
             'fixed inset-y-0 left-0 hidden shadow transition-[width] lg:block',
-            'bg-[var(--layout-background)] text-[var(--layout-text)]',
+            'bg-[var(--layout-background,white)] text-[var(--layout-text,theme(colors.neutral.800))]',
             open ? 'w-52' : 'w-20',
           )
         }
@@ -116,22 +116,12 @@ export const Sidebar = ({
                               {...item}
                               path={item.path}
                               iconOnly={!sidebarExpanded}
-                              className={clsx(
-                                'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                              )}
                             />
                           ) : item.subItems?.length ? (
                             <NavPopover
                               {...item}
                               subItems={item.subItems}
                               iconOnly={!sidebarExpanded}
-                              className={clsx(
-                                'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                              )}
                             />
                           ) : null}
                         </li>
@@ -167,24 +157,12 @@ export const Sidebar = ({
                               {...item}
                               path={item.path}
                               iconOnly={!sidebarExpanded}
-                              className={clsx(
-                                'text-[var(--layout-text)]',
-                                'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                              )}
                             />
                           ) : item.subItems?.length ? (
                             <NavPopover
                               {...item}
                               subItems={item.subItems}
                               iconOnly={!sidebarExpanded}
-                              className={clsx(
-                                'text-[var(--layout-text)]',
-                                'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                              )}
                             />
                           ) : null}
                         </li>

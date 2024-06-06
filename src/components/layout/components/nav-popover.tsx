@@ -6,7 +6,7 @@ import {
 } from '@headlessui/react';
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
-import { twMerge } from 'tailwind-merge';
+import clsx from 'clsx';
 import { NavigationSubItem } from '../layout.model';
 import { DynamicIcon } from './dynamic-icon';
 import { NavItem } from './nav-item';
@@ -16,7 +16,6 @@ export interface NavPopoverProps {
   icon?: string;
   subItems: NavigationSubItem[];
   iconOnly?: boolean;
-  className?: string;
 }
 
 export const NavPopover = ({
@@ -24,16 +23,17 @@ export const NavPopover = ({
   icon,
   subItems,
   iconOnly,
-  className,
 }: NavPopoverProps) => {
   return (
     <Popover>
       {({ close }) => (
         <>
           <PopoverButton
-            className={twMerge(
-              'flex w-full items-center gap-2 py-2 pl-7 pr-1 text-left hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200',
-              className,
+            className={clsx(
+              'flex w-full items-center gap-2 py-2 pl-7 pr-1 text-left focus:outline-none',
+              'hover:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] hover:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+              'focus:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] focus:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+              'active:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.900))_r_g_b_/_30%)] active:text-[var(--layout-highlight,theme(colors.neutral.900))]',
               iconOnly ? 'pr-1' : 'pr-7',
             )}
           >

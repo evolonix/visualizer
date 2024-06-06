@@ -26,7 +26,10 @@ export const NavItem = ({
     <NavLink
       to={path}
       className={twMerge(
-        'flex items-center gap-2 px-7 py-2 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200',
+        'flex items-center gap-2 px-7 py-2 focus:outline-none',
+        'hover:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] hover:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+        'focus:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] focus:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+        'active:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.900))_r_g_b_/_30%)] active:text-[var(--layout-highlight,theme(colors.neutral.900))]',
         className,
       )}
       onClick={onClick}

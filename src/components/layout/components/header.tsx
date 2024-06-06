@@ -87,7 +87,7 @@ export const Header = ({
             <div
               className={clsx(
                 'relative z-20 flex h-16 items-center gap-4 px-4 transition-shadow duration-200 lg:px-8',
-                'bg-[var(--layout-background)] text-[var(--layout-text)]',
+                'bg-[var(--layout-background,white)] text-[var(--layout-text,theme(colors.neutral.800))]',
                 open ? 'lg:shadow-sm' : 'shadow-sm',
               )}
             >
@@ -176,17 +176,11 @@ export const Header = ({
                 <DisclosurePanel
                   className={clsx(
                     'relative origin-top pb-4 shadow-lg transition',
-                    'bg-[var(--layout-background)] text-[var(--layout-text)]',
+                    'bg-[var(--layout-background,white)] text-[var(--layout-text,theme(colors.neutral.800))]',
                   )}
                 >
                   <ThemeDisclosure
                     themes={themes}
-                    className={clsx(
-                      'text-[var(--layout-text)]',
-                      'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                      'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                      'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                    )}
                     onThemeChange={(theme) => {
                       onThemeChange?.(theme);
                       close();
@@ -204,24 +198,12 @@ export const Header = ({
                                 {...item}
                                 path={item.path}
                                 onClick={close}
-                                className={clsx(
-                                  'px-4',
-                                  'text-[var(--layout-text)]',
-                                  'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                  'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                  'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                                )}
+                                className="px-4"
                               />
                             ) : item.subItems?.length ? (
                               <NavDisclosure
                                 {...item}
                                 subItems={item.subItems}
-                                className={clsx(
-                                  'text-[var(--layout-text)]',
-                                  'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                  'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                  'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                                )}
                                 close={close}
                               />
                             ) : null}
@@ -234,24 +216,12 @@ export const Header = ({
                                 {...item}
                                 path={item.path}
                                 onClick={close}
-                                className={clsx(
-                                  'px-4',
-                                  'text-[var(--layout-text)]',
-                                  'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                  'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                  'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                                )}
+                                className="px-4"
                               />
                             ) : item.subItems?.length ? (
                               <NavDisclosure
                                 {...item}
                                 subItems={item.subItems}
-                                className={clsx(
-                                  'text-[var(--layout-text)]',
-                                  'hover:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] hover:text-[var(--layout-highlight)]',
-                                  'focus:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_15%)] focus:text-[var(--layout-highlight)]',
-                                  'active:bg-[rgb(from_var(--layout-highlight)_r_g_b_/_30%)] active:text-[var(--layout-highlight)]',
-                                )}
                                 close={close}
                               />
                             ) : null}

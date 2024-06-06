@@ -6,7 +6,6 @@ import {
 import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
-import { twMerge } from 'tailwind-merge';
 import { NavigationSubItem } from '../layout.model';
 import { DynamicIcon } from './dynamic-icon';
 import { NavItem } from './nav-item';
@@ -15,7 +14,6 @@ export interface NavDisclosureProps {
   label: string;
   icon?: string;
   subItems: NavigationSubItem[];
-  className?: string;
   close: () => void;
 }
 
@@ -23,7 +21,6 @@ export const NavDisclosure = ({
   label,
   icon,
   subItems,
-  className,
   close,
 }: NavDisclosureProps) => {
   return (
@@ -31,9 +28,11 @@ export const NavDisclosure = ({
       {({ open }) => (
         <>
           <DisclosureButton
-            className={twMerge(
-              'flex w-full items-center gap-2 px-4 py-2 text-left hover:bg-neutral-100',
-              className,
+            className={clsx(
+              'flex w-full items-center gap-2 px-4 py-2 text-left focus:outline-none',
+              'hover:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] hover:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+              'focus:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.800))_r_g_b_/_15%)] focus:text-[var(--layout-highlight,theme(colors.neutral.800))]',
+              'active:bg-[rgb(from_var(--layout-highlight,theme(colors.neutral.900))_r_g_b_/_30%)] active:text-[var(--layout-highlight,theme(colors.neutral.900))]',
             )}
           >
             {icon ? (
@@ -55,11 +54,7 @@ export const NavDisclosure = ({
             <ul className="flex flex-col">
               {subItems.map((subItem) => (
                 <li key={subItem.path}>
-                  <NavItem
-                    {...subItem}
-                    onClick={close}
-                    className={twMerge('px-12', className)}
-                  />
+                  <NavItem {...subItem} onClick={close} className="px-12" />
                 </li>
               ))}
             </ul>
