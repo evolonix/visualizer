@@ -97,7 +97,7 @@ export const Header = ({
                   id="header-navigation-button"
                   className={clsx(
                     'rounded-md bg-white p-1.5 text-sm font-semibold text-neutral-900 shadow-md ring-1 ring-inset ring-neutral-300',
-                    'hover:bg-neutral-50 focus:bg-neutral-50 active:bg-neutral-100',
+                    'hover:bg-neutral-5 focus:bg-neutral-50 focus:outline-none active:bg-neutral-100',
                   )}
                 >
                   {open ? (
@@ -120,7 +120,7 @@ export const Header = ({
                   <button
                     ref={searchButtonRef}
                     type="button"
-                    className="flex w-72 items-center gap-2 rounded-lg bg-white px-2 py-1 text-left text-neutral-800 ring-1 ring-neutral-200 hover:bg-neutral-100 active:bg-neutral-200"
+                    className="flex w-72 items-center gap-2 rounded-lg bg-white px-2 py-1 text-left text-neutral-800 ring-1 ring-neutral-200 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200"
                     onClick={onSearch}
                   >
                     <MagnifyingGlassIcon

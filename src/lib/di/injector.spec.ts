@@ -4,7 +4,22 @@ import { makeInjector } from './injector';
 import { DependencyInjector, UndoChanges } from './injector.interfaces';
 import { InjectionToken } from './injector.token';
 
-import { A, B, C, D, E, F, Facade, G, H, HookToken, J, MockB, Query, Store } from './__mocks__/injector.mocks';
+import {
+  A,
+  B,
+  C,
+  D,
+  E,
+  F,
+  Facade,
+  G,
+  H,
+  HookToken,
+  J,
+  MockB,
+  Query,
+  Store,
+} from './__mocks__/injector.mocks';
 
 function makeTestInjector(): [DependencyInjector, InjectionToken<string>] {
   const token = new InjectionToken('injector.spec.ts - msg');
@@ -14,7 +29,11 @@ function makeTestInjector(): [DependencyInjector, InjectionToken<string>] {
     { provide: B, useClass: B, deps: [A] },
     { provide: C, useClass: C, deps: [A] },
     { provide: D, useClass: D, deps: [B, C] },
-    { provide: HookToken, useFactory: (msg) => () => ({ msg: `Hook response ${msg}` }), deps: [token] },
+    {
+      provide: HookToken,
+      useFactory: (msg) => () => ({ msg: `Hook response ${msg}` }),
+      deps: [token],
+    },
   ]);
 
   return [injector, token];
@@ -77,7 +96,9 @@ describe('DependencyInjector', () => {
     });
 
     it('should undo changes after addProviders()', () => {
-      const undoChanges: UndoChanges = injector.addProviders([{ provide: MSG_TOKEN, useFactory: () => 'windy' }]);
+      const undoChanges: UndoChanges = injector.addProviders([
+        { provide: MSG_TOKEN, useFactory: () => 'windy' },
+      ]);
 
       let instA: A = injector.get(A);
       expect(instA.title).toBe('A');
@@ -115,7 +136,9 @@ describe('DependencyInjector', () => {
     });
 
     it('should allow A deps overrides with useFactory', () => {
-      injector.addProviders([{ provide: MSG_TOKEN, useFactory: () => 'windy' }]);
+      injector.addProviders([
+        { provide: MSG_TOKEN, useFactory: () => 'windy' },
+      ]);
       const instA: A = injector.get(A);
 
       expect(instA.title).toBe('A');
@@ -128,7 +151,11 @@ describe('DependencyInjector', () => {
       injector.addProviders([
         { provide: VAL1_TOKEN, useValue: 3 },
         { provide: VAL2_TOKEN, useValue: { name: 'Thomas' } },
-        { provide: MSG_TOKEN, useFactory: (val: number, user) => `${user.name} is windy-${val}`, deps: [VAL1_TOKEN, VAL2_TOKEN] },
+        {
+          provide: MSG_TOKEN,
+          useFactory: (val: number, user) => `${user.name} is windy-${val}`,
+          deps: [VAL1_TOKEN, VAL2_TOKEN],
+        },
       ]);
       const instA: A = injector.get(A);
 
@@ -137,7 +164,13 @@ describe('DependencyInjector', () => {
     });
 
     it('should allow A deps overrides with useFactory + dependencies string value', () => {
-      injector.addProviders([{ provide: MSG_TOKEN, useFactory: (val: string) => `windy-${val}`, deps: ['3a'] }]);
+      injector.addProviders([
+        {
+          provide: MSG_TOKEN,
+          useFactory: (val: string) => `windy-${val}`,
+          deps: ['3a'],
+        },
+      ]);
       const instA: A = injector.get(A);
 
       expect(instA.title).toBe('A');
@@ -145,7 +178,13 @@ describe('DependencyInjector', () => {
     });
 
     it('should allow A deps overrides with useFactory + dependencies number value', () => {
-      injector.addProviders([{ provide: MSG_TOKEN, useFactory: (val: number) => `windy-${val}`, deps: [4] }]);
+      injector.addProviders([
+        {
+          provide: MSG_TOKEN,
+          useFactory: (val: number) => `windy-${val}`,
+          deps: [4],
+        },
+      ]);
       const instA: A = injector.get(A);
 
       expect(instA.title).toBe('A');
@@ -163,7 +202,7 @@ describe('DependencyInjector', () => {
           { provide: E, useClass: E, deps: [D] },
           { provide: F, useClass: F, deps: [E, A] },
         ],
-        parent
+        parent,
       );
 
       MSG_TOKEN = tokenA;
@@ -203,7 +242,9 @@ describe('DependencyInjector', () => {
     });
 
     it('should allow A deps overrides with useFactory', () => {
-      injector.addProviders([{ provide: MSG_TOKEN, useFactory: () => 'windy' }]);
+      injector.addProviders([
+        { provide: MSG_TOKEN, useFactory: () => 'windy' },
+      ]);
       const instA: A = injector.get(A);
 
       expect(instA.title).toBe('A');
@@ -211,7 +252,9 @@ describe('DependencyInjector', () => {
     });
 
     it('should undo changes after addProviders()', () => {
-      const undoChanges: UndoChanges = parent.addProviders([{ provide: MSG_TOKEN, useFactory: () => 'windy' }]);
+      const undoChanges: UndoChanges = parent.addProviders([
+        { provide: MSG_TOKEN, useFactory: () => 'windy' },
+      ]);
 
       let instA: A = injector.get(A);
       expect(instA.title).toBe('A');

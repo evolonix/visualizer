@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 
-export type KeyboardEventModifierKey = { ctrlKey: boolean } | { metaKey: boolean };
+export type KeyboardEventModifierKey =
+  | { ctrlKey: boolean }
+  | { metaKey: boolean };
 
 const ACTION_KEY_DEFAULT = ['Ctrl ', 'Control', { ctrlKey: true }];
 const ACTION_KEY_APPLE = ['⌘', 'Command', { metaKey: true }];
@@ -10,7 +12,8 @@ const ACTION_KEY_APPLE = ['⌘', 'Command', { metaKey: true }];
  * @returns Either Ctrl or ⌘ depending on the platform.
  */
 export function useActionKey() {
-  const [actionKey, setActionKey] = useState<(string | KeyboardEventModifierKey)[]>();
+  const [actionKey, setActionKey] =
+    useState<(string | KeyboardEventModifierKey)[]>();
 
   useEffect(() => {
     if (typeof navigator !== 'undefined') {

@@ -2,7 +2,11 @@
 import { InjectionToken } from './injector.token';
 import { Type } from './types.utils';
 
-export type Token = string | number | InjectionToken<string> | (new (...args: any[]) => any);
+export type Token =
+  | string
+  | number
+  | InjectionToken<string>
+  | (new (...args: any[]) => any);
 
 export interface TypeProvider extends Type<any> {
   deps?: any[];

@@ -23,6 +23,13 @@ export interface DIProviderProps {
  * - Easy lookups for the Business Layers
  *
  */
-export const DependencyInjectionProvider: FC<DIProviderProps> = ({ injector, children }) => {
-  return <InjectorContext.Provider value={injector}>{children}</InjectorContext.Provider>;
+export const DependencyInjectionProvider: FC<DIProviderProps> = ({
+  injector,
+  children,
+}) => {
+  return (
+    <InjectorContext.Provider value={injector}>
+      {children}
+    </InjectorContext.Provider>
+  );
 };

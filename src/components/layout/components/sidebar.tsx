@@ -47,7 +47,7 @@ export const Sidebar = ({
           className={clsx(
             'absolute -right-4 top-4',
             'rounded-md bg-white p-1.5 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-inset ring-neutral-300',
-            'hover:bg-neutral-50 focus:bg-neutral-50 active:bg-neutral-100',
+            'hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none active:bg-neutral-100',
           )}
           title={sidebarExpanded ? 'Collapse Sidebar' : 'Expand Sidebar'}
           onClick={onToggleExpanded}
@@ -148,7 +148,7 @@ export const Sidebar = ({
                             className={clsx(
                               'inline-flex items-center gap-0.5 whitespace-nowrap',
                               'rounded-md bg-white py-1.5 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-inset ring-neutral-300',
-                              'hover:bg-neutral-50 focus:bg-neutral-50 active:bg-neutral-100',
+                              'hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none active:bg-neutral-100',
                               sidebarExpanded ? 'px-2.5' : 'px-1.5',
                             )}
                             onClick={onAdd}

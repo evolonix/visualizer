@@ -26,7 +26,7 @@ export const ThemePopover = ({
           <PopoverButton
             className={twMerge(
               'hidden lg:block',
-              'rounded-md px-2.5 py-1.5 text-sm font-semibold text-neutral-900 ring-inset',
+              'rounded-md px-2.5 py-1.5 text-sm font-semibold text-neutral-900 ring-inset focus:outline-none',
               'hover:bg-neutral-50 hover:text-neutral-900 hover:shadow-md hover:ring-1 hover:ring-neutral-300',
               'focus:bg-neutral-50 focus:text-neutral-900 focus:shadow-md focus:ring-1 focus:ring-neutral-300',
               'active:bg-neutral-100 active:text-neutral-900 active:shadow-md active:ring-1 active:ring-neutral-300',
