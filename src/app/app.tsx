@@ -15,15 +15,15 @@ export function App() {
   const eventBus = inject<EventBus>(EventBus);
 
   useEffect(() => {
-    const unsubscribeSearch = eventBus.on('search', (e) => {
+    const unsubscribeSearch = eventBus?.on('search', (e) => {
       console.log(e);
       setOpenSearch((open) => !open);
     });
-    const unsubscribeAdd = eventBus.on('add', (e) => console.log(e));
+    const unsubscribeAdd = eventBus?.on('add', (e) => console.log(e));
 
     return () => {
-      unsubscribeSearch();
-      unsubscribeAdd();
+      unsubscribeSearch?.();
+      unsubscribeAdd?.();
     };
   }, [eventBus]);
 

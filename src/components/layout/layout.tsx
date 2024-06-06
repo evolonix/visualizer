@@ -32,8 +32,8 @@ export const Layout = ({
     ...defaultConfiguration,
     ...providedConfiguration,
     ...configuration,
-  } as LayoutConfiguration;
-  const { features, navigation } = configuration;
+  };
+  const { logos, features, navigation } = configuration;
   const [theme, setTheme] = useState<LayoutTheme | undefined>(
     configuration.theme,
   );
@@ -42,11 +42,11 @@ export const Layout = ({
   const eventBus = inject<EventBus>(EventBus);
 
   const handleSearch: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    eventBus.announce({ type: 'search', data: e });
+    eventBus?.announce({ type: 'search', data: e });
     onSearch?.(e);
   };
   const handleAdd: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    eventBus.announce({ type: 'add', data: e });
+    eventBus?.announce({ type: 'add', data: e });
     onAdd?.(e);
   };
 
@@ -68,18 +68,27 @@ export const Layout = ({
 
       {/* Header */}
       <Header
+        logos={logos}
         features={features}
         navigation={navigation}
-        className={sidebarExpanded ? 'lg:ml-52' : 'lg:ml-20'}
+        className={clsx(
+          'transition-[margin]',
+          sidebarExpanded ? 'lg:ml-52' : 'lg:ml-20',
+        )}
         onSearch={handleSearch}
         onThemeChange={setTheme}
       />
 
       {/* Sidebar */}
       <Sidebar
+        logos={logos}
         features={features}
         navigation={navigation}
         sidebarExpanded={sidebarExpanded}
+        className={clsx(
+          'transition-[width]',
+          sidebarExpanded ? 'lg:w-52' : 'lg:w-20',
+        )}
         onToggleExpanded={() =>
           setSidebarExpanded((sidebarExpanded) => !sidebarExpanded)
         }

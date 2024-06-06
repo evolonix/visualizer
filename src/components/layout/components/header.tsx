@@ -14,7 +14,12 @@ import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { useActionKey } from '../../../hooks';
-import { LayoutFeatures, LayoutNavigation, LayoutTheme } from '../layout.model';
+import {
+  LayoutFeatures,
+  LayoutLogos,
+  LayoutNavigation,
+  LayoutTheme,
+} from '../layout.model';
 import { NavDisclosure } from './nav-disclosure';
 import { NavItem } from './nav-item';
 import { ThemeDisclosure } from './theme-disclosure';
@@ -39,6 +44,7 @@ const themes: (LayoutTheme & { name: string })[] = [
 export interface HeaderProps {
   features?: LayoutFeatures;
   navigation?: LayoutNavigation;
+  logos?: LayoutLogos;
   className?: string;
   onSearch?: React.MouseEventHandler<HTMLButtonElement>;
   onThemeChange?: (theme: LayoutTheme) => void;
@@ -47,6 +53,7 @@ export interface HeaderProps {
 export const Header = ({
   features,
   navigation,
+  logos,
   className,
   onSearch,
   onThemeChange,
@@ -77,10 +84,7 @@ export const Header = ({
       {/* Header */}
       <Disclosure
         as="header"
-        className={twMerge(
-          'fixed inset-x-0 top-0 transition-[margin]',
-          className,
-        )}
+        className={twMerge('fixed inset-x-0 top-0', className)}
       >
         {({ open, close }) => (
           <>
@@ -120,7 +124,11 @@ export const Header = ({
                   <button
                     ref={searchButtonRef}
                     type="button"
-                    className="flex w-72 items-center gap-2 rounded-lg bg-white px-2 py-1 text-left text-neutral-800 ring-1 ring-neutral-200 hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200"
+                    className={clsx(
+                      'flex w-72 items-center gap-2 rounded-lg bg-white px-2 py-1 text-left text-neutral-800 ring-1 ring-neutral-200',
+                      'hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200',
+                      '[&_*]:pointer-events-none',
+                    )}
                     onClick={onSearch}
                   >
                     <MagnifyingGlassIcon
@@ -181,6 +189,7 @@ export const Header = ({
                 >
                   <ThemeDisclosure
                     themes={themes}
+                    logos={logos}
                     onThemeChange={(theme) => {
                       onThemeChange?.(theme);
                       close();

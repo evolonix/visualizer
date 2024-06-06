@@ -15,6 +15,7 @@ export interface SidebarProps {
   features?: LayoutFeatures;
   navigation?: LayoutNavigation;
   sidebarExpanded: boolean;
+  className?: string;
   onToggleExpanded: () => void;
   onAdd?: React.MouseEventHandler<HTMLButtonElement>;
 }
@@ -24,6 +25,7 @@ export const Sidebar = ({
   features,
   navigation,
   sidebarExpanded,
+  className,
   onToggleExpanded,
   onAdd,
 }: SidebarProps) => {
@@ -32,13 +34,11 @@ export const Sidebar = ({
       {/* Sidebar */}
       <Disclosure
         as="aside"
-        className={({ open }) =>
-          clsx(
-            'fixed inset-y-0 left-0 hidden shadow transition-[width] lg:block',
-            'bg-[var(--layout-background,white)] text-[var(--layout-text,theme(colors.neutral.800))]',
-            open ? 'w-52' : 'w-20',
-          )
-        }
+        className={clsx(
+          'fixed inset-y-0 left-0 hidden shadow lg:block',
+          'bg-[var(--layout-background,white)] text-[var(--layout-text,theme(colors.neutral.800))]',
+          className,
+        )}
         defaultOpen={sidebarExpanded}
       >
         {/* Sidebar Expand Button */}
@@ -139,12 +139,15 @@ export const Sidebar = ({
                               'inline-flex items-center gap-0.5 whitespace-nowrap',
                               'rounded-md bg-white py-1.5 text-sm font-semibold text-neutral-900 shadow-lg ring-1 ring-inset ring-neutral-300',
                               'hover:bg-neutral-50 focus:bg-neutral-50 focus:outline-none active:bg-neutral-100',
+                              '[&_*]:pointer-events-none',
                               sidebarExpanded ? 'px-2.5' : 'px-1.5',
                             )}
                             onClick={onAdd}
                           >
                             <PlusIcon className="size-4" aria-hidden="true" />
-                            <span className={sidebarExpanded ? '' : 'sr-only'}>
+                            <span
+                              className={clsx(sidebarExpanded ? '' : 'sr-only')}
+                            >
                               Add
                             </span>
                           </button>

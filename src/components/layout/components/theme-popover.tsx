@@ -5,6 +5,7 @@ import {
   Transition,
 } from '@headlessui/react';
 
+import clsx from 'clsx';
 import { twMerge } from 'tailwind-merge';
 import { LayoutTheme } from '../layout.model';
 
@@ -57,7 +58,11 @@ export const ThemePopover = ({
                         onThemeChange(theme);
                         close();
                       }}
-                      className="flex w-full items-center gap-2 px-7 py-2 text-left hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200"
+                      className={clsx(
+                        'flex w-full items-center gap-2 px-7 py-2 text-left',
+                        'hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none active:bg-neutral-200',
+                        '[&_*]:pointer-events-none',
+                      )}
                     >
                       {theme.name}
                     </button>

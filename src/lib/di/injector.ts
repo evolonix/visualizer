@@ -18,13 +18,19 @@ export let rootInjector: DependencyInjector;
  * @param token
  * @returns
  */
-export const inject = <T = unknown>(token: Token): T => {
-  const result = rootInjector.get(token);
-  if (!result) {
-    throw new Error(`Unable to inject ${String(token)}`);
-  }
+export const inject = <T = unknown>(token: Token): T | undefined => {
+  try {
+    const result = rootInjector.get(token);
+    if (!result) {
+      throw new Error(`Unable to inject ${String(token)}`);
+    }
 
-  return result;
+    return result;
+  } catch (e: any) {
+    console.log(e.message);
+
+    return undefined;
+  }
 };
 
 /**
