@@ -1,7 +1,7 @@
 /// <reference types='vitest' />
 import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import react from '@vitejs/plugin-react';
-import { defineConfig } from 'vite';
+import { defineConfig, splitVendorChunkPlugin } from 'vite';
 
 export default defineConfig({
   root: __dirname,
@@ -17,7 +17,7 @@ export default defineConfig({
     host: 'localhost',
   },
 
-  plugins: [react(), nxViteTsPaths()],
+  plugins: [react(), splitVendorChunkPlugin(), nxViteTsPaths()],
 
   // Uncomment this if you are using workers.
   // worker: {
@@ -30,6 +30,24 @@ export default defineConfig({
     reportCompressedSize: true,
     commonjsOptions: {
       transformMixedEsModules: true,
+    },
+    rollupOptions: {
+      output: {
+        manualChunks(id: string) {
+          if (id.includes('@heroicons/react/16/solid')) {
+            return '@heroicons/react/16/solid';
+          }
+          if (id.includes('@heroicons/react/20/solid')) {
+            return '@heroicons/react/20/solid';
+          }
+          if (id.includes('@heroicons/react/24/solid')) {
+            return '@heroicons/react/24/solid';
+          }
+          if (id.includes('@heroicons/react/24/outline')) {
+            return '@heroicons/react/24/outline';
+          }
+        },
+      },
     },
   },
 
