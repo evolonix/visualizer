@@ -25,10 +25,10 @@ export interface LayoutTheme {
 }
 
 export interface LayoutLogos {
-  small: {
+  mark: {
     url: string;
   };
-  large: {
+  logo: {
     url: string;
   };
 }

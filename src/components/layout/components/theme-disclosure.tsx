@@ -3,10 +3,9 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
-import { PlayIcon } from '@heroicons/react/24/solid';
+import { DynamicIcon } from '../../dynamic-icon';
 import { LayoutLogos, LayoutTheme } from '../layout.model';
 
 export interface ThemeDisclosureProps {
@@ -34,17 +33,14 @@ export const ThemeDisclosure = ({
           >
             {/* Logos */}
             {logos ? (
-              <img
-                src={logos.small.url}
-                alt=""
-                className="h-6 w-6 rounded-lg"
-              />
+              <img src={logos.mark.url} alt="" className="size-6 rounded-lg" />
             ) : null}
-            <PlayIcon className="size-6 -rotate-90" aria-hidden="true" />
             <span className="grow">Theme</span>
-            <ChevronRightIcon
+            <DynamicIcon
+              icon="chevron-right"
+              type="solid"
+              solidSize={16}
               className={clsx('size-4', open ? 'rotate-90' : '')}
-              aria-hidden="true"
             />
           </DisclosureButton>
 

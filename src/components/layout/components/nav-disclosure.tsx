@@ -3,11 +3,10 @@ import {
   DisclosureButton,
   DisclosurePanel,
 } from '@headlessui/react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 
-import { NavigationSubItem } from '../layout.model';
 import { DynamicIcon } from '../../dynamic-icon';
+import { NavigationSubItem } from '../layout.model';
 import { NavItem } from './nav-item';
 
 export interface NavDisclosureProps {
@@ -44,9 +43,11 @@ export const NavDisclosure = ({
               />
             ) : null}
             <span className="grow">{label}</span>
-            <ChevronRightIcon
+            <DynamicIcon
+              icon="chevron-right"
+              type="solid"
+              solidSize={16}
               className={clsx('size-4', open ? 'rotate-90' : '')}
-              aria-hidden="true"
             />
           </DisclosureButton>
 
