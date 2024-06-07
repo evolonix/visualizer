@@ -4,11 +4,10 @@ import {
   PopoverPanel,
   Transition,
 } from '@headlessui/react';
-import { ChevronRightIcon } from '@heroicons/react/20/solid';
 
 import clsx from 'clsx';
-import { NavigationSubItem } from '../layout.model';
 import { DynamicIcon } from '../../dynamic-icon';
+import { NavigationSubItem } from '../layout.model';
 import { NavItem } from './nav-item';
 
 export interface NavPopoverProps {
@@ -46,7 +45,12 @@ export const NavPopover = ({
               />
             ) : null}
             <span className={iconOnly ? 'sr-only' : 'grow'}>{label}</span>
-            <ChevronRightIcon className="size-4 shrink-0" aria-hidden="true" />
+            <DynamicIcon
+              icon="chevron-right"
+              type="solid"
+              solidSize={16}
+              className="size-4 shrink-0"
+            />
           </PopoverButton>
 
           <Transition

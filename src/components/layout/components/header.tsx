@@ -4,16 +4,12 @@ import {
   DisclosurePanel,
   Transition,
 } from '@headlessui/react';
-import {
-  Bars3Icon,
-  MagnifyingGlassIcon,
-  XMarkIcon,
-} from '@heroicons/react/20/solid';
 import clsx from 'clsx';
 import { useEffect, useRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 
 import { useActionKey } from '../../../hooks';
+import { DynamicIcon } from '../../dynamic-icon';
 import {
   LayoutFeatures,
   LayoutLogos,
@@ -105,9 +101,19 @@ export const Header = ({
                   )}
                 >
                   {open ? (
-                    <XMarkIcon className="size-4" aria-hidden="true" />
+                    <DynamicIcon
+                      icon="x-mark"
+                      type="solid"
+                      solidSize={16}
+                      className="size-4"
+                    />
                   ) : (
-                    <Bars3Icon className="size-4" aria-hidden="true" />
+                    <DynamicIcon
+                      icon="bars-3"
+                      type="solid"
+                      solidSize={16}
+                      className="size-4"
+                    />
                   )}
                   <span className="sr-only">
                     {open ? 'Close Navigation' : 'Open Navigation'}
@@ -131,10 +137,7 @@ export const Header = ({
                     )}
                     onClick={onSearch}
                   >
-                    <MagnifyingGlassIcon
-                      className="size-5"
-                      aria-hidden="true"
-                    />
+                    <DynamicIcon icon="magnifying-glass" className="size-5" />
                     <span className="grow">Search</span>
                     {actionKey ? (
                       <kbd className="font-sans text-xs font-semibold">

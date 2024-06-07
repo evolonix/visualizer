@@ -69,31 +69,10 @@ export const Sidebar = ({
                 <div className="grid h-20 place-content-center overflow-hidden">
                   {sidebarExpanded ? (
                     <div className="flex">
-                      <img
-                        src={logos.large.url}
-                        alt="Logo"
-                        className="h-10 w-10"
-                      />
-                      {/* <PlayIcon
-                      className="size-10 shrink-0 -rotate-90"
-                      aria-hidden="true"
-                    />
-                    <PlayIcon
-                      className="size-10 shrink-0 rotate-45"
-                      aria-hidden="true"
-                    />
-                    <PlayIcon
-                      className="size-10 shrink-0 -rotate-12"
-                      aria-hidden="true"
-                    /> */}
+                      <img src={logos.logo.url} alt="Logo" className="h-10" />
                     </div>
                   ) : (
-                    <img
-                      src={logos.small.url}
-                      alt="Logo"
-                      className="h-10 w-10"
-                    />
-                    // <PlayIcon className="size-10 shrink-0 -rotate-90" />
+                    <img src={logos.mark.url} alt="Logo" className="size-10" />
                   )}
                   <span className="sr-only">Logo</span>
                 </div>

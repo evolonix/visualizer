@@ -1,0 +1,30 @@
+{
+  "theme": {
+    "colors": {
+      "background": "white",
+      "highlight": "var(--tw-color-blue-500)"
+    },
+    "text": "dark"
+  },
+  "features": {
+    "search": true,
+    "add": true
+  },
+  "navigation": {
+    "top": [
+      { "label": "Home", "path": "/", "icon": "home" },
+      { "label": "Contact", "path": "/contact", "icon": "paper-airplane" },
+      {
+        "label": "Settings",
+        "icon": "cog-6-tooth",
+        "subItems": [
+          {
+            "label": "Dashboard",
+            "path": "/settings/dashboard"
+          }
+        ]
+      }
+    ],
+    "bottom": [{ "label": "Profile", "path": "/", "icon": "user" }]
+  }
+}

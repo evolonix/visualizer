@@ -39,5 +39,5 @@ export const DynamicIcon = ({
     throw new Error(`Icon ${icon} does not exist`);
   }
 
-  return <Icon {...props} />;
+  return <Icon {...props} aria-hidden="true" />;
 };

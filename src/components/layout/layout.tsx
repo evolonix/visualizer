@@ -1,8 +1,7 @@
 import clsx from 'clsx';
 import { ReactNode, useState } from 'react';
 
-import { Outlet } from 'react-router-dom';
-import { EventBus, inject } from '../../lib';
+import { inject } from '../../lib';
 import { Header, Sidebar } from './components';
 import { defaultConfiguration } from './default.config';
 import {
@@ -39,14 +38,11 @@ export const Layout = ({
   );
 
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
-  const eventBus = inject<EventBus>(EventBus);
 
   const handleSearch: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    eventBus?.announce({ type: 'search', data: e });
     onSearch?.(e);
   };
   const handleAdd: React.MouseEventHandler<HTMLButtonElement> = (e) => {
-    eventBus?.announce({ type: 'add', data: e });
     onAdd?.(e);
   };
 
@@ -103,7 +99,7 @@ export const Layout = ({
           sidebarExpanded ? 'lg:ml-52' : 'lg:ml-20',
         )}
       >
-        <section className="grow">{children ?? <Outlet />}</section>
+        <section className="grow">{children}</section>
 
         {/* Footer */}
         <footer className="grid h-20 place-content-center">Footer</footer>

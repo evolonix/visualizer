@@ -1,43 +1,25 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Route, Routes } from 'react-router-dom';
 
-import { AppSearch, Layout } from '../components';
-// import configurationJson from '../data/layout.config.json?raw';
-import { EventBus, inject } from '../lib';
+import { Layout, Search } from '../components';
 import { Contact } from './contact/contact';
 import { Home } from './home/home';
 import { SettingsDashboard } from './settings/settings-dashboard';
 
-// const configuration: LayoutConfiguration = JSON.parse(configurationJson);
-
 export function App() {
   const [openSearch, setOpenSearch] = useState(false);
-  const eventBus = inject<EventBus>(EventBus);
 
-  useEffect(() => {
-    const unsubscribeSearch = eventBus?.on('search', (e) => {
-      console.log(e);
-      setOpenSearch((open) => !open);
-    });
-    const unsubscribeAdd = eventBus?.on('add', (e) => console.log(e));
+  const handleSearch = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setOpenSearch((open) => !open);
+  };
 
-    return () => {
-      unsubscribeSearch?.();
-      unsubscribeAdd?.();
-    };
-  }, [eventBus]);
+  const handleAdd = (e: React.MouseEvent<HTMLButtonElement>) => {
+    // TODO: Show add dialog
+  };
 
   return (
     <>
-      <Layout
-      // configuration={configuration}
-      // onSearch={() => {
-      //   setOpenSearch((open) => !open);
-      // }}
-      // onAdd={(e) => {
-      //   console.log(e.currentTarget);
-      // }}
-      >
+      <Layout onSearch={handleSearch} onAdd={handleAdd}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/contact" element={<Contact />} />
@@ -47,7 +29,7 @@ export function App() {
         </Routes>
       </Layout>
 
-      <AppSearch open={openSearch} onClose={() => setOpenSearch(false)} />
+      <Search open={openSearch} onClose={() => setOpenSearch(false)} />
     </>
   );
 }
