@@ -1,0 +1,32 @@
+---
+devops:
+  - devops/**/*
+  - .github/**/*
+area/apps:
+  - 'apps/!(server)/**/*'
+area/libs:
+  - 'libs/**/*'
+scope/server:
+  - apps/server/**/*
+scope/visualizer:
+  - apps/visualizer/**/*
+  - libs/visualizer/**/*
+scope/engage:
+  - apps/visualizer/**/*
+  - libs/visualizer/**/*
+scope/skills-platform:
+  - apps/visualizer/**/*
+  - libs/visualizer/**/*
+scope/shared:
+  - libs/shared/**/*
+type/data-access:
+  - libs/**/data-access-*/*
+type/util:
+  - libs/**/util*/*
+type/core:
+  - libs/**/core*/*
+type/ui:
+  - libs/**/ui-*/*
+dep-updates:
+  - package.json
+  - package-lock.json

@@ -1,0 +1,107 @@
+---
+wrapper: <div class="tw-bg-white tw-min-h-dvh tw-p-4 lg:tw-p-8"></div>
+---
+
+<div class="tw-grid-apollo">
+  <h3 class="tw-text-2xl tw-font-bold tw-col-span-full" id="radioFlowers">Flowers (Horizontal)</h3>
+  <div class="tw-col-span-full tw-flex tw-gap-12" role="radiogroup" aria-labelledby="radioFlowers">
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="hellebore" name="flowers" value="hellebore" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="hellebore">Hellebore</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="peony" name="flowers" value="peony" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="peony">Peony</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="hibiscus" name="flowers" value="hibiscus" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="hibiscus">Hibiscus</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="crocus" name="flowers" value="crocus" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="crocus">Crocus</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="gentian" name="flowers" value="gentian" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="gentian">Gentian</label>
+    </div>
+  </div>
+
+  <h3 class="tw-text-2xl tw-font-bold tw-col-span-full" id="radioPlanets">Planets (Vertical with Descriptions)</h3>
+
+  <p class="tw-col-span-full">
+    Note: We use `aria-hidden=true` on the description so it that doesn't read as part of the label but after the short pause, so it's more
+    skippable. It should still read out for screen readers since it is linked by `aria-describedby` to the input directly, but it's nice to
+    have visually included in the label for clicking.
+  </p>
+
+  <div class="tw-col-span-full tw-flex tw-flex-col tw-gap-8" role="radiogroup" aria-labelledby="radioPlanets">
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="mercury" name="planets" value="mercury" aria-describedby="mercuryDescription" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="mercury"
+        >Mercury
+
+        <p id="mercuryDescription" aria-hidden="true" class="tw-text-neutral-600 tw-text-xs">Small planet closest to the Sun.</p>
+      </label>
+    </div>
+
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="venus" name="planets" value="venus" aria-describedby="venusDescription" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="venus"
+        >Venus
+
+        <p id="venusDescription" aria-hidden="true" class="tw-text-neutral-600 tw-text-xs">Earth-sized planet covered in toxic gasses.</p>
+      </label>
+    </div>
+
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="earth" name="planets" value="earth" aria-describedby="earthDescription" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="earth"
+        >Earth
+
+        <p id="earthDescription" aria-hidden="true" class="tw-text-neutral-600 tw-text-xs">Welcome home.</p>
+      </label>
+    </div>
+
+    <div class="tw-flex">
+      <!-- <div class="tw-radio-group tw-col-span-full"> -->
+      <input class="tw-peer tw-radio" type="radio" id="mars" name="planets" value="mars" aria-describedby="marsDescription" />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="mars"
+        >Mars
+
+        <p id="marsDescription" aria-hidden="true" class="tw-text-neutral-600 tw-text-xs">Earth-sized red dusty planet.</p>
+      </label>
+    </div>
+  </div>
+
+  <h3 class="tw-text-2xl tw-font-bold tw-col-span-full" id="radioAnimals">Animals (Disabled)</h3>
+
+  <p class="tw-col-span-full">
+    Note: This should always be avoided. There is no way to make the radio buttons readable to screen readers; the `readonly` attribute does
+    not apply for radios in Tailwind and I do not believe it reads out correctly to screen readers either. Recommended is to simply have
+    plain text that reads out the selected and potential values if needed.
+  </p>
+
+  <div class="tw-col-span-full tw-flex tw-gap-12" role="radiogroup" aria-labelledby="radioAnimals">
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="horse" name="animals" value="horse" disabled />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="horse">Horse</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="tiger" name="animals" value="tiger" disabled checked />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="tiger">Tiger</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="monkey" name="animals" value="monkey" disabled />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="monkey">Monkey</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="snake" name="animals" value="snake" disabled />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="snake">Snake</label>
+    </div>
+    <div class="tw-flex">
+      <input class="tw-peer tw-radio" type="radio" id="rabbit" name="animals" value="rabbit" disabled />
+      <label class="tw-radio-label peer-checked:tw-radio-checked peer-disabled:tw-radio-disabled" for="rabbit">Rabbit</label>
+    </div>
+  </div>
+</div>

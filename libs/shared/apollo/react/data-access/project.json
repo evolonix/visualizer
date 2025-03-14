@@ -1,0 +1,73 @@
+{
+  "name": "lib-shared-apollo-react-data-access",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/apollo/react/data-access/src",
+  "projectType": "library",
+  "tags": ["type:data-access", "scope:shared"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/apollo/react/data-access",
+        "tsConfig": "libs/shared/apollo/react/data-access/tsconfig.lib.json",
+        "project": "libs/shared/apollo/react/data-access/package.json",
+        "entryFile": "libs/shared/apollo/react/data-access/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/shared/apollo/react/data-access/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "build-publishable": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/apollo/react/data-access"],
+      "configurations": {
+        "production": {
+          "commands": ["nx run lib-shared-apollo-react-data-access:build:production"],
+          "parallel": false
+        },
+        "development": {
+          "commands": ["nx run lib-shared-apollo-react-data-access:build:development"],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../../../coverage/libs/shared/apollo/react/data-access"
+      }
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "packageRoot": "./dist/libs/shared/apollo/react/data-access",
+        "registry": "https://npm.pkg.github.com/"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "tagPrefix": "{projectName}@",
+        "skipRootChangelog": true,
+        "skipProjectChangelog": true,
+        "skipCommit": true,
+        "trackDeps": true
+      }
+    }
+  }
+}

@@ -1,0 +1,35 @@
+---
+title: ''
+---
+
+<!-- Based on https://tailwindui.com/components/application-ui/application-shells/sidebar#component-b8d00b1bdd11267c5f7456532e658a2f -->
+<!--
+  This component requires updating your template:
+
+  ```
+  <html class="tw-h-full tw-bg-neutral-50">
+  <body class="tw-h-full">
+  ```
+-->
+<div
+  style="
+    --apollo-layout-background: white;
+    --apollo-layout-text: var(--apollo-color-neutral-800);
+    --apollo-layout-highlight: var(--apollo-color-blue-800);
+  "
+>
+  <a href="#main-content" class="tw-sr-only">Skip to main content</a>
+
+  <html-component name="apollo/layout-learner/header" title="{ TITLE }"></html-component>
+
+  <html-component name="apollo/layout-learner/sidebar"></html-component>
+
+  <main
+    id="main-content"
+    class="tw-box-border tw-flex tw-min-h-dvh tw-flex-col tw-pt-16 tw-transition-[margin] lg:tw-ml-20 rtl:lg:tw-ml-0 rtl:lg:tw-mr-20"
+  >
+    <div class="tw-relative tw-grow">
+      <!-- CHILDREN -->
+    </div>
+  </main>
+</div>

@@ -1,0 +1,36 @@
+{
+  "name": "lib-engage-ui-rules",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/engage/ui-rules/src",
+  "prefix": "dgs",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/engage/ui-rules"],
+      "options": {
+        "project": "libs/engage/ui-rules/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/engage/ui-rules/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/engage/ui-rules/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/engage/ui-rules"],
+      "options": {
+        "jestConfig": "libs/engage/ui-rules/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": ["type:ui", "scope:engage"]
+}

@@ -1,0 +1,231 @@
+---
+wrapper: <div class="tw-bg-neutral-100 tw-min-h-dvh tw-p-4 lg:tw-p-8"></div>
+---
+
+<div class="tw-grid-apollo">
+  <h2 class="tw-col-span-full tw-mb-2 tw-mt-9 tw-text-2xl tw-font-bold">Delete</h2>
+
+  <div class="tw-col-span-full">
+    <!--Start Delete Modal Container-->
+    <div
+      class="tw-border-1 tw-border-neutral-200 tw-bg-white tw-rounded-2xl tw-shadow-xl tw-flex tw-flex-col tw-gap-4 md:tw-flex-row tw-p-6 lg:tw-p-4 tw-items-start tw-justify-center tw-max-w-72 md:tw-max-w-md lg:tw-max-w-xl"
+      aria-labelledby="simpleDeleteModalHeader"
+      role="dialog"
+    >
+      <i
+        class="tw-text-red-800 tw-bg-red-100 tw-rounded-full tw-justify-center tw-items-center tw-h-10 tw-min-w-10 tw-flex tw-mb-4 lg:tw-mb-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="tw-h-6 tw-w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+          />
+        </svg>
+      </i>
+      <div class="tw-flex-grow tw-self-stretch">
+        <h3
+          id="simpleDeleteModalHeader"
+          class="tw-font-extrabold tw-mb-2"
+          aria-describedby="simpleDeleteModalDescription"
+          tabindex="0"
+          autofocus
+        >
+          Delete "Content Title"?
+        </h3>
+        <div id="simpleDeleteModalDescription" class="tw-text-neutral-800">Are you sure you want to delete this item?</div>
+
+        <div class="tw-w-full tw-pt-4 tw-flex tw-justify-end tw-flex-col tw-gap-2 md:tw-flex-row lg:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium" type="button">Cancel</button>
+          <button class="tw-btn-destructive tw-btn-medium" type="button">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!--End Delete Modal Container-->
+  </div>
+
+  <h2 class="tw-col-span-full tw-mb-2 tw-mt-9 tw-text-2xl tw-font-bold">Delete With Confirm</h2>
+  <p class="tw-col-span-full">
+    TODO: This has design questions about either using the text-input or the 'search box' style as shown in designs. The 'search box' style
+    has an accessibility issue due to the disappearing placeholder text.
+  </p>
+
+  <div class="tw-col-span-full">
+    <!--Start Delete With Text Confirm Modal Container-->
+    <div
+      class="tw-border-1 tw-border-neutral-200 tw-bg-white tw-rounded-2xl tw-shadow-xl tw-flex tw-flex-col tw-gap-4 md:tw-flex-row tw-p-6 lg:tw-p-4 tw-items-start tw-justify-center tw-max-w-72 md:tw-max-w-md lg:tw-max-w-xl"
+      aria-labelledby="deleteWithTextConfirmModalHeader"
+      role="dialog"
+    >
+      <i
+        class="tw-text-red-800 tw-bg-red-100 tw-rounded-full tw-justify-center tw-items-center tw-h-10 tw-min-w-10 tw-flex tw-mb-4 lg:tw-mb-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="tw-h-6 tw-w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+          />
+        </svg>
+      </i>
+      <div class="tw-flex-grow tw-self-stretch">
+        <h3
+          id="deleteWithTextConfirmModalHeader"
+          class="tw-font-extrabold tw-mb-2"
+          aria-describedby="deleteWithTextConfirmModalDescription"
+          tabindex="0"
+          autofocus
+        >
+          Delete "Content Title"?
+        </h3>
+        <div id="deleteWithTextConfirmModalDescription" class="tw-text-neutral-800">
+          Are you sure you want to delete this item?
+
+          <div class="tw-group tw-relative tw-z-0 tw-w-full">
+            <input
+              id="deleteConfirm"
+              class="tw-peer tw-mt-4 tw-block tw-w-full tw-appearance-none tw-border-0 tw-border-b-2 tw-border-neutral-200 tw-bg-transparent tw-px-0 tw-py-1 tw-text-base tw-font-normal tw-text-neutral-800 tw-placeholder-neutral-600 placeholder:tw-opacity-0 focus:tw-border-blue-800 focus:tw-outline-none focus:tw-ring-0 focus:placeholder:tw-opacity-100 read-only:tw-cursor-not-allowed read-only:tw-border-dashed read-only:tw-bg-neutral-100 group-[.has-error]:tw-border-red-200 group-[.has-error]:tw-text-red-800 group-[.has-error]:tw-placeholder-red-800 focus:group-[.has-error]:tw-border-red-800 dark:tw-border-neutral-700 dark:tw-text-neutral-100 dark:tw-placeholder-neutral-400 dark:focus:tw-border-blue-600 dark:read-only:tw-bg-neutral-800 dark:group-[.has-error]:tw-border-red-700 dark:group-[.has-error]:tw-text-red-100 dark:group-[.has-error]:tw-placeholder-red-400 dark:focus:group-[.has-error]:tw-border-red-700 group-[.has-error]:[&amp;:not(:focus)]:tw-pr-6 focus:[&amp;:not(:placeholder-shown)]:tw-pr-6 group-hover:[&amp;:not(:placeholder-shown)]:tw-pr-6"
+              placeholder="Type 'DELETE'"
+              required
+              value=""
+              maxlength="300"
+            />
+            <label
+              for="deleteConfirm"
+              class="tw-absolute tw-top-1 tw-origin-[0] -tw-translate-y-5 tw-transform tw-text-xs tw-text-neutral-600 tw-duration-300 group-hover:tw-text-neutral-800 group-[.has-error]:tw-text-red-800 group-hover:group-[.has-error]:tw-text-red-800 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-font-normal peer-focus:tw-left-0 peer-focus:-tw-translate-y-5 peer-focus:tw-text-xs peer-focus:tw-font-semibold peer-focus:tw-text-blue-800 group-[.has-error]:peer-focus:tw-text-red-800 peer-read-only:tw-cursor-not-allowed dark:tw-text-neutral-300 dark:group-hover:tw-text-neutral-200 dark:group-[.has-error]:tw-text-red-400 dark:group-hover:group-[.has-error]:tw-text-red-300 dark:peer-focus:tw-text-blue-600 dark:group-[.has-error]:peer-focus:tw-text-red-400"
+            >
+              Type "DELETE"
+            </label>
+          </div>
+        </div>
+        <div class="tw-w-full tw-pt-4 tw-flex tw-justify-end tw-flex-col tw-gap-2 md:tw-flex-row lg:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium" type="button">Cancel</button
+          ><button class="tw-btn-destructive tw-btn-medium" aria-disabled="true" type="button">Delete</button>
+        </div>
+      </div>
+    </div>
+    <!--End Delete With Text Confirm Modal Container-->
+  </div>
+
+  <h2 class="tw-col-span-full tw-mb-2 tw-mt-9 tw-text-2xl tw-font-bold">Confirm</h2>
+
+  <div class="tw-col-span-full">
+    <!--Start Confirm Modal Container-->
+    <div
+      class="tw-border-1 tw-border-neutral-200 tw-bg-white tw-rounded-2xl tw-shadow-xl tw-flex tw-flex-col tw-gap-4 md:tw-flex-row tw-p-6 lg:tw-p-4 tw-items-start tw-justify-center tw-max-w-72 md:tw-max-w-md lg:tw-max-w-xl"
+      aria-labelledby="simpleConfirmModalHeader"
+      role="dialog"
+    >
+      <i
+        class="tw-text-red-800 tw-bg-red-100 tw-rounded-full tw-justify-center tw-items-center tw-h-10 tw-min-w-10 tw-hidden tw-mb-4 lg:tw-mb-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="tw-h-6 tw-w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+          />
+        </svg>
+      </i>
+      <div class="tw-flex-grow tw-self-stretch">
+        <h3
+          id="simpleConfirmModalHeader"
+          class="tw-font-extrabold tw-mb-2"
+          aria-describedby="simpleConfirmModalDescription"
+          tabindex="0"
+          autofocus
+        >
+          Log Out All Users
+        </h3>
+        <div id="simpleConfirmModalDescription" class="tw-text-neutral-800">
+          Publishing these changes will cause all of your users to be logged out. They will have to re-enter their credentials to be log
+          back in.
+        </div>
+        <div class="tw-w-full tw-pt-4 tw-flex tw-justify-end tw-flex-col tw-gap-2 md:tw-flex-row lg:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium" type="button">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium" type="button">Continue</button>
+        </div>
+      </div>
+    </div>
+    <!--End Confirm Modal Container-->
+  </div>
+
+  <h2 class="tw-col-span-full tw-mb-2 tw-mt-9 tw-text-2xl tw-font-bold">Confirm With Checkbox</h2>
+  <p class="tw-col-span-full">Note: checkbox styles are not completed yet</p>
+
+  <div class="tw-col-span-full">
+    <!--Start Confirm With Checkbox Modal Container-->
+    <div
+      class="tw-border-1 tw-border-neutral-200 tw-bg-white tw-rounded-2xl tw-shadow-xl tw-flex tw-flex-col tw-gap-4 md:tw-flex-row tw-p-6 lg:tw-p-4 tw-items-start tw-justify-center tw-max-w-72 md:tw-max-w-md lg:tw-max-w-xl"
+      aria-labelledby="simpleConfirmModalWithCheckHeader"
+      role="dialog"
+    >
+      <i
+        class="tw-text-red-800 tw-bg-red-100 tw-rounded-full tw-justify-center tw-items-center tw-h-10 tw-min-w-10 tw-hidden tw-mb-4 lg:tw-mb-0"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="tw-h-6 tw-w-6"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+          />
+        </svg>
+      </i>
+      <div class="tw-flex-grow tw-self-stretch">
+        <h3
+          id="simpleConfirmModalWithCheckHeader"
+          class="tw-font-extrabold tw-mb-2"
+          aria-describedby="simpleConfirmModalWithCheckDescription"
+          tabindex="0"
+          autofocus
+        >
+          Log Out All Users
+        </h3>
+        <div id="simpleConfirmModalWithCheckDescription" class="tw-text-neutral-800 tw-flex tw-flex-col tw-gap-2">
+          <p>
+            Publishing these changes will cause all of your users to be logged out. They will have to re-enter their credentials to be log
+            back in.
+          </p>
+
+          <label for="confirmCheck" class="tw-flex tw-items-center tw-gap-2 tw-cursor-pointer">
+            <input type="checkbox" id="confirmCheck" class="tw-rounded tw-border-neutral-300" />
+            I acknowledge and accept the changes</label
+          >
+        </div>
+        <div class="tw-w-full tw-pt-4 tw-flex tw-justify-end tw-flex-col tw-gap-2 md:tw-flex-row lg:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium" type="button">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium" aria-disabled="true" type="button">Continue</button>
+        </div>
+      </div>
+    </div>
+    <!--End Confirm With Checkbox Modal Container-->
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<!doctype html>
+<!-- Adding the 'dark' class to the html element will provide dark mode-->
+<html lang="en" class="tw-h-full tw-bg-neutral-50 tw-text-neutral-900">
+  <head>
+    <meta charset="utf-8" />
+    <title>Degreed Engage</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <script referrerpolicy="origin" type="application/javascript" src="/tinymce/tinymce.min.js"></script>
+    <script type="text/javascript">
+      /**
+       * SPA Bootstrap configuration
+       * - hard-coded for local dev
+       * - dynamically generated for production
+       *
+       * NOTE: override the rootUrl for local development server use
+       */
+      window.nxEngageBootstrap = {
+        authToken: 'xxxxxx.yyyyyyy.zzzzzzz',
+        lang: 'en-us',
+        organizationId: 1,
+        rootUrl: 'http://localhost:3333/api',
+        // cdnUrl should be a blank string for local dev
+        // Example remote cdnUrl values: https://localhost:44300, https://staging.degreedcdn.com/
+        cdnUrl: '',
+        // appFolder should be a blank string for local dev
+        // Example remote appFolder value: /engage
+        appFolder: '',
+        analyticsEndpoint: 'http://localhost:7084',
+        userProfileKey: 1234,
+      };
+    </script>
+  </head>
+  <body class="tw-h-full has-[#header-navigation-button[aria-expanded='true']]:tw-overflow-hidden">
+    <dgs-app></dgs-app>
+  </body>
+</html>

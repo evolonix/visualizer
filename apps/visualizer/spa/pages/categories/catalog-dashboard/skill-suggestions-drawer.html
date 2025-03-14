@@ -1,0 +1,221 @@
+<!-- Note: for a11y bring focus back to the button which opened the drawer -->
+<div class="tw-grid tw-place-items-center tw-h-full">
+  <button id="toggle-drawer-button" class="tw-btn-primary tw-btn-medium" onclick="toggleSkillSuggestionsDrawer()">
+    Toggle Default Drawer
+  </button>
+</div>
+
+<!--
+  Note: we won't need tw-invisible within Angular,
+  we should do this with state.
+-->
+<div
+  id="drawer"
+  class="tw-relative tw-z-10 tw-invisible"
+  aria-labelledby="drawer-title"
+  aria-describedby="drawer-description"
+  role="dialog"
+  aria-modal="true"
+>
+  <div class="tw-fixed tw-inset-0 tw-overflow-hidden">
+    <div class="tw-absolute tw-inset-0 tw-overflow-hidden">
+      <div class="tw-pointer-events-none tw-fixed tw-inset-y-0 tw-right-0 tw-flex tw-max-w-full tw-pl-10">
+        <!--
+          Slide-over panel, show/hide based on slide-over state.
+
+          Entering: "tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
+            From: "tw-translate-x-full"
+            To: "tw-translate-x-0"
+          Leaving: "tw-transform tw-transition tw-ease-in-out tw-duration-500 sm:tw-duration-700"
+            From: "tw-translate-x-0"
+            To: "tw-translate-x-full"
+        -->
+        <div id="panel" class="tw-pointer-events-auto tw-relative tw-w-screen tw-max-w-md tw-translate-x-full">
+          <div class="tw-flex tw-h-full tw-w-full tw-max-w-md tw-flex-col tw-bg-white tw-shadow-lg">
+            <div class="tw-px-6 tw-flex tw-items-center tw-w-full tw-h-20 tw-bg-contain tw-bg-[url('/assets/drawer-gradient.png')]">
+              <h3 id="drawer-title" class="tw-text-base tw-font-extrabold tw-text-neutral-900">Content Skill Suggestions</h3>
+              <button class="tw-ml-auto tw-btn-tertiary-neutral tw-btn-medium tw-btn-icon" onclick="toggleSkillSuggestionsDrawer()">
+                <!-- Icon: x-mark -->
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+            <div class="tw-px-6 tw-py-10 tw-flex-1">
+              <p class="tw-mb-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-900">Content Title</p>
+              <a href="#" class="tw-mb-2 tw-text-2xl tw-font-bold tw-text-neutral-900 hover:tw-text-blue-800">{Content Title}</a>
+              <p class="tw-mb-6 tw-text-xs tw-text-neutral-600">
+                <span class="tw-font-semibold">Owner:</span>
+                {Content Owner}
+              </p>
+              <p id="drawer-description" class="tw-mb-10 tw-text-neutral-900">
+                Review skill suggestions and decide whether to approve or decline them. If you decline a suggestion, you can always add it
+                later by editing the content.
+              </p>
+              <p class="tw-mb-4 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-900">Suggested Skills</p>
+              <div class="tw-mb-4 tw-flex tw-gap-4">
+                <button class="tw-px-4 tw-btn-tertiary-destructive tw-btn-medium tw-flex-1">
+                  <!-- Icon: x-mark -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                  Decline All
+                </button>
+                <!--
+                  Note: no need to provide id in Angular,
+                  but this button should be focused when drawer is opened for a11y
+                -->
+                <button id="approve-all-button" class="tw-btn-tertiary tw-btn-medium tw-flex-1">
+                  <!-- Icon: check -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                  Approve All
+                </button>
+              </div>
+              <ul class="tw-mb-4 tw-divide-y tw-divide-neutral-300 tw-border-b tw-border-neutral-300">
+                <li class="tw-py-4 tw-flex tw-justify-between tw-items-center tw-gap-4 first:tw-border-t first:tw-border-neutral-300">
+                  <div class="tw-flex tw-items-center tw-gap-2">
+                    <p class="tw-text-xs tw-font-semibold tw-text-neutral-900">{Skill Title}</p>
+                    <span class="tw-px-2 tw-py-1 tw-bg-neutral-200 tw-text-xs tw-font-semibold tw-text-neutral-800 tw-rounded-lg"
+                      ># - {Skill Level}</span
+                    >
+                  </div>
+                  <div class="tw-flex tw-gap-4">
+                    <button class="tw-btn-tertiary-destructive tw-btn-icon tw-btn-medium" aria-label="Decline {Skill Title} skill">
+                      <!-- Icon: x-mark -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <button class="tw-btn-tertiary tw-btn-icon tw-btn-medium" aria-label="Approve {Skill Title} skill">
+                      <!-- Icon: check -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+                <li class="tw-py-4 tw-flex tw-justify-between tw-items-center tw-gap-4 first:tw-border-t first:tw-border-neutral-300">
+                  <div class="tw-flex tw-items-center tw-gap-2">
+                    <p class="tw-text-xs tw-font-semibold tw-text-neutral-900">{Skill Title}</p>
+                    <span class="tw-px-2 tw-py-1 tw-bg-neutral-200 tw-text-xs tw-font-semibold tw-text-neutral-800 tw-rounded-lg"
+                      ># - {Skill Level}</span
+                    >
+                  </div>
+                  <div class="tw-flex tw-gap-4">
+                    <button class="tw-btn-tertiary-destructive tw-btn-icon tw-btn-medium" aria-label="Decline {Skill Title} skill">
+                      <!-- Icon: x-mark -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <button class="tw-btn-tertiary tw-btn-icon tw-btn-medium" aria-label="Approve {Skill Title} skill">
+                      <!-- Icon: check -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+                <li class="tw-py-4 tw-flex tw-justify-between tw-items-center tw-gap-4 first:tw-border-t first:tw-border-neutral-300">
+                  <div class="tw-flex tw-items-center tw-gap-2">
+                    <p class="tw-text-xs tw-font-semibold tw-text-neutral-900">{Skill Title}</p>
+                    <span class="tw-px-2 tw-py-1 tw-bg-neutral-200 tw-text-xs tw-font-semibold tw-text-neutral-800 tw-rounded-lg"
+                      ># - {Skill Level}</span
+                    >
+                  </div>
+                  <div class="tw-flex tw-gap-4">
+                    <button class="tw-btn-tertiary-destructive tw-btn-icon tw-btn-medium" aria-label="Decline {Skill Title} skill">
+                      <!-- Icon: x-mark -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <button class="tw-btn-tertiary tw-btn-icon tw-btn-medium" aria-label="Approve {Skill Title} skill">
+                      <!-- Icon: check -->
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke-width="1.5"
+                        stroke="currentColor"
+                        class="tw-size-4"
+                      >
+                        <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                      </svg>
+                    </button>
+                  </div>
+                </li>
+              </ul>
+              <p class="tw-text-xs tw-text-neutral-600">
+                <span class="tw-font-semibold">Current Skill:</span>
+                {Skill Title}, {Skill Title}
+              </p>
+            </div>
+            <div class="tw-p-6 tw-flex tw-gap-3 tw-border-t tw-border-neutral-200">
+              <button class="tw-btn-secondary-filled tw-btn-medium" onclick="toggleSkillSuggestionsDrawer()">Cancel</button>
+              <button class="tw-btn-primary tw-btn-medium tw-flex-1" disabled>Save</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

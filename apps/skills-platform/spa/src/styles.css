@@ -1,0 +1,39 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --mapping-level-bg-green: theme(colors.green.200);
+  --mapping-level-text-green: theme(colors.green.900);
+  --mapping-level-bg-blue: theme(colors.blue.200);
+  --mapping-level-text-blue: theme(colors.blue.900);
+  --mapping-level-bg-purple: theme(colors.purple.200);
+  --mapping-level-text-purple: theme(colors.purple.900);
+  --mapping-level-bg-red: theme(colors.red.200);
+  --mapping-level-text-red: theme(colors.red.900);
+  --mapping-level-bg-yellow: theme(colors.yellow.200);
+  --mapping-level-text-yellow: theme(colors.yellow.900);
+  --mapping-level-bg-neutral: theme(colors.neutral.100);
+  --mapping-level-text-neutral: theme(colors.neutral.800);
+  --mapping-level-bg-green-darker: theme(colors.green.300);
+  --mapping-level-text-green-darker: theme(colors.green.950);
+  --mapping-level-bg-blue-darker: theme(colors.purple.300);
+  --mapping-level-text-blue-darker: theme(colors.purple.950);
+}
+
+/* Your own custom utilities */
+@layer utilities {
+  /* Highlight matches */
+  span.match,
+  div > .match,
+  p > .match {
+    background-color: theme(colors.green.200);
+    padding: 3px;
+    padding-bottom: 3px;
+    border-radius: 3px;
+  }
+
+  .bg-blue-200 .match {
+    background-color: theme(colors.green.200);
+  }
+}

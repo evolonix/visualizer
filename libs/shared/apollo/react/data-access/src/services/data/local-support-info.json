@@ -1,0 +1,9 @@
+{
+  "faq": "/faq/1",
+  "email": "support@your-organization.com",
+  "phone": "800.311.7061",
+  "customText": "Test degreed Update",
+  "customLink": "http://degreed.com",
+  "helpLink": "/HelpdeskSAML/ZenDeskSSOInitiator?url=https%3A%2F%2Fdegreed.zendesk.com%2Fhc%2F",
+  "showCookieLink": true
+}

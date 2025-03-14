@@ -1,0 +1,8 @@
+{
+  "name": "@degreed/tinymce",
+  "version": "0.0.1",
+  "type": "module",
+  "dependencies": {
+    "tinymce": "^5.0.16"
+  }
+}

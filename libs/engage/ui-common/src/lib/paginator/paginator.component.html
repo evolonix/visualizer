@@ -1,0 +1,84 @@
+<div class="relative grid place-items-center px-6 py-[18px]">
+  <!-- Pagination -->
+  <nav class="inline-flex items-center" aria-label="Pagination">
+    <!-- chevron-double-left -->
+    <button
+      (click)="pagination.showPage(1)"
+      class="text-ebony-61 disabled:text-ebony-18 text-md relative inline-flex items-center px-2 py-2 font-medium dark:text-neutral-400 dark:disabled:text-neutral-600"
+      [disabled]="pagination.currentPage === 1"
+    >
+      <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M10.8185 2.12239C10.8278 2.13073 10.8368 2.13942 10.8454 2.14845C11.047 2.35958 11.052 2.6888 10.857 2.90589L8.07754 6L10.857 9.09411C11.052 9.31121 11.047 9.64042 10.8454 9.85155C10.6634 10.0422 10.3602 10.0503 10.1681 9.86959C10.159 9.86103 10.1502 9.85212 10.1419 9.84287L7.25885 6.66872C6.91372 6.28873 6.91372 5.71127 7.25885 5.33128L10.1419 2.15713C10.319 1.96204 10.622 1.94649 10.8185 2.12239ZM4.81852 2.12239C4.82783 2.13073 4.83681 2.13942 4.84543 2.14845C5.04699 2.35958 5.05202 2.6888 4.857 2.90589L2.07754 6L4.857 9.09411C5.05202 9.31121 5.04699 9.64042 4.84543 9.85155C4.66341 10.0422 4.36017 10.0503 4.16811 9.86959C4.15901 9.86103 4.15025 9.85212 4.14185 9.84287L1.25885 6.66872C0.913718 6.28873 0.913718 5.71127 1.25885 5.33128L4.14185 2.15713C4.31905 1.96204 4.622 1.94649 4.81852 2.12239Z"
+          class="fill-current"
+        />
+      </svg>
+    </button>
+    <!-- solid/chevron-left -->
+    <button
+      (click)="pagination.showPage(pagination.currentPage - 1)"
+      class="text-ebony-61 disabled:text-ebony-18 text-md relative inline-flex items-center rounded-l-md px-3 py-2 font-medium dark:text-neutral-400 dark:disabled:text-neutral-600"
+      [disabled]="pagination.currentPage === 1"
+    >
+      <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M1.07754 4L3.857 7.09411C4.05202 7.31121 4.04699 7.64042 3.84543 7.85155C3.66341 8.04221 3.36017 8.05029 3.16811 7.86959C3.15901 7.86103 3.15025 7.85212 3.14185 7.84287L0.258847 4.66872C-0.0862824 4.28873 -0.0862824 3.71127 0.258847 3.33128L3.14185 0.157129C3.31905 -0.0379588 3.622 -0.0535114 3.81852 0.122391C3.82783 0.130726 3.83681 0.13942 3.84543 0.148454C4.04699 0.359581 4.05202 0.688796 3.857 0.905892L1.07754 4Z"
+          class="fill-current"
+        />
+      </svg>
+    </button>
+    <!-- For loop -->
+    <ng-container *ngFor="let page of pages">
+      <button *ngIf="page !== -1; else ellipsis" (click)="pagination.showPage(page)" [class]="stylePageLink(page)">
+        {{ page }}
+      </button>
+      <ng-template #ellipsis>
+        <span [class]="stylePageLink()">...</span>
+      </ng-template>
+    </ng-container>
+    <!-- chevron-right -->
+    <button
+      (click)="pagination.showPage(pagination.currentPage + 1)"
+      class="text-ebony-61 disabled:text-ebony-18 text-md relative inline-flex items-center rounded-r-md px-3 py-2 font-medium dark:text-neutral-400 dark:disabled:text-neutral-600"
+      [disabled]="pagination.currentPage === pagination.lastPage"
+    >
+      <svg width="4" height="8" viewBox="0 0 4 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M2.92246 4L0.142998 0.905892C-0.0520212 0.688796 -0.0469933 0.359581 0.154566 0.148454C0.163191 0.13942 0.172169 0.130726 0.181481 0.122391C0.378 -0.0535114 0.680954 -0.0379588 0.858148 0.157129L3.74115 3.33128C4.08628 3.71127 4.08628 4.28873 3.74115 4.66872L0.858148 7.84287C0.849751 7.85212 0.840993 7.86103 0.831892 7.86959C0.639834 8.05029 0.336585 8.04221 0.154566 7.85155C-0.0469933 7.64042 -0.0520212 7.31121 0.142998 7.09411L2.92246 4Z"
+          class="fill-current"
+        />
+      </svg>
+    </button>
+    <!-- chevron-double-right -->
+    <button
+      (click)="pagination.showPage(pagination.lastPage)"
+      class="text-ebony-61 disabled:text-ebony-18 text-md relative inline-flex items-center rounded-r-md px-3 py-2 font-medium dark:text-neutral-400 dark:disabled:text-neutral-600"
+      [disabled]="pagination.currentPage === pagination.lastPage"
+    >
+      <svg width="10" height="8" viewBox="0 0 10 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M0.858147 0.157129L3.74115 3.33128C4.08628 3.71127 4.08628 4.28873 3.74115 4.66872L0.858147 7.84287C0.849751 7.85212 0.840993 7.86103 0.831893 7.86959C0.639835 8.05029 0.336585 8.04221 0.154566 7.85155C-0.0469932 7.64042 -0.0520213 7.31121 0.142998 7.09411L2.92246 4L0.142998 0.905892C-0.0520213 0.688796 -0.0469932 0.359581 0.154566 0.148454C0.163191 0.13942 0.17217 0.130726 0.181481 0.122391C0.378001 -0.0535114 0.680954 -0.0379588 0.858147 0.157129ZM6.85815 0.157129L9.74115 3.33128C10.0863 3.71127 10.0863 4.28873 9.74115 4.66872L6.85815 7.84287C6.84975 7.85212 6.84099 7.86103 6.83189 7.86959C6.63983 8.05029 6.33659 8.04221 6.15457 7.85155C5.95301 7.64042 5.94798 7.31121 6.143 7.09411L8.92246 4L6.143 0.905892C5.94798 0.688796 5.95301 0.359581 6.15457 0.148454C6.16319 0.13942 6.17217 0.130726 6.18148 0.122391C6.378 -0.0535114 6.68095 -0.0379588 6.85815 0.157129Z"
+          class="fill-current"
+        />
+      </svg>
+    </button>
+  </nav>
+  <!-- Change Items per Page -->
+  <div class="absolute right-6 hidden lg:block">
+    <div class="text-ebony-61 flex items-center text-sm dark:text-neutral-400">
+      Showing
+      <div class="dropdown px-[6px]">
+        <select
+          name="pages"
+          id="pages"
+          title="pages"
+          (change)="pagination.setPageSize(getValue($event))"
+          class="border-ebony-18 text-ebony-61 h-6 items-center rounded-[4px] border py-[3px] pl-[6.5px] pr-[24.5px] text-sm dark:border-neutral-600 dark:bg-neutral-900 dark:text-neutral-400"
+        >
+          <option *ngFor="let size of allowedSizes" [selected]="pagination.perPage === size" [value]="size">{{ size }}</option>
+        </select>
+      </div>
+      <span class="text-ebony-61 text-sm dark:text-neutral-400">of {{ pagination.total }} results</span>
+    </div>
+  </div>
+</div>

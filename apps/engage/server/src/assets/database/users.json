@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": "4618e699-1101-49e4-ae54-ede8b5862727",
+      "userName": "user@degreed.com",
+      "password": "password"
+    },
+    {
+      "id": "1e2c96be-beae-4f59-ad0f-62273224fa7d",
+      "userName": "nodata@degreed.com",
+      "password": "password"
+    }
+  ]
+}

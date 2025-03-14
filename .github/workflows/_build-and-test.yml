@@ -1,0 +1,82 @@
+# Workflow step to build, lint and test an Nx app
+# Expected inputs:
+#  npmLintScriptName: the name of the NPM script to execute to lint the app and its libs
+#  npmBuildScriptName: the name of the NPM script to execute to build the app
+#  npmTestScriptName: the name of the NPM script to execute to tess the app and its libs
+
+name: _Build & Test
+on:
+  workflow_call:
+    inputs:
+      app-version:
+        required: true
+        type: string
+        description: The version of the application being deployed.
+      upload-artifacts:
+        required: false
+        type: string
+        default: 'true'
+        description: "'true' if artifacts should be uploaded, otherwise 'false'"
+      app-name:
+        required: true
+        type: string
+        description: The name of the application being deployed.        
+jobs:
+  buildAndTest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: Get npm cache directory
+        id: npm-cache-dir
+        run: |
+          echo "$(npm config get cache)"
+          echo "npmdir=$(npm config get cache)" >> $GITHUB_OUTPUT
+
+      - name: Restore node modules from cache
+        uses: actions/cache@v3
+        id: npm-cache # use this to check for `cache-hit` ==> if: steps.npm-cache.outputs.cache-hit != 'true'
+        with:
+          path: ${{ steps.npm-cache-dir.outputs.npmdir }}
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-
+
+      - name: Restore
+        run: npm i
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NODE_AUTH_TOKEN }}
+
+      # - name: NPM Audit
+      #   run: npm audit --production
+
+      - name: Lint
+        run: npx nx lint app-${{ inputs.app-name }}
+
+      - name: Test
+        run: npx nx test app-${{ inputs.app-name }}
+
+      - name: Build
+        run: npx nx build app-${{ inputs.app-name }}
+
+      - name: Upload ${{ inputs.app-name }} build artifacts
+        if: ${{ inputs.upload-artifacts == 'true' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ inputs.app-version }}-${{ inputs.app-name }}'
+          path: |
+            ${{ github.workspace }}/dist/apps/${{ inputs.app-name }}/spa
+            !${{ github.workspace }}/dist/apps/engage/spa/tinymce
+
+      - name: Upload tinymce build artifacts (engage only)
+        if: ${{ inputs.upload-artifacts == 'true' && inputs.app-name == 'engage' }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ inputs.app-version }}-tinymce'
+          path: |
+            ${{ github.workspace }}/dist/apps/engage/spa/tinymce

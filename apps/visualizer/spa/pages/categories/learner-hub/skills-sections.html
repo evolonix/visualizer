@@ -1,0 +1,1561 @@
+<html-component name="apollo/layout-learner" hide-component="true" title="Home">
+  <div class="tw-grid-apollo tw-has-sidebar tw-mt-4 md:tw-mt-24">
+    <!-- Rating Modals -->
+    <div class="tw-col-span-full tw-flex tw-flex-col tw-items-center tw-gap-6">
+      <!-- Self Rating Modal with no current rating -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate yourself in Communication</h4>
+        <div class="tw-mb-4 tw-rounded-lg tw-p-4 tw-bg-neutral-100">
+          <p class="tw-mb-4 tw-text-sm tw-font-semibold tw-text-neutral-800">Current Self-Rating</p>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+        </div>
+        <div class="tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">New Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Select Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save New Rating</button>
+        </div>
+      </div>
+
+      <!-- Self Rating Modal with current rating -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate yourself in Communication</h4>
+        <div class="tw-mb-4 tw-rounded-lg tw-p-4 tw-bg-neutral-100">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Current Self-Rating</p>
+            <button class="tw-btn-secondary-outline">Clear Self-Rating</button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              2
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Proficient</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+        <div class="tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">New Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Select Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save New Rating</button>
+        </div>
+      </div>
+
+      <!-- Self Rating Modal with current rating and select self-rating dropdown -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate yourself in Communication</h4>
+        <div class="tw-mb-4 tw-rounded-lg tw-p-4 tw-bg-neutral-100">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Current Self-Rating</p>
+            <button class="tw-btn-secondary-outline">Clear Self-Rating</button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              2
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Proficient</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+        <div class="tw-relative tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">New Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Select Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+
+          <!-- Use the appropriate dropdown component here to show the ratings -->
+          <div class="tw-absolute tw-left-0 tw-top-10 tw-mx-3 tw-mt-1 tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-xl">
+            <ul class="tw-flex tw-flex-col tw-gap-4">
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  1
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Foundational</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="foundational-1" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  2
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-2" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  3
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-3" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  4
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Advanced</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="advanced" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  5
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Expert</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="expert" name="drone" value="dewey" />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save New Rating</button>
+        </div>
+      </div>
+
+      <!-- Spacer to add some space to show the dropdown without covering the elements below -->
+      <div class="tw-col-span-full tw-min-h-72"></div>
+
+      <!-- Self Rating Modal with current rating and new self-rating -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate yourself in Communication</h4>
+        <div class="tw-mb-4 tw-rounded-lg tw-p-4 tw-bg-neutral-100">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Current Self-Rating</p>
+            <button class="tw-btn-secondary-outline">Clear Self-Rating</button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              2
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Proficient</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+        <div class="tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">New Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Change Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              4
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Advanded</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save New Rating</button>
+        </div>
+      </div>
+
+      <!-- Skill Review Modal -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate your Sales Strategy Skill</h4>
+        <div class="tw-mb-5 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <img src="/assets/degreed-logo.svg" alt="" />
+          <div>
+            <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Review</p>
+            <p class="tw-mb-2 tw-text-xs">Measure your skill with a scientifically-backed questionnaire.</p>
+            <div class="tw-mb-3 tw-flex tw-gap-4">
+              <span class="tw-inline-flex tw-items-center tw-gap-1 tw-text-xs tw-font-semibold tw-text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                </svg>
+                15 minutes
+              </span>
+              <span class="tw-inline-flex tw-items-center tw-gap-1 tw-text-xs tw-font-semibold tw-text-neutral-600">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z"
+                  />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                </svg>
+                Public or Private
+              </span>
+            </div>
+            <button class="tw-btn-tertiary tw--ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-size-4">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Add Rating
+            </button>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Review</button>
+        </div>
+      </div>
+
+      <!-- Add Focus Skill -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">User Experience Design</h4>
+        <div class="tw-mb-4 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <img src="/assets/degreed-logo.svg" alt="" />
+          <div>
+            <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Self Rating</p>
+            <p class="tw-mb-2 tw-text-xs">Rate yourself.</p>
+            <button class="tw-btn-tertiary tw--ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-size-4">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Add Rating
+            </button>
+          </div>
+        </div>
+        <div class="tw-mb-5 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <img src="/assets/degreed-logo.svg" alt="" />
+          <div>
+            <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target Level</p>
+            <p class="tw-mb-2 tw-text-xs">Set a skill target.</p>
+            <button class="tw-btn-tertiary tw--ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-size-4">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Set Skill Target
+            </button>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Review</button>
+        </div>
+      </div>
+
+      <!-- Rate yourself in "Skill Name" modal (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate Yourself in "User Experience Design"</h4>
+        <div class="tw-relative tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Select Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <!-- Submit button is disabled until the user selects a rating -->
+          <button class="tw-btn-primary tw-btn-medium" disabled>Save Rating</button>
+        </div>
+      </div>
+
+      <!-- Rate yourself in "Skill Name" modal with select rating dropdown (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate Yourself in "User Experience Design"</h4>
+        <div class="tw-relative tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Select Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Unrated</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Rate yourself in this skill to track progress, identify skill gaps or proficiencies and improve recommendations throughout
+            Degreed.
+          </p>
+
+          <!-- Use the appropriate dropdown component here to show the ratings -->
+          <div class="tw-absolute tw-left-0 tw-top-10 tw-mx-3 tw-mt-1 tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-xl">
+            <ul class="tw-flex tw-flex-col tw-gap-4">
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  1
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Foundational</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="foundational-1" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  2
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-2" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  3
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-3" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  4
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Advanced</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="advanced" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  5
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Expert</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="expert" name="drone" value="dewey" />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <!-- Submit button is disabled until the user selects a rating -->
+          <button class="tw-btn-primary tw-btn-medium" disabled>Save Rating</button>
+        </div>
+      </div>
+
+      <!-- Spacer to add some space to show the dropdown without covering the elements below -->
+      <div class="tw-col-span-full tw-min-h-72"></div>
+
+      <!-- Rate yourself in "Skill Name" modal with rating selected (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Rate Yourself in "User Experience Design"</h4>
+        <div class="tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Self-Rating</p>
+            <button class="tw-btn-secondary-outline">
+              Change Self-Rating
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              3
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Proficient</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Rating</button>
+        </div>
+      </div>
+
+      <!-- Add Focus Skill with Self Rating added -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">User Experience Design</h4>
+        <div class="tw-mb-4 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <div class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-green-600 tw-text-white tw-min-h-9 tw-min-w-9">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="tw-w-full">
+            <div class="tw-flex tw-justify-between">
+              <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Self Rating</p>
+              <button class="tw-btn-tertiary-neutral tw-btn-icon tw--mr-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p class="tw-mb-2 tw-text-xs">Level 3 - Proficient</p>
+            <div class="tw-flex tw-w-full tw-justify-between">
+              <button class="tw-btn-tertiary tw--ml-2">Edit Rating</button>
+              <button class="tw-btn-secondary-outline">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
+                  />
+                </svg>
+                Limited Visibility
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="tw-mb-5 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <img src="/assets/degreed-logo.svg" alt="" />
+          <div>
+            <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target Level</p>
+            <p class="tw-mb-2 tw-text-xs">Set a skill target.</p>
+            <button class="tw-btn-tertiary tw--ml-2">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-size-4">
+                <path
+                  fill-rule="evenodd"
+                  d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25ZM12.75 9a.75.75 0 0 0-1.5 0v2.25H9a.75.75 0 0 0 0 1.5h2.25V15a.75.75 0 0 0 1.5 0v-2.25H15a.75.75 0 0 0 0-1.5h-2.25V9Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              Set Skill Target
+            </button>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Review</button>
+        </div>
+      </div>
+
+      <!-- Set Skill Target for "Skill Name" (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Set a Skill Target For "User Experience Design"</h4>
+        <div class="tw-relative tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target</p>
+            <button class="tw-btn-secondary-outline">
+              Select Skill Target
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Not Selected</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Set a skill target for this skill to track progress, identify any skill gaps or proficiencies and improve recommendations
+            throughout Degreed.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <!-- Submit button is disabled until the user selects a skill target -->
+          <button class="tw-btn-primary tw-btn-medium" disabled>Save Skill Target</button>
+        </div>
+      </div>
+
+      <!-- Set Skill Target for "Skill Name" modal with select rating dropdown (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Set a Skill Target For "User Experience Design"</h4>
+        <div class="tw-relative tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target</p>
+            <button class="tw-btn-secondary-outline">
+              Select Skill Target
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <p class="tw-mb-1 tw-text-xs tw-font-bold tw-text-neutral-800">Not Selected</p>
+          <p class="tw-text-xs tw-text-neutral-800">
+            Set a skill target for this skill to track progress, identify any skill gaps or proficiencies and improve recommendations
+            throughout Degreed.
+          </p>
+
+          <!-- Use the appropriate dropdown component here to show the ratings -->
+          <div class="tw-absolute tw-left-0 tw-top-10 tw-mx-3 tw-mt-1 tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-xl">
+            <ul class="tw-flex tw-flex-col tw-gap-4">
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  1
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Foundational</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="foundational-1" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  2
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-2" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  3
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Proficient</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="proficient-3" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  4
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Advanced</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="advanced" name="drone" value="dewey" />
+              </li>
+              <li class="tw-flex tw-items-center">
+                <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+                <div
+                  class="tw-mr-4 tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+                >
+                  5
+                </div>
+                <div class="tw-mr-2">
+                  <p class="tw-text-neutral-800">Expert</p>
+                  <p class="tw-text-xs tw-text-neutral-600">
+                    You work best within a structured environment with supervision, predetermined processes, and set criteria to judge
+                    output
+                  </p>
+                </div>
+                <input type="radio" id="expert" name="drone" value="dewey" />
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <!-- Submit button is disabled until the user selects a rating -->
+          <button class="tw-btn-primary tw-btn-medium" disabled>Save Skill Target</button>
+        </div>
+      </div>
+
+      <!-- Spacer to add some space to show the dropdown without covering the elements below -->
+      <div class="tw-col-span-full tw-min-h-72"></div>
+
+      <!-- Set Skill Target for "Skill Name" modal with rating selected (part of Add Focus Skill flow) -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">Set a Skill Target For "User Experience Design"</h4>
+        <div class="tw-mb-6 tw-p-4">
+          <div class="tw-mb-4 tw-flex tw-items-center tw-justify-between">
+            <p class="tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target</p>
+            <button class="tw-btn-secondary-outline">
+              Change Skill Target
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+          <div class="tw-mb-3 tw-flex tw-items-center tw-gap-2">
+            <!-- Dummy element for the rating circle, use the tag-rating-donut component from LXP -->
+            <div
+              class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-border-2 tw-font-semibold tw-min-h-9 tw-min-w-9 tw-border-neutral-300"
+            >
+              4
+            </div>
+            <p class="tw-text-xs tw-font-bold tw-text-neutral-800">Advanced</p>
+          </div>
+          <p class="tw-text-xs tw-text-neutral-800">
+            You can work independently on complex projects. When those projects are complete, you're able to look at your work and
+            accurately evaluate whether it was successful. While supervision isn't necessary, you value external input and feedback on your
+            work.
+          </p>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Skill Target</button>
+        </div>
+      </div>
+
+      <!-- Add Focus Skill with both Self Rating and Skill Target added -->
+      <div
+        class="tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg tw-w-full md:tw-max-w-md md:tw-p-6 tw-max-w-full"
+        role="dialog"
+        aria-labelledby="title"
+      >
+        <h4 class="tw-mb-4 tw-font-extrabold tw-text-neutral-900" id="title">User Experience Design</h4>
+        <div class="tw-mb-4 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <div class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-green-600 tw-text-white tw-min-h-9 tw-min-w-9">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="tw-w-full">
+            <div class="tw-flex tw-justify-between">
+              <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Self Rating</p>
+              <button class="tw-btn-tertiary-neutral tw-btn-icon tw--mr-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p class="tw-mb-2 tw-text-xs">Level 3 - Proficient</p>
+            <div class="tw-flex tw-w-full tw-justify-between">
+              <button class="tw-btn-tertiary tw--ml-2">Edit Rating</button>
+              <button class="tw-btn-secondary-outline">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M3.98 8.223A10.477 10.477 0 0 0 1.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.451 10.451 0 0 1 12 4.5c4.756 0 8.773 3.162 10.065 7.498a10.522 10.522 0 0 1-4.293 5.774M6.228 6.228 3 3m3.228 3.228 3.65 3.65m7.894 7.894L21 21m-3.228-3.228-3.65-3.65m0 0a3 3 0 1 0-4.243-4.243m4.242 4.242L9.88 9.88"
+                  />
+                </svg>
+                Limited Visibility
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div class="tw-mb-5 tw-flex tw-items-start tw-gap-4 tw-p-4">
+          <div class="tw-flex tw-items-center tw-justify-center tw-rounded-full tw-bg-green-600 tw-text-white tw-min-h-9 tw-min-w-9">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+            </svg>
+          </div>
+          <div class="tw-w-full">
+            <div class="tw-flex tw-justify-between">
+              <p class="tw-mb-0.5 tw-text-sm tw-font-semibold tw-text-neutral-800">Skill Target Level</p>
+              <button class="tw-btn-tertiary-neutral tw-btn-icon tw--mr-1">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-4"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </div>
+            <p class="tw-mb-2 tw-text-xs">Level 4 - Advanced</p>
+            <button class="tw-btn-tertiary tw--ml-2">Edit Skill Target</button>
+          </div>
+        </div>
+
+        <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+          <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+          <button class="tw-btn-primary tw-btn-medium">Save Skill</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Focus Skills -->
+    <section
+      class="tw-relative tw-col-span-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-md tw-min-h-64"
+    >
+      <!-- Trophy Image -->
+      <img class="tw-absolute tw-bottom-0 tw-left-0 tw-rounded-bl-lg sm:tw-hidden" src="/assets/trophy-xs.svg" alt="" />
+      <img class="tw-left-0 tw-hidden sm:tw-absolute sm:tw-block" src="/assets/trophy-sm.svg" alt="" />
+      <img class="tw-left-0 tw-hidden lg:tw-absolute lg:tw-block" src="/assets/trophy.svg" alt="" />
+
+      <!-- Medal Image -->
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg sm:tw-block lg:tw-hidden" src="/assets/medal-sm.svg" alt="" />
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg lg:tw-block" src="/assets/medal.svg" alt="" />
+
+      <h3 class="tw-mb-1 tw-font-bold lg:tw-text-2xl tw-text-neutral-900">Add Focus Skills</h3>
+      <p class="tw-mb-4 tw-text-center tw-text-sm sm:tw-w-2/3 sm:tw-px-3 lg:tw-w-1/2 tw-text-neutral-600">
+        Get started with adding focus skills to your profile to get the best learning recommendations from Degreed.
+      </p>
+      <button class="lg:tw-btn-medium tw-btn-primary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="tw-size-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+        Add Focus Skills
+      </button>
+    </section>
+
+    <!-- Add Focus Skills with Input -->
+    <section
+      class="tw-relative tw-col-span-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-md tw-min-h-64"
+    >
+      <!-- Trophy Image -->
+      <img class="tw-absolute tw-bottom-0 tw-left-0 tw-rounded-bl-lg sm:tw-hidden" src="/assets/trophy-xs.svg" alt="" />
+      <img class="tw-left-0 tw-hidden sm:tw-absolute sm:tw-block" src="/assets/trophy-sm.svg" alt="" />
+      <img class="tw-left-0 tw-hidden lg:tw-absolute lg:tw-block" src="/assets/trophy.svg" alt="" />
+
+      <!-- Medal Image -->
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg sm:tw-block lg:tw-hidden" src="/assets/medal-sm.svg" alt="" />
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg lg:tw-block" src="/assets/medal.svg" alt="" />
+
+      <h3 class="tw-mb-1 tw-font-bold lg:tw-text-2xl tw-text-neutral-900">Add Focus Skills</h3>
+      <p class="tw-mb-4 tw-text-center tw-text-sm sm:tw-w-2/3 sm:tw-px-3 lg:tw-w-1/2 tw-text-neutral-600">
+        Get started with adding focus skills to your profile to get the best learning recommendations from Degreed.
+      </p>
+      <div class="tw-relative tw-flex tw-w-full tw-flex-col tw-rounded-lg tw-shadow-lg sm:tw-w-96">
+        <div class="tw-flex tw-h-10 tw-w-full tw-items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-absolute tw-left-3 tw-size-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+          <input class="tw-flex-grow tw-rounded-t-lg tw-border-none tw-px-9 tw-py-2" type="search" placeholder="Search for a skill" />
+          <!-- Button to clear the input -->
+          <button class="tw-absolute tw-right-0 tw-h-full tw-w-9">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-ml-2 tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <!-- Use the appropriate dropdown component here to show the results -->
+        <div
+          class="tw-absolute tw-top-10 tw-z-10 tw-max-h-40 tw-w-full tw-rounded-b-lg tw-border-t tw-bg-white tw-px-1 tw-py-2 tw-shadow-lg tw-border-t-neutral-300"
+        >
+          <ul>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Centered Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Experience Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Interface Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              New <span class="tw-font-semibold tw-text-neutral-800">User</span> Research
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacer to add some space to show the dropdown without covering the elements below -->
+    <div class="tw-col-span-full tw-min-h-24"></div>
+
+    <!-- Recommended Focus Skills -->
+    <section
+      class="tw-relative tw-col-span-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-md tw-min-h-64"
+    >
+      <!-- Trophy Image -->
+      <img class="tw-absolute tw-bottom-0 tw-left-0 tw-rounded-bl-lg sm:tw-hidden" src="/assets/trophy-xs.svg" alt="" />
+      <img class="tw-left-0 tw-hidden sm:tw-absolute sm:tw-block" src="/assets/trophy-sm.svg" alt="" />
+      <img class="tw-left-0 tw-hidden lg:tw-absolute lg:tw-block" src="/assets/trophy.svg" alt="" />
+
+      <!-- Medal Image -->
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg sm:tw-block lg:tw-hidden" src="/assets/medal-sm.svg" alt="" />
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg lg:tw-block" src="/assets/medal.svg" alt="" />
+
+      <h3 class="tw-mb-1 tw-font-bold lg:tw-text-2xl tw-text-neutral-900">Recommended Focus Skills</h3>
+      <p class="tw-mb-4 tw-text-center tw-text-sm sm:tw-w-2/3 sm:tw-px-3 lg:tw-w-1/2 tw-text-neutral-600">
+        You don’t have any focus skills in your Degreed profile. Based on your role, we recommend you add the following focus skills:
+      </p>
+      <div class="tw-relative tw-mb-4 tw-flex tw-flex-wrap tw-justify-center tw-gap-3 sm:tw-w-2/3 lg:tw-w-1/2">
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Experience Design
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Research
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Strategy
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Product Design
+        </button>
+      </div>
+      <button class="tw-btn-tertiary">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-="1.5" stroke="currentColor" class="tw-size-4">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+        </svg>
+        Add Focus Skills
+      </button>
+    </section>
+
+    <!-- Recommended Focus Skills with Input -->
+    <section
+      class="tw-relative tw-col-span-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-md tw-min-h-64"
+    >
+      <!-- Trophy Image -->
+      <img class="tw-absolute tw-bottom-0 tw-left-0 tw-rounded-bl-lg sm:tw-hidden" src="/assets/trophy-xs.svg" alt="" />
+      <img class="tw-left-0 tw-hidden sm:tw-absolute sm:tw-block" src="/assets/trophy-sm.svg" alt="" />
+      <img class="tw-left-0 tw-hidden lg:tw-absolute lg:tw-block" src="/assets/trophy.svg" alt="" />
+
+      <!-- Medal Image -->
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg sm:tw-block lg:tw-hidden" src="/assets/medal-sm.svg" alt="" />
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg lg:tw-block" src="/assets/medal.svg" alt="" />
+
+      <h3 class="tw-mb-1 tw-font-bold lg:tw-text-2xl tw-text-neutral-900">Recommended Focus Skills</h3>
+      <p class="tw-mb-4 tw-text-center tw-text-sm sm:tw-w-2/3 sm:tw-px-3 lg:tw-w-1/2 tw-text-neutral-600">
+        You don’t have any focus skills in your Degreed profile. Based on your role, we recommend you add the following focus skills:
+      </p>
+      <div class="tw-relative tw-mb-4 tw-flex tw-flex-wrap tw-justify-center tw-gap-3 sm:tw-w-2/3 lg:tw-w-1/2">
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Experience Design
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Research
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Strategy
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Product Design
+        </button>
+      </div>
+      <div class="tw-relative tw-flex tw-w-full tw-flex-col tw-rounded-lg tw-shadow-lg sm:tw-w-96">
+        <div class="tw-flex tw-h-10 tw-w-full tw-items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-absolute tw-left-3 tw-size-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+            />
+          </svg>
+          <input class="tw-flex-grow tw-rounded-t-lg tw-border-none tw-px-9 tw-py-2" type="search" placeholder="Search for a skill" />
+          <!-- Button to clear the input -->
+          <button class="tw-absolute tw-right-0 tw-h-full tw-w-9">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-ml-2 tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+        <!-- Use the appropriate dropdown component here to show the results -->
+        <div
+          class="tw-absolute tw-top-10 tw-z-10 tw-max-h-40 tw-w-full tw-rounded-b-lg tw-border-t tw-bg-white tw-px-1 tw-py-2 tw-shadow-lg tw-border-t-neutral-300"
+        >
+          <ul>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Centered Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Experience Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              <span class="tw-font-semibold tw-text-neutral-800">User</span> Interface Design
+            </li>
+            <li class="tw-px-3 tw-py-1.5 tw-text-sm hover:tw-bg-neutral-100">
+              New <span class="tw-font-semibold tw-text-neutral-800">User</span> Research
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spacer to add some space to show the dropdown without covering the elements below -->
+    <div class="tw-col-span-full tw-min-h-24"></div>
+
+    <!-- Your Focus Skills -->
+    <section
+      class="tw-relative tw-col-span-full tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-xl tw-bg-white tw-p-4 tw-shadow-md tw-min-h-64"
+    >
+      <!-- Trophy Image -->
+      <img class="tw-absolute tw-bottom-0 tw-left-0 tw-rounded-bl-lg sm:tw-hidden" src="/assets/trophy-xs.svg" alt="" />
+      <img class="tw-left-0 tw-hidden sm:tw-absolute sm:tw-block" src="/assets/trophy-sm.svg" alt="" />
+      <img class="tw-left-0 tw-hidden lg:tw-absolute lg:tw-block" src="/assets/trophy.svg" alt="" />
+
+      <!-- Medal Image -->
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg sm:tw-block lg:tw-hidden" src="/assets/medal-sm.svg" alt="" />
+      <img class="tw-absolute tw-right-0 tw-top-0 tw-hidden tw-rounded-tr-lg lg:tw-block" src="/assets/medal.svg" alt="" />
+
+      <h3 class="tw-mb-1 tw-font-bold lg:tw-text-2xl tw-text-neutral-900">Your Focus Skills</h3>
+      <p class="tw-mb-4 tw-text-center tw-text-sm sm:tw-w-2/3 sm:tw-px-3 lg:tw-w-1/2 tw-text-neutral-600">
+        Add self-ratings and select target levels to your focus skills below to get the best learning recommendations from Degreed.
+      </p>
+      <div class="tw-relative tw-mb-4 tw-flex tw-flex-wrap tw-justify-center tw-gap-3 sm:tw-w-2/3 lg:tw-w-1/2">
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Experience Design
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Research
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          User Experience Research
+        </button>
+        <button class="tw-btn-secondary-filled">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+          </svg>
+          Product Design
+        </button>
+      </div>
+    </section>
+
+    <!-- Your Focus Skills Graph with Recommended Skills -->
+    <section class="tw-col-span-full tw-flex tw-flex-col tw-overflow-hidden tw-rounded-xl tw-bg-white tw-shadow-md lg:tw-flex-row">
+      <div class="tw-w-full tw-p-6 lg:tw-w-4/6">
+        <div class="tw-mb-9 tw-flex tw-items-center tw-justify-between">
+          <h4 class="tw-font-bold tw-text-neutral-900">Your Focus Skills</h4>
+          <button class="tw-btn-secondary-filled">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+              />
+            </svg>
+            Manage Skills
+          </button>
+        </div>
+
+        <!-- Dummy Graph, we will use Highcharts for this within LXP -->
+        <div class="tw-grid tw-grid-cols-9">
+          <div class="tw-col-span-2">
+            <div class="tw-flex tw-flex-col tw-gap-4">
+              <span class="tw-text-xs tw-font-semibold tw-text-neutral-800">Communication</span>
+              <span class="tw-text-xs tw-font-semibold tw-text-neutral-800">Negotiation</span>
+              <span class="tw-text-xs tw-font-semibold tw-text-neutral-800">Sales</span>
+              <span class="tw-text-xs tw-font-semibold tw-text-neutral-800">Sales Leadership</span>
+            </div>
+          </div>
+          <div class="tw-col-span-7 tw-flex tw-flex-col tw-gap-4">
+            <div class="tw-grid tw-grid-cols-7">
+              <div class="tw-col-span-6 tw-h-4 tw-bg-purple-800"></div>
+              <div class="tw-col-span-1 tw-h-4 tw-bg-purple-300"></div>
+            </div>
+            <div class="tw-grid tw-grid-cols-7">
+              <div class="tw-col-span-2 tw-h-4 tw-bg-purple-800"></div>
+              <div class="tw-col-span-1 tw-h-4 tw-bg-purple-300"></div>
+            </div>
+            <div class="tw-grid tw-grid-cols-7">
+              <div class="tw-col-span-4 tw-h-4 tw-bg-purple-800"></div>
+              <div class="tw-col-span-1 tw-h-4 tw-bg-purple-300"></div>
+            </div>
+            <div class="tw-grid tw-grid-cols-7">
+              <div class="tw-col-span-1 tw-h-4 tw-bg-purple-800"></div>
+              <div class="tw-col-span-1 tw-h-4 tw-bg-purple-300"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="tw-w-full tw-px-8 tw-py-6 lg:tw-w-2/6 tw-bg-neutral-100">
+        <h4 class="tw-mb-1 tw-font-bold tw-text-neutral-900">Recommended Skills</h4>
+        <p class="tw-mb-6 tw-text-sm">
+          Based on your recent activity in Degreed we suggest that you add the following skills to your profile:
+        </p>
+        <div class="tw-flex tw-flex-wrap tw-gap-2">
+          <button class="tw-btn-secondary-filled tw-bg-neutral-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Sales Leadership
+          </button>
+          <button class="tw-btn-secondary-filled tw-bg-neutral-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Team Development
+          </button>
+          <button class="tw-btn-secondary-filled tw-bg-neutral-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Sales Analytics
+          </button>
+          <button class="tw-btn-secondary-filled tw-bg-neutral-200">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+            </svg>
+            Sales Strategy
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</html-component>

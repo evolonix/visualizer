@@ -1,0 +1,50 @@
+<html-component name="categories/branding/navigation-complete" hide-component="true"></html-component>
+<div class="tw-relative tw-z-[60]">
+  <!-- Animations:
+    enter="tw-ease-out tw-duration-300"
+    enterFrom="tw-opacity-0"
+    enterTo="tw-opacity-100"
+    leave="tw-ease-in tw-duration-200"
+    leaveFrom="tw-opacity-100"
+    leaveTo="tw-opacity-0"
+  -->
+  <div class="tw-fixed tw-inset-0 tw-bg-neutral-600 tw-bg-opacity-75 tw-transition-opacity"></div>
+
+  <div class="tw-fixed tw-inset-0 tw-z-50 tw-overflow-y-auto">
+    <div class="tw-flex tw-min-h-full tw-items-end tw-justify-center tw-p-4 tw-text-center sm:tw-items-center sm:tw-p-0">
+      <!-- Animations:
+        enter="tw-ease-out tw-duration-300"
+        enterFrom="tw-opacity-0 tw-translate-y-4 sm:tw-translate-y-0 sm:tw-scale-95"
+        enterTo="tw-opacity-100 tw-translate-y-0 sm:tw-scale-100"
+        leave="tw-ease-in tw-duration-200"
+        leaveFrom="tw-opacity-100 tw-translate-y-0 sm:tw-scale-100"
+        leaveTo="tw-opacity-0 tw-translate-y-4 sm:tw-translate-y-0 sm:tw-scale-95"
+      -->
+      <div
+        class="tw-relative tw-transform tw-overflow-hidden tw-rounded-lg tw-bg-white tw-px-4 tw-pb-4 tw-pt-5 tw-text-left tw-shadow-xl tw-transition-all sm:tw-my-8 sm:tw-w-full sm:tw-max-w-lg sm:tw-p-6"
+      >
+        <div class="sm:tw-flex sm:tw-items-start">
+          <div class="tw-mt-3 tw-text-center sm:tw-ml-4 sm:tw-mt-0 sm:tw-text-left">
+            <h4 class="tw-font-extrabold tw-text-neutral-900">Unpublished Changes</h4>
+            <div class="tw-mt-2">
+              <p class="tw-text-neutral-900">
+                Leaving this page will discard all of your changes. Would you like to publish the following changes before leaving?
+              </p>
+              <ul class="tw-text-sm tw-list-disc tw-list-inside tw-pl-2 tw-mt-4">
+                <li>Organization Name</li>
+                <li>Endorsement Image</li>
+                <li>Navigation Styling</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="tw-mt-5 sm:tw-mt-4 sm:tw-flex sm:tw-flex-row-reverse">
+          <button type="button" class="tw-btn-primary tw-btn-medium tw-w-full sm:tw-ml-3 sm:tw-w-auto">Publish</button>
+          <button type="button" class="tw-btn-secondary-filled tw-btn-medium tw-mt-3 tw-w-full sm:tw-mt-0 sm:tw-w-auto">
+            Discard All Changes
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

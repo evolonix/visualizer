@@ -1,0 +1,30 @@
+{
+  "name": "lib-engage-remote-api",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/engage/remote-api/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/engage/remote-api",
+        "main": "libs/engage/remote-api/src/index.ts",
+        "tsConfig": "libs/engage/remote-api/tsconfig.lib.json",
+        "assets": ["libs/engage/remote-api/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/engage/remote-api"],
+      "options": {
+        "jestConfig": "libs/engage/remote-api/jest.config.ts"
+      }
+    }
+  },
+  "tags": ["type:data-access", "scope:engage"]
+}

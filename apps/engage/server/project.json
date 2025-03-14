@@ -1,0 +1,70 @@
+{
+  "name": "server-engage",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/engage/server/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/engage/server",
+        "main": "apps/engage/server/src/app/main.ts",
+        "tsConfig": "apps/engage/server/tsconfig.app.json",
+        "assets": ["apps/engage/server/src/assets"],
+        "target": "node",
+        "compiler": "tsc",
+        "webpackConfig": "apps/engage/server/webpack.config.js"
+      },
+      "configurations": {
+        "production": {
+          "optimization": true,
+          "extractLicenses": true,
+          "inspect": false,
+          "fileReplacements": [
+            {
+              "replace": "apps/engage/server/src/environments/environment.ts",
+              "with": "apps/engage/server/src/environments/environment.prod.ts"
+            }
+          ]
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "inspect": true
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "server-engage:build",
+        "inspect": true,
+        "host": "localhost",
+        "port": 9229
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "server-engage:build:production"
+        },
+        "development": {
+          "buildTarget": "server-engage:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/engage/server"],
+      "options": {
+        "jestConfig": "apps/engage/server/jest.config.ts"
+      }
+    }
+  },
+  "tags": ["type:server", "scope:engage"]
+}

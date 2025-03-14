@@ -1,0 +1,582 @@
+<html-component name="apollo/layout-learner" hide-component="true" title="Home">
+  <div class="tw-grid-apollo tw-has-sidebar tw-px-4 tw-py-10">
+    <div class="tw-col-span-full">
+      <!-- Title -->
+      <h1 class="tw-mb-6 tw-text-2xl tw-font-bold tw-text-neutral-800">Assignments</h1>
+      <div class="tw-mb-6 tw-flex tw-flex-col lg:tw-flex-row sm:tw-gap-6">
+        <!-- Search Input -->
+        <div class="tw-relative tw-h-10 tw-w-full lg:tw-w-72 lg:tw-min-w-72 xl:tw-w-80 xl:tw-min-w-80">
+          <div class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center">
+            <!-- Icon - magnifying-glass -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="tw-h-full tw-w-full tw-rounded-lg tw-border tw-border-neutral-300 tw-pl-9 tw-pr-10"
+            placeholder="Search"
+          />
+          <div class="tw-absolute tw-right-0 tw-top-0 tw-mr-4 tw-flex tw-h-full tw-items-center tw-justify-center">
+            <span class="tw-text-xs tw-font-semibold tw-text-neutral-600">⌘ K</span>
+          </div>
+        </div>
+        <!-- Assignments Filtering -->
+        <div class="tw-hidden tw-w-full tw-items-center tw-justify-start tw-gap-3 sm:tw-flex">
+          <!-- Replace these dropdowns with LXP specific components -->
+          <html-component
+            name="apollo/dropdown"
+            id="assignment-type-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('assignment-type-dropdown', 'Assignment Type', true)"
+          >
+          </html-component>
+          <html-component
+            name="apollo/dropdown"
+            id="content-type-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('content-type-dropdown', 'Content Type', true)"
+          >
+          </html-component>
+          <html-component
+            name="apollo/dropdown"
+            id="provider-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('provider-dropdown', 'Provider', true)"
+          >
+          </html-component>
+          <label class="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-neutral-800" for="show-completed-checkbox">
+            <input class="tw-rounded tw-border-neutral-300" type="checkbox" name="show-completed" id="show-completed-checkbox" />
+            Show Completed
+          </label>
+        </div>
+      </div>
+      <!-- Assignments Table -->
+      <table class="tw-min-w-full">
+        <thead>
+          <tr class="tw-h-16 tw-border-b tw-border-neutral-300 tw-bg-white">
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">CONTENT</th>
+            <th
+              class="tw-px-4 tw-text-center tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap tw-hidden sm:tw-table-cell"
+            >
+              STATUS
+            </th>
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">
+              <div class="tw-flex tw-items-center tw-gap-3">
+                DUE DATE
+                <button class="tw-btn-icon tw-btn-secondary-filled tw-hidden sm:tw-block">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th
+              class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap tw-hidden xl:tw-table-cell"
+            >
+              ASSIGNMENT TYPE
+            </th>
+            <th
+              class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap tw-hidden xl:tw-table-cell"
+            >
+              ASSIGNMENT BY
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">Professional Certificate in Foundations of AI</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Academies</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell">
+              <span
+                class="tw-flex tw-items-center tw-w-min tw-whitespace-nowrap tw-rounded-full tw-bg-red-50 tw-mx-auto tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-red-800 tw-ring-1 tw-ring-red-300"
+                tabindex="0"
+                >Overdue</span
+              >
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">10 Excel Functions Everyone Should Know</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Article</li>
+                <li class="tw-text-neutral-600">Harvard Business Publishing</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell">
+              <span
+                class="tw-flex tw-items-center tw-w-min tw-whitespace-nowrap tw-rounded-full tw-bg-red-50 tw-mx-auto tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-red-800 tw-ring-1 tw-ring-red-300"
+                tabindex="0"
+                >Overdue</span
+              >
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">Virtual Leadership: Leading in the New Normal</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Book</li>
+                <li class="tw-text-neutral-600">The Ken Blanchard Companies</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell">
+              <span
+                class="tw-flex tw-items-center tw-w-min tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-mx-auto tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+                tabindex="0"
+                >Due Soon</span
+              >
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">Introduction to Time Management</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Video</li>
+                <li class="tw-text-neutral-600">Harvard Business Publishing</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell">
+              <span
+                class="tw-flex tw-items-center tw-w-min tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-mx-auto tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+                tabindex="0"
+                >Due Soon</span
+              >
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">Degreed - LGBTQ+ Diversity, Inclusion & Belonging</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-neutral-600">Degreed Meta</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell">
+              <span
+                class="tw-flex tw-items-center tw-w-min tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-mx-auto tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+                tabindex="0"
+                >Due Soon</span
+              >
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">Technical Consulting Services Onboarding Plan</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Plan</li>
+                <li class="tw-text-neutral-600">Degreed Meta</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell"></td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">How Well Do You Communicate During Conflict?</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Assessment</li>
+                <li class="tw-text-neutral-600">Harvard Business Publishing</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell"></td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-bold tw-text-neutral-900">The power of vulnerability | Brené Brown | TED Talk</p>
+              <ul class="tw-flex tw-flex-col sm:tw-flex-row sm:tw-gap-3">
+                <li class="tw-text-neutral-600">Video</li>
+                <li class="tw-text-neutral-600">TED@Work</li>
+              </ul>
+            </td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 sm:tw-table-cell"></td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">Required</td>
+            <td class="tw-hidden tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800 xl:tw-table-cell">
+              <span class="tw-block tw-mb-1">Jane Goodwin</span>
+              <span class="tw-block tw-max-w-32 tw-truncate">This should really help... This should really help...</span>
+            </td>
+            <td class="tw-px-4 tw-py-1.5">
+              <button class="tw-btn-icon tw-btn-ghost-neutral">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-6"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Assignments Table Pagination -->
+      <div
+        class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-b-2xl tw-bg-white tw-px-6 tw-pb-5 tw-pt-3 sm:tw-pt-5 sm:tw-flex-row sm:tw-justify-between"
+      >
+        <span class="tw-mb-5 tw-text-xs tw-text-neutral-900 sm:tw-mb-0 lg:tw-absolute">Showing {x} to {x} of {x} results</span>
+        <nav class="lg:tw-mx-auto">
+          <ul class="tw-flex tw-items-center tw-gap-1">
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="First">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Previous">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+              </a>
+            </li>
+            <!-- Active Pagination Item -->
+            <li
+              class="tw-flex tw-size-6 tw-items-center tw-justify-center tw-rounded-lg tw-bg-neutral-200 tw-text-xs tw-font-semibold tw-text-neutral-900 hover:tw-bg-neutral-100"
+            >
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">1</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">2</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">9</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">10</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Next">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Last">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="tw-col-span-full">
+      <!-- Title -->
+      <h1 class="tw-mb-6 tw-text-2xl tw-font-bold tw-text-neutral-800">Assignments</h1>
+      <div class="tw-mb-6 tw-flex tw-flex-col lg:tw-flex-row sm:tw-gap-6">
+        <!-- Search Input -->
+        <div class="tw-relative tw-h-10 tw-w-full lg:tw-w-72 lg:tw-min-w-72 xl:tw-w-80 xl:tw-min-w-80">
+          <div class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center">
+            <!-- Icon - magnifying-glass -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="tw-h-full tw-w-full tw-rounded-lg tw-border tw-border-neutral-300 tw-pl-9 tw-pr-10"
+            placeholder="Search"
+          />
+          <div class="tw-absolute tw-right-0 tw-top-0 tw-mr-4 tw-flex tw-h-full tw-items-center tw-justify-center">
+            <span class="tw-text-xs tw-font-semibold tw-text-neutral-600">⌘ K</span>
+          </div>
+        </div>
+        <!-- Assignments Filtering -->
+        <div class="tw-hidden tw-w-full tw-items-center tw-justify-start tw-gap-3 sm:tw-flex">
+          <!-- Replace these dropdowns with LXP specific components -->
+          <html-component
+            name="apollo/dropdown"
+            id="assignment-type-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('assignment-type-dropdown', 'Assignment Type', true)"
+          >
+          </html-component>
+          <html-component
+            name="apollo/dropdown"
+            id="content-type-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('content-type-dropdown', 'Content Type', true)"
+          >
+          </html-component>
+          <html-component
+            name="apollo/dropdown"
+            id="provider-dropdown"
+            className="tw-btn-medium"
+            onload="selectDropdownItemById('provider-dropdown', 'Provider', true)"
+          >
+          </html-component>
+          <label class="tw-flex tw-items-center tw-gap-2 tw-text-sm tw-text-neutral-800" for="show-completed-checkbox">
+            <input class="tw-rounded tw-border-neutral-300" type="checkbox" name="show-completed" id="show-completed-checkbox" />
+            Show Completed
+          </label>
+        </div>
+      </div>
+      <div class="tw-flex tw-w-full tw-flex-col tw-items-center">
+        <img class="tw-h-64 tw-w-80 tw-mt-14 tw-mb-6" src="/assets/empty-state-cats.png" alt="" />
+        <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">No exact matches</p>
+        <p class="tw-text-center tw-text-sm tw-text-neutral-600">
+          Try changing or removing some of your filters or adjusting your search area.
+        </p>
+      </div>
+    </div>
+  </div>
+</html-component>

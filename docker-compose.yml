@@ -1,0 +1,28 @@
+services:
+  visualizer:
+    image: degreed/visualizer:latest
+    container_name: visualizer
+    build:
+      context: .
+      dockerfile: ./apps/visualizer/spa/Dockerfile
+    ports:
+      - '4200:4200'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true # To fix an issue with HMR on Windows machines
+
+  skills-platform:
+    image: degreed/skills-platform:latest
+    container_name: skills-platform
+    build:
+      context: .
+      dockerfile: ./apps/skills-platform/spa/Dockerfile
+    ports:
+      - '4203:4203'
+    volumes:
+      - .:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true # To fix an issue with HMR on Windows machines

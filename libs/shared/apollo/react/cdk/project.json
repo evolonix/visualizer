@@ -1,0 +1,94 @@
+{
+  "name": "lib-shared-apollo-react-cdk",
+  "$schema": "../../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/apollo/react/cdk/src",
+  "projectType": "library",
+  "tags": ["type:ui", "scope:shared", "type:core"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "build": {
+      "executor": "@nx/rollup:rollup",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/apollo/react/cdk",
+        "tsConfig": "libs/shared/apollo/react/cdk/tsconfig.lib.json",
+        "project": "libs/shared/apollo/react/cdk/package.json",
+        "entryFile": "libs/shared/apollo/react/cdk/src/index.ts",
+        "external": ["react", "react-dom", "react/jsx-runtime"],
+        "rollupConfig": "@nx/react/plugins/bundle-rollup",
+        "compiler": "swc",
+        "assets": [
+          {
+            "glob": "libs/shared/apollo/react/cdk/README.md",
+            "input": ".",
+            "output": "."
+          }
+        ]
+      }
+    },
+    "build-styles": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/apollo/react/cdk"],
+      "configurations": {
+        "production": {
+          "commands": [
+            "tailwindcss -c libs/shared/apollo/react/cdk/tailwind.config.ts -i ./libs/shared/apollo/react/cdk/src/styles.css -o ./dist/libs/shared/apollo/react/cdk/styles/index.css -m"
+          ]
+        },
+        "development": {
+          "commands": [
+            "tailwindcss -c libs/shared/apollo/react/cdk/tailwind.config.ts -i ./libs/shared/apollo/react/cdk/src/styles.css -o ./dist/libs/shared/apollo/react/cdk/styles/index.css"
+          ]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build-publishable": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/apollo/react/cdk"],
+      "configurations": {
+        "production": {
+          "commands": ["nx run lib-shared-apollo-react-cdk:build:production", "nx run lib-shared-apollo-react-cdk:build-styles:production"],
+          "parallel": false
+        },
+        "development": {
+          "commands": [
+            "nx run lib-shared-apollo-react-cdk:build:development",
+            "nx run lib-shared-apollo-react-cdk:build-styles:development"
+          ],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../../../coverage/libs/shared/apollo/react/cdk"
+      }
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "packageRoot": "./dist/libs/shared/apollo/react/cdk",
+        "registry": "https://npm.pkg.github.com/"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "tagPrefix": "{projectName}@",
+        "skipRootChangelog": true,
+        "skipProjectChangelog": true,
+        "skipCommit": true,
+        "trackDeps": true
+      }
+    }
+  }
+}

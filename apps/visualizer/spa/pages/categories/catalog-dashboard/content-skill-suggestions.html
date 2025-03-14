@@ -1,0 +1,359 @@
+<html-component name="apollo/layout-admin" hide-component="true" title="Catalog">
+  <!-- Breadcrumb -->
+  <nav aria-label="Breadcrumb" class="tw-w-full tw-bg-neutral-100 tw-px-6 tw-py-2">
+    <ol class="tw-flex tw-items-center tw-whitespace-nowrap">
+      <li class="tw-inline-flex tw-items-center">
+        <a class="tw-flex tw-items-center tw-text-xs tw-font-semibold tw-text-blue-800" href="#"> Dashboard </a>
+        <svg
+          class="tw-shrink-0 tw-size-4 tw-text-neutral-600 tw-mx-2"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+          aria-hidden="true"
+        >
+          <path d="M6 13L10 3" stroke="currentColor" stroke-linecap="round"></path>
+        </svg>
+      </li>
+      <li class="tw-inline-flex tw-items-center tw-text-xs tw-font-semibold tw-text-neutral-600 tw-truncate" aria-current="page">
+        Content Skill Suggestions
+      </li>
+    </ol>
+  </nav>
+
+  <div class="tw-grid-apollo tw-has-sidebar tw-mt-4 md:tw-mt-8">
+    <div class="tw-col-span-full">
+      <div class="tw-flex tw-items-start tw-gap-8 tw-mb-10">
+        <div class="tw-col-span-9">
+          <h1 class="tw-mb-3 tw-text-4xl tw-font-bold tw-text-neutral-800">Content Skill Suggestions</h1>
+          <p class="tw-text-sm tw-text-neutral-600 tw-text-balance">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dui tortor, lacinia in tempor sit amet, feugiat non mauris. Mauris
+            sit amet ex id est vestibulum scelerisque a id dolor. Ut eleifend porta velit at vestibulum. Vestibulum volutpat lorem
+            condimentum, euismod orci quis, dignissim risus.
+          </p>
+        </div>
+        <button class="tw-btn-primary tw-btn-medium">
+          <!-- Icon: tag -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9.568 3H5.25A2.25 2.25 0 0 0 3 5.25v4.318c0 .597.237 1.17.659 1.591l9.581 9.581c.699.699 1.78.872 2.607.33a18.095 18.095 0 0 0 5.223-5.223c.542-.827.369-1.908-.33-2.607L11.16 3.66A2.25 2.25 0 0 0 9.568 3Z"
+            />
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 6h.008v.008H6V6Z" />
+          </svg>
+          Apply All Skills
+        </button>
+      </div>
+
+      <div class="tw-mb-4 tw-flex tw-flex-col tw-items-center lg:tw-flex-row sm:tw-gap-6">
+        <!-- Search Input -->
+        <div class="tw-relative tw-h-10 tw-w-full lg:tw-w-72 lg:tw-min-w-72 xl:tw-w-80 xl:tw-min-w-80">
+          <div class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center">
+            <!-- Icon - magnifying-glass -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+          <input
+            type="text"
+            class="tw-h-full tw-w-full tw-rounded-lg tw-border tw-border-neutral-300 tw-pl-9 tw-pr-10"
+            placeholder="Search for content"
+          />
+          <div class="tw-absolute tw-right-0 tw-top-0 tw-mr-4 tw-flex tw-h-full tw-items-center tw-justify-center">
+            <span class="tw-text-xs tw-font-semibold tw-text-neutral-600">⌘ K</span>
+          </div>
+        </div>
+
+        <!-- Sort by button: trigger a dropdown through this button -->
+        <button class="tw-btn-tertiary tw-ml-auto">
+          <span class="tw-text-neutral-800">Sort by</span>
+          Date Updated
+          <!-- Icon: chevron down -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-3"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+        </button>
+      </div>
+
+      <!-- Content Skill Suggestions Table -->
+      <table class="tw-min-w-full">
+        <thead>
+          <tr class="tw-h-16 tw-border-b tw-border-neutral-300 tw-bg-white">
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">
+              <div class="tw-flex tw-items-center tw-gap-3">
+                TITLE
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <!-- Icon: arrow up/down -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">TYPE</th>
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">
+              <div class="tw-flex tw-items-center tw-gap-3">
+                CONTENT OWNER
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <!-- Icon: arrow up/down -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th class="tw-px-4 tw-text-left tw-text-xs tw-font-extrabold tw-text-neutral-900 tw-uppercase tw-whitespace-nowrap">
+              <div class="tw-flex tw-items-center tw-gap-3">
+                DATE UPDATED
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <!-- Icon: arrow up/down -->
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-size-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 13.5 12 21m0 0-7.5-7.5M12 21V3" />
+                  </svg>
+                </button>
+              </div>
+            </th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">Professional Certificate in Foundations of AI</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Academies</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">10 Excel Functions Everyone Should Know</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Article</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">Virtual Leadership: Leading in the New Normal</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Book</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">Introduction to Time Management</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Video</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">Degreed - LGBTQ+ Diversity, Inclusion & Belonging</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Pathway</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">Technical Consulting Services Onboarding Plan</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Plan</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">How Well Do You Communicate During Conflict?</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Assessment</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+          <tr class="tw-h-16 odd:tw-bg-neutral-100 even:tw-bg-neutral-50">
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs">
+              <p class="tw-mb-1 tw-font-semibold tw-text-neutral-900">The power of vulnerability | Brené Brown | TED Talk</p>
+            </td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Video</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Jane Goodwin</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-xs tw-text-neutral-800">Aug 10, 2024</td>
+            <td class="tw-px-4 tw-py-1.5 tw-text-right">
+              <button class="tw-btn-tertiary">Review Suggestions</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Content Skill Suggestions Table Pagination -->
+      <div
+        class="tw-flex tw-flex-col tw-items-center tw-justify-center tw-rounded-b-2xl tw-bg-white tw-px-6 tw-pb-5 tw-pt-3 sm:tw-pt-5 sm:tw-flex-row sm:tw-justify-between"
+      >
+        <span class="tw-mb-5 tw-text-xs tw-text-neutral-900 sm:tw-mb-0 lg:tw-absolute">Showing {x} to {x} of {x} results</span>
+        <nav class="lg:tw-mx-auto">
+          <ul class="tw-flex tw-items-center tw-gap-1">
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="First">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m18.75 4.5-7.5 7.5 7.5 7.5m-6-15L5.25 12l7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Previous">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+                </svg>
+              </a>
+            </li>
+            <!-- Active Pagination Item -->
+            <li
+              class="tw-flex tw-size-6 tw-items-center tw-justify-center tw-rounded-lg tw-bg-neutral-200 tw-text-xs tw-font-semibold tw-text-neutral-900 hover:tw-bg-neutral-100"
+            >
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">1</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">2</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                  />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">9</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#">10</a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Next">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+            <li class="tw-size-6 tw-rounded-lg tw-text-xs tw-text-neutral-900 hover:tw-bg-neutral-100">
+              <a class="tw-flex tw-h-full tw-w-full tw-items-center tw-justify-center" href="#" aria-label="Last">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  class="tw-size-3"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="m5.25 4.5 7.5 7.5-7.5 7.5m6-15 7.5 7.5-7.5 7.5" />
+                </svg>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+</html-component>

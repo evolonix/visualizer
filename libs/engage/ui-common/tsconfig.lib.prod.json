@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.lib.json",
+  "compilerOptions": {
+    "target": "ES2020",
+    "useDefineForClassFields": false,
+    "declarationMap": false
+  },
+  "angularCompilerOptions": {}
+}

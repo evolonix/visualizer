@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en" class="tw-h-full tw-bg-neutral-50 tw-text-neutral-800">
+  <head>
+    <meta charset="utf-8" />
+    <title>Degreed Skills</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="/src/styles.css" />
+
+    <script type="text/javascript">
+      window.nxSkillsPlatformBootstrap = {
+        organizationId: 1,
+        authToken:
+          'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwczovL2V4YW1wbGUuY29tIiwidXNlcklkIjoyMzQ1LCJoYXNMWFAiOnRydWUsInJvbGVzIjpbIkFkbWluIl0sIm9yZ0lkIjowLCJzZXJ2aWNlRW52IjoiZGdzY3UtZGVmYXVsdCIsIm9yZ05hbWUiOiJCbGFoIEluYy4iLCJhdWQiOiJodHRwczovL2dyYXBocWwuZXhhbXBsZS5jb20iLCJuYW1lIjoiSm9obiBEb2UiLCJzZXNzaW9uU291cmNlIjoiRGVncmVlZCIsImxvY2FsZSI6ImVuIiwiZXhwIjoxNjkxMTc5ODQ1LjAsImV4dGVybmFsT3JnSWQiOiI3MzUiLCJhdmF0YXJVcmwiOiJodHRwOi8vZXhhbXBsZS5jb20vaW1nLmpwZyIsImVudmlyb25tZW50IjoiTG9jYWwifQ.3IhqsGk321qcHAimfVkTZzOGycluV6B7TWvy-u2-rEg',
+        rootUrl: 'http://localhost:8032',
+        cdnUrl: '',
+        baseHref: '/',
+        appFolder: '',
+        lang: 'en',
+        analyticsEndpoint: '',
+        userProfileKey: '0',
+        hasChannel: false,
+        orgsToManage: null,
+        hasSkillAnalytics: false,
+      };
+    </script>
+  </head>
+  <body class="tw-h-full has-[#header-navigation-button[aria-expanded='true']]:tw-overflow-hidden">
+    <div id="root"></div>
+
+    <!-- Global notification live region, render this permanently at the end of the document -->
+    <div aria-live="assertive" className="pointer-events-none fixed inset-0 z-[60] flex items-end px-4 py-6 sm:items-start sm:p-6">
+      <div id="live-notifications" className="flex w-full flex-col items-center space-y-4 sm:items-end"></div>
+    </div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+name: Engage CI/CD
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - apps/engage/**
+      - libs/engage/**
+      - libs/tinymce/**
+      - .github/workflows/engage-*
+      - devops/config/**
+
+concurrency:
+  group: 'engage'
+  cancel-in-progress: true
+  
+jobs:
+  pipeline:
+    uses: ./.github/workflows/_release-stages.yml
+    secrets: inherit
+    with:
+      app-version: '${{ github.run_id }}'
+      app-name: 'engage'
+      artifacts-json: "['engage', 'tinymce']"

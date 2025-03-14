@@ -1,0 +1,46 @@
+---
+id: menu-dropdown
+---
+
+<div class="tw-relative tw-leading-none">
+  <div>
+    <button
+      type="button"
+      class="tw-btn-secondary-outline { CLASSNAME }"
+      id="{ ID }"
+      aria-expanded="true"
+      aria-haspopup="true"
+      onclick="toggleDropdown(this)"
+    >
+      <span>Options</span>
+      <!-- Icon: chevron-down -->
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M13 5.5L8 10.5L3 5.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+    </button>
+  </div>
+
+  <!--
+    Dropdown menu, show/hide based on menu state.
+
+    Entering: "transition ease-out duration-100"
+      From: "transform opacity-0 scale-95"
+      To: "transform opacity-100 scale-100"
+    Leaving: "transition ease-in duration-75"
+      From: "transform opacity-100 scale-100"
+      To: "transform opacity-0 scale-95"
+  -->
+  <!-- Open: "block", Default: "hidden" -->
+  <!-- Remove "hidden" class when implementing this component and manage with state instead -->
+  <div
+    class="tw-absolute tw-right-0 tw-z-10 tw-mt-2 tw-hidden tw-w-56 tw-origin-top-right tw-rounded-xl tw-bg-white tw-text-sm tw-text-neutral-800 tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none"
+    role="menu"
+    aria-orientation="vertical"
+    aria-labelledby="menu-button"
+    tabindex="-1"
+  >
+    <div class="tw-py-2" role="none">
+      <!-- CHILDREN -->
+    </div>
+  </div>
+</div>

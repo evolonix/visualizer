@@ -1,0 +1,73 @@
+{
+  "angular.enable-strict-mode-prompt": false,
+  "[css]": {
+    "editor.colorDecorators": true
+  },
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[typescriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "css.validate": false,
+  "svg.preview.background": "white",
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.formatOnSave": true,
+  "editor.tabSize": 2,
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": "explicit"
+  },
+  "javascript.updateImportsOnFileMove.enabled": "always",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "exportall.config.relExclusion": [
+    "/apps/visualizer/spa/src/data/preview.api.ts",
+    "/libs/shared/react-hook/src/lib/index.ts",
+    "/libs/skills-platform/ui-skills/src/lib/index.ts",
+    "/libs/shared/apollo/react/src/components/nav/product-switcher/components",
+    "/libs/shared/apollo/react/src/components/nav/components",
+  ],
+  "files.associations": { "*.css": "tailwindcss" },
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
+  "tailwindCSS.experimental.configFile": {
+    "libs/shared/apollo/tailwind/src/lib/tailwind.config.ts": [
+      "libs/shared/apollo/**"
+    ],
+    "apps/visualizer/spa/tailwind.config.ts": [
+      "apps/visualizer/spa/index.html",
+      "apps/visualizer/spa/src/**",
+      "!apps/visualizer/spa/src/app/pages/page.tsx",
+      "!apps/visualizer/spa/src/lib/page.utils.ts",
+      "!apps/visualizer/spa/src/lib/preview.utils.ts"
+    ],
+    "apps/visualizer/spa/tailwind.pages.config.ts": [
+      "apps/visualizer/spa/index.pages.html",
+      "apps/visualizer/spa/pages/**",
+      "apps/visualizer/spa/src/app/pages/page.tsx",
+      "apps/visualizer/spa/src/lib/page.utils.ts",
+      "apps/visualizer/spa/src/lib/preview.utils.ts"
+    ],
+    "apps/engage/spa/tailwind.config.js": [
+      "apps/engage/spa/**",
+      "libs/engage/**",
+    ],
+    "apps/skills-platform/spa/tailwind.config.ts": [
+      "apps/skills-platform/index.html",
+      "apps/skills-platform/spa/**",
+      "libs/skills-platform/**",
+    ],
+  }
+}

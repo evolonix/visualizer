@@ -1,0 +1,139 @@
+name: _Deploy CD
+on:
+  workflow_call:
+    inputs:
+      environment:
+        required: true
+        type: string
+        description: The environment to deploy to (must match one of the defined GitHub environments (except CICD))
+      app-version:
+        required: true
+        type: string
+        description: The version of the application being deployed.
+      app-name:
+        required: true
+        type: string
+        description: The name of the application being deployed.
+      artifact-name:
+        required: true
+        type: string
+        description: The name of the artifact to deploy.
+      artifacts-json:
+        required: true
+        type: string
+        description: "The artifacts to deploy. Must be formatted as a JSON array of strings. Example: '[\"engage\", \"tinymce\"]'"
+
+jobs:
+  setupEnv:
+    runs-on: ubuntu-latest
+    outputs:
+      cdn_storage_account: ${{ steps.set-env-vars.outputs.cdn_storage_account }}
+      redis_server: ${{ steps.set-env-vars.outputs.redis_server }}
+      redis_port: ${{ steps.set-env-vars.outputs.redis_port }}
+      redis_server_resource_group: ${{ steps.set-env-vars.outputs.redis_server_resource_group }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Load Env Specifics Vars
+        uses: c-py/action-dotenv-to-setenv@v2
+        with:
+          env-file: ./devops/config/${{ inputs.environment }}.env
+
+      - id: set-env-vars
+        run: |
+          echo "cdn_storage_account=${{ env.cdn_storage_account }}" >> $GITHUB_OUTPUT
+          echo "redis_server=${{ env.redis_server }}" >> $GITHUB_OUTPUT
+          echo "redis_port=${{ env.redis_port }}" >> $GITHUB_OUTPUT
+          echo "redis_server_resource_group=${{ env.redis_server_resource_group }}" >> $GITHUB_OUTPUT
+  deploy:
+    runs-on: ubuntu-latest
+    needs: setupEnv
+
+    environment: ${{ inputs.environment }}-${{ inputs.app-name }}
+    strategy:
+      matrix:
+        name: ${{ fromJson(inputs.artifacts-json) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Download '${{ matrix.name }}' build artifacts
+        id: download
+        run: gh run download -n ${{ inputs.artifact-name }} -D '${{ github.workspace }}/dist/${{ matrix.name }}'
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Display structure of downloaded files
+        run: ls -R
+        working-directory: ${{ github.workspace }}/dist
+
+      - name: Remove sourcemaps for higher environments
+        if: ${{ matrix.name == 'skills-platform' && inputs.environment != 'Staging' }}
+        run: rm -rf ${{ matrix.name }}/assets/*.map
+        working-directory: ${{ github.workspace }}/dist
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_SPARKS }}
+
+      - name: Upload '${{ matrix.name }}' to blob storage
+        run: |
+          az storage blob upload-batch --account-name ${{ needs.setupEnv.outputs.cdn_storage_account }} --overwrite -d '${{ matrix.name }}' -s dist/${{ matrix.name }}/. --auth-mode login
+
+  updateVersion:
+    runs-on: ubuntu-latest
+    needs:
+      - setupEnv
+      - deploy
+    steps:
+      - uses: shogo82148/actions-setup-redis@v1
+        with:
+          redis-version: '4.0'
+          auto-start: false
+
+      - name: enable systemd
+        run: |
+          sudo loginctl enable-linger $(whoami)
+          sleep 1
+          echo "XDG_RUNTIME_DIR=/run/user/$UID" >> $GITHUB_ENV
+
+      - name: install `stunnel`
+        run: |
+          sudo apt-get update
+          sudo DEBIAN_FRONTEND=noninteractive apt-get -yq install stunnel4
+
+      - name: create 'stunnel' config file
+        run: |
+          sudo bash -c 'cat > cat >/etc/stunnel/stunnel.conf' << EOF
+          fips = no
+          debug = 7
+          delay = yes
+          [redis-cli]
+            client = yes
+            accept = 127.0.0.1:6380
+            connect = ${{ needs.setupEnv.outputs.redis_server }}.redis.cache.windows.net:${{ needs.setupEnv.outputs.redis_port }}
+          EOF
+
+          sudo systemctl restart stunnel4
+
+      - uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS_SPARKS }}
+
+      - name: Get redis access key
+        id: get-redis-key
+        run: |
+          key=$(az redis list-keys --name ${{ needs.setupEnv.outputs.redis_server }} --resource-group ${{ needs.setupEnv.outputs.redis_server_resource_group }} | jq -r '.primaryKey')
+          if [[  -n "${key}" ]]; then
+            echo "::add-mask::${key}"
+            echo "redis_key=${key}" >> $GITHUB_ENV
+          else
+            exit 1
+          fi
+
+      - name: Update `EngageFileVersion` in Redis
+        run: |
+          redis-cli -p ${{ needs.setupEnv.outputs.redis_port }} -a "${{ env.redis_key }}" set EngageFileVersion ${{ inputs.app-version }}
+          redis-cli -p ${{ needs.setupEnv.outputs.redis_port }} -a "${{ env.redis_key }}" get EngageFileVersion
+          redis-cli -p ${{ needs.setupEnv.outputs.redis_port }} -a "${{ env.redis_key }}" publish cache_invalidation EngageFileVersion

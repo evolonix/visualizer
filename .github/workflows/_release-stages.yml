@@ -1,0 +1,120 @@
+name: _Shared Deployment Pipeline (All environments)
+
+on:
+  workflow_call:
+    inputs:
+      app-version:
+        type: string
+        description: 'The version of the application to deploy'
+        required: true
+      app-name:
+        type: string
+        description: 'The name of the application to deploy'
+        required: true
+      artifacts-json:
+        type: string
+        description: 'The artifacts to deploy'
+        required: true
+
+jobs:
+  buildAndTest:
+    uses: ./.github/workflows/_build-and-test.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      upload-artifacts: 'true'
+      app-name: ${{ inputs.app-name}}
+
+  deployStaging:
+    needs:
+      - buildAndTest
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Staging'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+    
+
+  deployRelease:
+    needs:
+      - buildAndTest
+      - deployStaging
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Release'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+
+  deployBeta:
+    needs:
+      - buildAndTest
+      - deployRelease
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Beta'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+
+  deployEuropeBeta:
+    needs:
+      - buildAndTest
+      - deployRelease
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'EuropeBeta'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+
+  deployEurope:
+    needs:
+      - buildAndTest
+      - deployRelease
+      - deployEuropeBeta
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Europe'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+
+  deployCanada:
+    needs:
+      - buildAndTest
+      - deployRelease
+      - deployBeta
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Canada'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}
+
+  deployProd:
+    needs:
+      - buildAndTest
+      - deployRelease
+      - deployBeta
+    uses: ./.github/workflows/_deploy.yml
+    secrets: inherit
+    with:
+      app-version: '${{ inputs.app-version }}'
+      environment: 'Production'
+      app-name: ${{ inputs.app-name}}
+      artifact-name: '${{ inputs.app-name }}@${{ inputs.app-version }}'
+      artifacts-json: ${{ inputs.artifacts-json }}

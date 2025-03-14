@@ -1,5 +1,24 @@
 # Add files here to ignore them from prettier formatting
-/dist
-/coverage
-/.nx/cache
+
+dist
+coverage
+tmp
 .angular
+.github
+.vscode
+node_modules
+**/.next
+apps/engage/server/src/app/main.ts
+apps/engage/server/src/app/paginators/rules.ts
+apps/engage/spa/src/tinymce
+apps/engage/spa/src/docs/tinymce/skins
+apps/visualizer/spa-old/public/apollo.css
+apps/visualizer/spa/public/tinymce
+
+libs/shared/apollo/react/data-access/src/layout-configuration.utils.ts
+
+CHANGELOG.md
+CODEOWNERS
+
+/.nx/cache
+/.nx/workspace-data

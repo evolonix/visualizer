@@ -1,7 +1,19 @@
 {
   "recommendations": [
-    "nrwl.angular-console",
     "esbenp.prettier-vscode",
-    "ms-playwright.playwright"
+    "firsttris.vscode-jest-runner",
+    "dbaeumer.vscode-eslint",
+    "bradlc.vscode-tailwindcss",
+    "usernamehw.errorlens",
+    "nrwl.angular-console",
+    "meganrogge.template-string-converter",
+    "kingwl.vscode-vitest-runner",
+    "eliostruyf.vscode-typescript-exportallmodules",
+    "steoates.autoimport",
+    "tobermory.es6-string-html",
+    "alefragnani.project-manager",
+    "ms-vsliveshare.vsliveshare",
+    "ms-vscode.powershell",
+    "vscode-icons-team.vscode-icons"
   ]
 }

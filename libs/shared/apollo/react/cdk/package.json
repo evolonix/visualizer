@@ -1,0 +1,20 @@
+{
+  "name": "@degreed/apollo-react-cdk",
+  "version": "0.0.0-development",
+  "type": "module",
+  "dependencies": {
+    "@headlessui/react": "^2.0.4",
+    "@heroicons/react": "^2.0.18",
+    "tailwind-merge": "^2.3.0"
+  },
+  "peerDependencies": {
+    "react-router-dom": "^6.11.2"
+  },
+  "module": "./index.esm.js",
+  "typings": "./index.esm.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/degreed/fe-workspace.git",
+    "directory": "libs/shared/apollo/react/cdk"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "name": "lib-engage-ui-common",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "libs/engage/ui-common/src",
+  "prefix": "dgs",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:ng-packagr-lite",
+      "outputs": ["{workspaceRoot}/dist/libs/engage/ui-common"],
+      "options": {
+        "project": "libs/engage/ui-common/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/engage/ui-common/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/engage/ui-common/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/engage/ui-common"],
+      "options": {
+        "jestConfig": "libs/engage/ui-common/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    }
+  },
+  "tags": ["type:ui", "scope:engage"]
+}

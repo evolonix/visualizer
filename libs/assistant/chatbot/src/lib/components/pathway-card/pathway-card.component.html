@@ -1,0 +1,9 @@
+<card>
+  <div class="pathway_item" (click)="onClick()">
+    <img [src]="getImageUrl()" #imgEl (error)="setFallBackImage(imgEl)" alt="" />
+    <div class="metainfo">
+      <div class="title">{{ data.title }}</div>
+      <div class="description">{{ getDescription() }}</div>
+    </div>
+  </div>
+</card>

@@ -1,0 +1,227 @@
+<div class="min-h-full bg-neutral-50 text-neutral-900">
+  <!-- <dgs-header></dgs-header> -->
+
+  <main class="grid-apollo pt-16">
+    <div class="col-span-full pt-16 md:col-span-10 md:col-start-2 lg:col-span-8 lg:col-start-3">
+      <h1 class="text-4xl font-bold transition-opacity" [ngClass]="{ 'opacity-0': !rule, 'opacity-1': rule }">
+        {{ rule?.id ? 'Edit Rule' : 'Create a Rule' }}
+      </h1>
+      <form class="pt-8" [formGroup]="ruleForm" (submit)="saveRule()">
+        <div class="pb-2">
+          <label class="py-1" for="ruleName">Rule Name <span>*</span></label>
+          <div class="relative rounded-lg">
+            <input
+              id="ruleName"
+              name="ruleName"
+              type="text"
+              formControlName="ruleName"
+              class="block w-full rounded-lg focus:outline-none"
+              [ngClass]="{
+                'border-neutral-200 focus:border-blue-700 focus:ring-blue-700': ruleName?.valid || !(ruleName?.dirty || ruleName?.touched),
+                'border-red-700 focus:border-red-700 focus:ring-red-700': ruleName?.invalid && (ruleName?.dirty || ruleName?.touched),
+              }"
+              placeholder="Enter Name"
+              autofocus
+              maxlength="100"
+              required
+              pattern="^.*\S.*$"
+              [attr.aria-invalid]="ruleName?.invalid && (ruleName?.dirty || ruleName?.touched)"
+              [attr.aria-describedby]="ruleName?.invalid && (ruleName?.dirty || ruleName?.touched) ? 'ruleName-error' : ''"
+            />
+          </div>
+          <div class="h-6">
+            <ng-container *ngIf="ruleName?.invalid && (ruleName?.dirty || ruleName?.touched)">
+              <p *ngIf="ruleName?.errors?.['required']" class="text-sm text-red-700" id="ruleName-error">Rule Name is required.</p>
+              <p *ngIf="ruleName?.errors?.['pattern']" class="text-sm text-red-700" id="ruleName-error">Rule Name is invalid.</p>
+            </ng-container>
+          </div>
+        </div>
+        <ng-container formArrayName="predicates">
+          <ng-container *ngFor="let predicateForm of predicates.controls; let i = index">
+            <div class="flex items-center" [formGroupName]="i">
+              <h4 class="hidden w-[89px] pb-6 font-extrabold lg:block">If</h4>
+              <div class="flex-1 border-b border-neutral-200 pb-2">
+                <label for="comparisonValue" class="py-1">Condition <span>*</span></label>
+                <div class="relative rounded-lg">
+                  <select
+                    id="comparisonValue"
+                    name="comparisonValue"
+                    class="block w-full rounded-lg border-neutral-200 focus:border-blue-700 focus:outline-none focus:ring-blue-700"
+                    formControlName="comparisonValue"
+                    required
+                    [ngClass]="{
+                      'border-neutral-200 focus:border-blue-700 focus:ring-blue-700':
+                        predicateForm.get('comparisonValue')?.valid ||
+                        !(predicateForm.get('comparisonValue')?.dirty || predicateForm.get('comparisonValue')?.touched),
+                      'border-red-700 focus:border-red-700 focus:ring-red-700':
+                        predicateForm.get('comparisonValue')?.invalid &&
+                        (predicateForm.get('comparisonValue')?.dirty || predicateForm.get('comparisonValue')?.touched),
+                    }"
+                    [attr.aria-invalid]="
+                      predicateForm.get('comparisonValue')?.invalid &&
+                      (predicateForm.get('comparisonValue')?.dirty || predicateForm.get('comparisonValue')?.touched)
+                    "
+                    [attr.aria-describedby]="
+                      predicateForm.get('comparisonValue')?.invalid &&
+                      (predicateForm.get('comparisonValue')?.dirty || predicateForm.get('comparisonValue')?.touched)
+                        ? 'comparisonValue-error'
+                        : ''
+                    "
+                  >
+                    <option value="" disabled>Select a condition</option>
+                    <option *ngFor="let event of events$ | async" [value]="event.name">{{ event.displayName }}</option>
+                  </select>
+                  <div class="h-6">
+                    <ng-container
+                      *ngIf="
+                        predicateForm.get('comparisonValue')?.invalid &&
+                        (predicateForm.get('comparisonValue')?.dirty || predicateForm.get('comparisonValue')?.touched)
+                      "
+                    >
+                      <p
+                        *ngIf="predicateForm.get('comparisonValue')?.errors?.['required']"
+                        class="text-sm text-red-700"
+                        id="comparisonValue-error"
+                      >
+                        Condition is required
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+        <div class="flex items-center pt-6">
+          <h4 class="hidden w-[89px] pb-6 font-extrabold lg:block">Then</h4>
+          <div class="flex-1 border-b border-neutral-200 pb-6">
+            <label class="py-1">Action</label>
+            <p>Send Email</p>
+          </div>
+        </div>
+        <ng-container formArrayName="outcomes">
+          <ng-container *ngFor="let outcomeForm of outcomes.controls; let i = index">
+            <div class="flex items-center pt-6" [formGroupName]="i">
+              <div class="flex-1 lg:pl-[89px]">
+                <div class="pb-2">
+                  <label class="py-1" for="emailSubject">Email Subject <span>*</span></label>
+                  <div class="relative rounded-lg">
+                    <input
+                      id="emailSubject"
+                      name="emailSubject"
+                      type="text"
+                      formControlName="emailSubject"
+                      class="block w-full rounded-lg focus:outline-none"
+                      [ngClass]="{
+                        'border-neutral-200 focus:border-blue-700 focus:ring-blue-700':
+                          outcomeForm.get('emailSubject')?.valid ||
+                          !(outcomeForm.get('emailSubject')?.dirty || outcomeForm.get('emailSubject')?.touched),
+                        'border-red-700 focus:border-red-700 focus:ring-red-700':
+                          outcomeForm.get('emailSubject')?.invalid &&
+                          (outcomeForm.get('emailSubject')?.dirty || outcomeForm.get('emailSubject')?.touched),
+                      }"
+                      placeholder="Enter Subject"
+                      required
+                      pattern="^.*\S.*$"
+                      [attr.aria-invalid]="
+                        outcomeForm.get('emailSubject')?.invalid &&
+                        (outcomeForm.get('emailSubject')?.dirty || outcomeForm.get('emailSubject')?.touched)
+                      "
+                      [attr.aria-describedby]="
+                        outcomeForm.get('emailSubject')?.invalid &&
+                        (outcomeForm.get('emailSubject')?.dirty || outcomeForm.get('emailSubject')?.touched)
+                          ? 'emailSubject-error'
+                          : ''
+                      "
+                    />
+                  </div>
+                  <div class="h-6">
+                    <ng-container
+                      *ngIf="
+                        outcomeForm.get('emailSubject')?.invalid &&
+                        (outcomeForm.get('emailSubject')?.dirty || outcomeForm.get('emailSubject')?.touched)
+                      "
+                    >
+                      <p *ngIf="outcomeForm.get('emailSubject')?.errors?.['required']" class="text-sm text-red-700" id="emailSubject-error">
+                        Email Subject is required.
+                      </p>
+                      <p *ngIf="outcomeForm.get('emailSubject')?.errors?.['pattern']" class="text-sm text-red-700" id="emailSubject-error">
+                        Email Subject is invalid.
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+
+                <div class="pb-2">
+                  <label class="py-1" for="emailContent">Email Content <span>*</span></label>
+                  <div class="relative rounded-lg">
+                    <!-- Tiny MCE Editor -->
+                    <editor
+                      [id]="'emailContent'"
+                      [init]="editorConfig"
+                      formControlName="emailContent"
+                      [class.has-error]="
+                        outcomeForm.get('emailContent')?.invalid &&
+                        (outcomeForm.get('emailContent')?.dirty || outcomeForm.get('emailContent')?.touched)
+                      "
+                      required
+                      (onKeyUp)="ruleForm.updateValueAndValidity()"
+                      [attr.aria-invalid]="
+                        outcomeForm.get('emailContent')?.invalid &&
+                        (outcomeForm.get('emailContent')?.dirty || outcomeForm.get('emailContent')?.touched)
+                      "
+                      [attr.aria-describedby]="
+                        outcomeForm.get('emailContent')?.invalid &&
+                        (outcomeForm.get('emailContent')?.dirty || outcomeForm.get('emailContent')?.touched)
+                          ? 'emailContent-error'
+                          : ''
+                      "
+                      (onGetContent)="onGetContent($event)"
+                    ></editor>
+                  </div>
+                  <div class="h-6">
+                    <ng-container
+                      *ngIf="
+                        outcomeForm.get('emailContent')?.invalid &&
+                        (outcomeForm.get('emailContent')?.dirty || outcomeForm.get('emailContent')?.touched)
+                      "
+                    >
+                      <p *ngIf="outcomeForm.get('emailContent')?.errors?.['required']" class="text-sm text-red-700" id="emailContent-error">
+                        Email Content is required.
+                      </p>
+                    </ng-container>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+
+        <div class="flex justify-end pt-6">
+          <button type="button" class="btn-neutral" routerLink="/rules">Cancel</button>
+          <button type="submit" class="btn-primary ml-4 flex items-center" [disabled]="ruleForm.invalid">
+            <svg
+              *ngIf="ruleForm.invalid"
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              class="mr-1"
+            >
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M4.7717 3.92317L12.0768 11.2283C12.7804 10.3412 13.2 9.22001 13.2 8.00001C13.2 5.12813 10.8719 2.80001 8.00001 2.80001C6.78001 2.80001 5.65883 3.21957 4.7717 3.92317ZM11.2283 12.0768L3.92317 4.7717C3.21957 5.65883 2.80001 6.78001 2.80001 8.00001C2.80001 10.8719 5.12813 13.2 8.00001 13.2C9.22001 13.2 10.3412 12.7804 11.2283 12.0768ZM3.47452 3.47452C4.63204 2.31701 6.23286 1.60001 8.00001 1.60001C11.5346 1.60001 14.4 4.46538 14.4 8.00001C14.4 9.76715 13.683 11.368 12.5255 12.5255C11.368 13.683 9.76715 14.4 8.00001 14.4C4.46538 14.4 1.60001 11.5346 1.60001 8.00001C1.60001 6.23286 2.31701 4.63204 3.47452 3.47452Z"
+                class="fill-neutral-700"
+              />
+            </svg>
+            Save
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <dgs-footer></dgs-footer>
+</div>
