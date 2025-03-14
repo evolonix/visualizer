@@ -3,7 +3,6 @@ import { Bars3Icon, MagnifyingGlassIcon, XMarkIcon } from '@heroicons/react/20/s
 import clsx from 'clsx';
 import { ReactElement } from 'react';
 import { Link, NavLink, useLocation, useMatches } from 'react-router-dom';
-import logo from '../assets/logo.svg';
 import { Preview } from '../data';
 import { KeyboardEventModifierKey, useActionKey } from '../lib';
 
@@ -70,7 +69,13 @@ export function Header() {
               <div className="relative z-10 flex px-2 lg:px-0">
                 <div className="flex flex-shrink-0 items-center">
                   <Link to="/">
-                    <img className="h-6 w-auto" src={logo} alt="Degreed" />
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-auto" fill="none" viewBox="0 0 65 65">
+                      <path
+                        fill="#fff"
+                        d="M39.445 25.555 37 17.163 65 0 47.821 28l-8.376-2.445Zm-13.89 0L28 17.163 0 0l17.179 28 8.376-2.445Zm13.89 13.89L37 47.837 65 65 47.821 37l-8.376 2.445Zm-13.89 0L28 47.837 0 65l17.179-28 8.376 2.445Z"
+                      ></path>
+                    </svg>
+                    <span className="sr-only">Logo</span>
                   </Link>
                 </div>
                 <nav className="ml-4 hidden lg:flex lg:space-x-4" aria-label="Global">
