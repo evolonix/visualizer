@@ -1,0 +1,145 @@
+{
+  "name": "app-engage",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/engage/spa/src",
+  "prefix": "dg",
+  "targets": {
+    "build-app": {
+      "executor": "@angular-builders/custom-webpack:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/engage/spa",
+        "index": "apps/engage/spa/src/index.html",
+        "main": "apps/engage/spa/src/bootstrap.ts",
+        "polyfills": "apps/engage/spa/src/polyfills.ts",
+        "tsConfig": "apps/engage/spa/tsconfig.app.json",
+        "inlineStyleLanguage": "css",
+        "assets": [
+          "apps/engage/spa/src/favicon.ico",
+          "apps/engage/spa/src/assets",
+          {
+            "glob": "**/*",
+            "input": "node_modules/tinymce",
+            "output": "/tinymce/"
+          },
+          {
+            "glob": "**/*",
+            "input": "apps/engage/spa/src/tinymce",
+            "output": "/tinymce/"
+          }
+        ],
+        "styles": ["apps/engage/spa/src/styles.css"],
+        "scripts": [],
+        "customWebpackConfig": {
+          "path": "apps/engage/spa/custom-webpack.config.js"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "5mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "100kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/engage/spa/src/environments/environment.ts",
+              "with": "apps/engage/spa/src/environments/environment.prod.ts"
+            }
+          ],
+          "buildOptimizer": true,
+          "optimization": true,
+          "vendorChunk": true,
+          "sourceMap": false,
+          "namedChunks": true,
+          "outputHashing": "none"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx run app-engage:build-app"],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {
+          "commands": ["nx run app-engage:build-app:production"]
+        },
+        "development": {
+          "commands": ["nx run app-engage:build-app:development"]
+        },
+        "lxp": {
+          "commands": ["nx run app-engage:build-app:development", "node tools/copy-engage-to-lxp.js"]
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve-app": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "browserTarget": "app-engage:build-app",
+        "port": 4202,
+        "publicHost": "http://localhost:4202"
+      },
+      "configurations": {
+        "production": {
+          "browserTarget": "app-engage:build-app:production"
+        },
+        "development": {
+          "browserTarget": "app-engage:build-app:development"
+        }
+      }
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx serve server-engage", "nx run app-engage:serve-app"]
+      },
+      "configurations": {
+        "production": {
+          "commands": ["nx run server-engage:serve:production", "nx run app-engage:serve-app:production"]
+        },
+        "development": {
+          "commands": ["nx run server-engage:serve:development", "nx run app-engage:serve-app:development"]
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "app-engage:build"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/apps/engage/spa"],
+      "options": {
+        "jestConfig": "apps/engage/spa/jest.config.ts"
+      }
+    }
+  },
+  "tags": ["type:app", "scope:engage"]
+}

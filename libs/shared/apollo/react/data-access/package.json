@@ -1,0 +1,12 @@
+{
+  "name": "@degreed/apollo-react-data-access",
+  "version": "0.0.0-development",
+  "type": "module",
+  "module": "./index.esm.js",
+  "typings": "./index.esm.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/degreed/fe-workspace.git",
+    "directory": "libs/shared/apollo/react/data-access"
+  }
+}

@@ -1,0 +1,198 @@
+<div class="tw-min-h-screen tw-w-full tw-bg-white">
+  <div
+    class="tw-sticky tw-top-0 tw-z-40 tw-flex tw-h-16 tw-shrink-0 tw-items-center tw-gap-x-4 tw-border-b tw-border-neutral-200 tw-bg-white tw-px-4 sm:tw-h-20 sm:tw-gap-x-6 sm:tw-px-6 lg:tw-px-10"
+  >
+    <div class="tw-absolute tw-inset-y-0 tw-left-3 tw-flex tw-items-center">
+      <button type="button" class="tw-btn-secondary-filled tw-btn-medium tw-btn-icon">
+        <span class="tw-sr-only">Go back</span>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M5.14645 8.35355C4.95118 8.15829 4.95118 7.84171 5.14645 7.64645L10.1464 2.64645C10.3417 2.45119 10.6583 2.45119 10.8536 2.64645C11.0488 2.84171 11.0488 3.15829 10.8536 3.35355L6.20711 8L10.8536 12.6464C11.0488 12.8417 11.0488 13.1583 10.8536 13.3536C10.6583 13.5488 10.3417 13.5488 10.1464 13.3536L5.14645 8.35355Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="tw-ml-12 tw-flex tw-flex-1 tw-items-center md:tw-ml-0 md:tw-justify-center">
+      <p class="tw-font-semibold">Skill Details</p>
+    </div>
+
+    <div class="tw-absolute tw-inset-y-0 tw-right-6 tw-flex tw-items-center tw-gap-x-4">
+      <button class="tw-btn-tertiary-neutral" onclick="toggleDrawer('suggestions-drawer-skills')">2 Suggestions</button>
+
+      <button class="tw-btn-primary tw-btn-medium">Edit Skill</button>
+    </div>
+  </div>
+  <!-- sub header -->
+  <div class="tw-flex tw-bg-neutral-100 tw-align-middle tw-py-3 tw-px-4">
+    <div class="tw-inline-flex tw-w-svw">
+      <p class="tw-text-xs tw-font-extrabold tw-mr-3 tw-flex tw-gap-3 tw-items-center tw-justify-center">LANGUAGE</p>
+      <button class="tw-btn-secondary-outline tw-btn-small tw-mr-3">
+        English
+        <svg class="tw-ml-3" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M2.58453 4.96731C2.82339 4.73763 3.20322 4.74508 3.43289 4.98394L8.00039 9.73414L12.5679 4.98394C12.7976 4.74508 13.1774 4.73763 13.4163 4.96731C13.6551 5.19698 13.6626 5.57681 13.4329 5.81567L8.43289 11.0157C8.31977 11.1333 8.1636 11.1998 8.00039 11.1998C7.83718 11.1998 7.68101 11.1333 7.56789 11.0157L2.56789 5.81567C2.33822 5.57681 2.34566 5.19698 2.58453 4.96731Z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button class="tw-btn-secondary-outline tw-btn-small">Manage Translations</button>
+    </div>
+    <button class="tw-btn-secondary-outline tw-btn-small">
+      <p class="tw-hidden md:tw-inline-flex">Download Files</p>
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M8 1.5C8.27614 1.5 8.5 1.72386 8.5 2V9.79289L10.6464 7.64645C10.8417 7.45118 11.1583 7.45118 11.3536 7.64645C11.5488 7.84171 11.5488 8.15829 11.3536 8.35355L8.35355 11.3536C8.15829 11.5488 7.84171 11.5488 7.64645 11.3536L4.64645 8.35355C4.45118 8.15829 4.45118 7.84171 4.64645 7.64645C4.84171 7.45118 5.15829 7.45118 5.35355 7.64645L7.5 9.79289V2C7.5 1.72386 7.72386 1.5 8 1.5ZM2 10.5C2.27614 10.5 2.5 10.7239 2.5 11V12.5C2.5 13.0523 2.94772 13.5 3.5 13.5H12.5C13.0523 13.5 13.5 13.0523 13.5 12.5V11C13.5 10.7239 13.7239 10.5 14 10.5C14.2761 10.5 14.5 10.7239 14.5 11V12.5C14.5 13.6046 13.6046 14.5 12.5 14.5H3.5C2.39543 14.5 1.5 13.6046 1.5 12.5V11C1.5 10.7239 1.72386 10.5 2 10.5Z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
+  <!-- end sub header-->
+  <div class="tw-flex">
+    <main class="tw-flex tw-flex-col tw-px-10 tw-pt-10 md:tw-px-40 md:tw-pt-20 lg:tw-pt-20 lg:tw-pb-10 lg:tw-px-60 tw-gap-12">
+      <div class="tw-flex tw-flex-col tw-items-start tw-gap-8 tw-self-stretch">
+        <div class="tw-flex tw-justify-end tw-items-start tw-gap-2 tw-w-full">
+          <div class="tw-inline-flex tw-flex-1 tw-gap-2 tw-font-extrabold tw-uppercase">
+            <span
+              class="tw-whitespace-nowrap tw-rounded-2xl tw-border tw-border-yellow-300 tw-bg-yellow-50 tw-px-2 tw-py-1 tw-text-xs tw-text-yellow-800"
+              >Draft</span
+            >
+          </div>
+          <div class="tw-text-xs tw-font-extrabold tw-text-neutral-600">
+            <p>LAST UPDATED <span class="tw-ml-1 tw-font-normal">Jul 22, 2024</span></p>
+          </div>
+        </div>
+        <div>
+          <div class="tw-flex tw-h-4 tw-items-center tw-gap-2 tw-text-neutral-600 tw-mb-3">
+            <p class="tw-text-xs tw-font-extrabold tw-flex tw-items-center tw-self-stretch">SKILL ID</p>
+            <p class="tw-text-xs tw-flex tw-items-center tw-gap-2 tw-self-stretch">********************************</p>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M2.62426 1.77535C2.38995 1.54103 2.01005 1.54103 1.77574 1.77535C1.54142 2.00966 1.54142 2.38956 1.77574 2.62387L13.3757 14.2239C13.61 14.4582 13.9899 14.4582 14.2243 14.2239C14.4586 13.9896 14.4586 13.6097 14.2243 13.3753L12.8281 11.9792C14.0051 11.0871 14.9276 9.87679 15.4675 8.47635C15.5852 8.1711 15.5853 7.83262 15.4678 7.52731C14.3136 4.52801 11.4048 2.39961 7.99887 2.39961C6.62566 2.39961 5.33325 2.7456 4.20408 3.35516L2.62426 1.77535ZM6.20155 5.35263L7.07494 6.22602C7.35161 6.08139 7.66633 5.99961 8.00015 5.99961C9.10471 5.99961 10.0001 6.89504 10.0001 7.99961C10.0001 8.33343 9.91836 8.64815 9.77374 8.92482L10.6473 9.79836C10.9963 9.28576 11.2003 8.66651 11.2003 7.99961C11.2003 6.2323 9.76761 4.79961 8.0003 4.79961C7.3334 4.79961 6.71415 5.00362 6.20155 5.35263Z"
+                fill="currentColor"
+              />
+              <path
+                d="M8.59871 11.1438L10.6169 13.1619C9.79699 13.4455 8.91663 13.5996 8.0003 13.5996C4.59438 13.5996 1.68558 11.4712 0.531404 8.47191C0.413913 8.16659 0.414015 7.82812 0.531688 7.52287C0.924827 6.50306 1.52086 5.58407 2.27033 4.81536L4.85616 7.40119C4.81948 7.59505 4.8003 7.79509 4.8003 7.99961C4.8003 9.76692 6.23299 11.1996 8.0003 11.1996C8.20482 11.1996 8.40486 11.1804 8.59871 11.1438Z"
+                fill="currentColor"
+              />
+            </svg>
+          </div>
+
+          <h1 class="tw-flex tw-flex-col tw-items-start tw-gap-4 tw-self-stretch tw-text-4xl tw-font-bold tw-mb-4">Skill Name</h1>
+          <p>
+            {Skill Description} Lorem ipsum dolor sit amet consectetur. Platea convallis pellentesque molestie velit consectetur mauris
+            elit. Nunc neque quis ipsum quisque. Cras ullamcorper elementum amet mi quis arcu senectus.
+          </p>
+        </div>
+        <div class="tw-flex-row tw-flex-wrap tw-flex tw-gap-2 tw-flex-1 tw-w-full">
+          <div class="tw-flex tw-gap-2 tw-font-extrabold tw-uppercase">
+            <span
+              class="tw-whitespace-nowrap tw-rounded-2xl tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+              >{Org Name} SKILL
+            </span>
+          </div>
+          <div class="tw-flex tw-gap-2 tw-font-extrabold tw-uppercase">
+            <span
+              class="tw-whitespace-nowrap tw-rounded-2xl tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+              >PROPRIETARY
+            </span>
+          </div>
+          <div class="tw-flex tw-gap-2 tw-font-extrabold tw-uppercase">
+            <span
+              class="tw-whitespace-nowrap tw-rounded-2xl tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+              >Endorsed
+            </span>
+          </div>
+          <div class="tw-flex tw-gap-2 tw-font-extrabold tw-uppercase">
+            <span
+              class="tw-whitespace-nowrap tw-rounded-2xl tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+              >SKILL REVIEW ENABLED
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sm:tw-col-span-8 md:tw-col-span-12 md:tw-col-start-2 lg:tw-col-start-2 xl:tw-col-span-4 xl:tw-col-start-3">
+        <div
+          class="tw-hidden tw-h-8 tw-items-center tw-gap-2 tw-rounded-lg tw-border tw-border-neutral-300 tw-bg-white tw-px-1 tw-py-2 md:tw-inline-flex"
+        >
+          <button
+            type="button"
+            class="tw-inline-flex tw-h-6 tw-items-center tw-gap-3 tw-rounded-md tw-border tw-border-blue-200 tw-border-transparent tw-bg-blue-100 tw-px-4 tw-text-sm tw-font-semibold tw-text-blue-900 hover:tw-border-blue-300 hover:tw-text-blue-800 focus:tw-border-blue-800 focus:tw-bg-blue-100 focus:tw-text-blue-900 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-blue-800 disabled:tw-border-dashed disabled:tw-border-neutral-300 disabled:tw-bg-neutral-100 disabled:tw-text-neutral-600"
+          >
+            Details
+          </button>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="tw-text-xs tw-font-extrabold tw-mb-1">SYNONYMOUS SKILLS</h2>
+        <p class="tw-text-xs tw-mb-4">Alternative spelling, terms or phrases used interchangeably with {Skill Name}.</p>
+        <div class="tw-flex tw-gap-3 tw-font-semibold tw-flex-row tw-flex-wrap tw-flex-1 tw-w-full">
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Skill Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Skill Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Skill Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Skill Name}</span
+          >
+        </div>
+      </div>
+
+      <div>
+        <h2 class="tw-text-xs tw-font-extrabold tw-mb-1">SKILL CATEGORIES</h2>
+        <p class="tw-text-xs tw-mb-4">Groups of related skills based on shared characteristics, functions, or domains of expertise.</p>
+        <div class="tw-flex tw-gap-3 tw-font-semibold tw-flex-row tw-flex-wrap tw-flex-1 tw-w-full">
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Category Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Category Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Category Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Category Name}</span
+          >
+        </div>
+      </div>
+
+      <div>
+        <h2 class="tw-text-xs tw-font-extrabold tw-mb-1">JOB ROLES</h2>
+        <p class="tw-text-xs tw-mb-4">Groups of related skills based on shared characteristics, functions, or domains of expertise.</p>
+        <div class="tw-flex tw-gap-3 tw-font-semibold tw-flex-row tw-flex-wrap tw-flex-1 tw-w-full">
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Role Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Role Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Role Name}</span
+          >
+          <span class="tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+            >{Role Name}</span
+          >
+        </div>
+      </div>
+    </main>
+    <html-component name="skills-platform/drawers/suggestions-drawer-skills"></html-component>
+  </div>
+  <html-component name="apollo/footer"></html-component>
+</div>

@@ -1,0 +1,130 @@
+<div class="chat-container" *ngIf="showChat" [style.height]="height">
+  <!-- ... rest of the chat component ... -->
+
+  <div class="chat-header">
+    <div class="degreed_logo" (click)="forgetAndRestart($event)"></div>
+    <div class="header-content">
+      <div class="header_title">Degreed Assistant</div>
+      <!-- Subheader for Bot -->
+    </div>
+  </div>
+
+  <!-- ... rest of the chat component ... -->
+  <div class="chat-content chat-scroll landing_page" *ngIf="!showChatPage">
+    <div class="welcome_container" [style]="{ width: '90%', margin: '0 auto', marginTop: '20%' }">
+      <div class="headers">
+        <div class="welcome_text">Hi there 👋</div>
+        <div class="welcome_sub_text">How can I help?</div>
+      </div>
+      <p-listbox *ngIf="default_prompts.length" [style]="{ marginTop: '10%' }" optionLabel="name" [options]="default_prompts">
+        <ng-template let-starter pTemplate="item">
+          <div class="starter_items" (click)="onPromptSelection(starter)">
+            <span class="icon {{ starter.icon }}" alt="img"></span>
+            {{ starter.label }}
+          </div>
+        </ng-template>
+      </p-listbox>
+    </div>
+  </div>
+
+  <div class="chat-content chat-scroll" *ngIf="showChatPage" #scrollMe>
+    <span class="journey_text" *ngIf="journey_type">You have selected '{{ journey_type }}'</span>
+    <div *ngFor="let message of messages; let i = index; let last = last">
+      <div [ngClass]="message.isAI ? 'wrapper-ai' : 'wrapper-user'">
+        <div *ngIf="!message.isAI" class="chat">
+          <div class="message" [id]="message.id">
+            <span [innerHTML]="convertToHtml(message.message)"></span>
+            <audio-message *ngIf="isAudio(message)" [message]="message"></audio-message>
+          </div>
+        </div>
+
+        <div *ngIf="message.isAI" class="chat-ai" [id]="message.id">
+          <div class="chat-profile-info">
+            <div class="degreed_logo"></div>
+          </div>
+          <!-- <div class="loading-animation" *ngIf="message.inProgress">
+            <div class="item">
+              <div class="skeleton title"></div>
+              <div class="skeleton content"></div>
+              <div class="skeleton content"></div>
+              <div class="skeleton content"></div>
+            </div>
+          </div> -->
+          <div class="answer_container">
+            <div class="message">
+              <ng-container *ngIf="message.message">
+                <div class="typing" *ngIf="message.inProgress">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+                </div>
+
+                <div [innerHTML]="convertToHtml(message.message)" [class]="message.type" *ngIf="!message.inProgress"></div>
+                <p-progressBar *ngIf="message.processing" mode="indeterminate" [style]="{ height: '6px' }"></p-progressBar>
+              </ng-container>
+            </div>
+          </div>
+          <span class="time-stamp" *ngIf="message.datetime">
+            {{ getTimeDiff(message.datetime) }}
+          </span>
+        </div>
+
+        <div class="suggestions_container" *ngIf="i === messages.length - 1">
+          <div *ngFor="let item of message?.suggestions" class="suggestion" (click)="onSuggestionSelection(item)" [innerHTML]="item"></div>
+        </div>
+        <div class="media" *ngIf="message.isAI">
+          <div class="card_items">
+            <ng-container *ngFor="let item of getItems(message)">
+              <div [ngSwitch]="getType(item)">
+                <pathway-card *ngSwitchCase="'pathway'" [data]="item" (onUserAction)="emitEvent($event)"></pathway-card>
+                <books-card [data]="item" *ngSwitchCase="'book'" (onUserAction)="emitEvent($event)"></books-card>
+                <video-card (onUserAction)="emitEvent($event)" *ngSwitchCase="'video'" [data]="item"></video-card>
+              </div>
+            </ng-container>
+            <button *ngIf="showToggleBtn(message?.data)" (click)="toggleShowAll(message)" class="show_more_btn">
+              See {{ message.showAll ? 'less' : 'more' }}
+              <i class="pi pi-angle-double-{{ message.showAll ? 'up' : 'down' }}"></i>
+            </button>
+          </div>
+          <div class="rating_card">
+            <rating-card *ngFor="let item of message.rating"></rating-card>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add more messages as required -->
+  </div>
+  <!-- ... rest of the chat component ... -->
+
+  <!-- <div class="chat-footer">
+    <input
+      class="chat-input"
+      placeholder="Where do you want to start?"
+      [(ngModel)]="userMessage"
+      (keyup.enter)="sendMessage()"
+    />
+  </div> -->
+
+  <div class="chat-footer">
+    <div class="chat-input-group">
+      <textarea
+        #editBox
+        class="chat-input"
+        [disabled]="disableInput"
+        [placeholder]="placeholder"
+        [(ngModel)]="userMessage"
+        (keyup.enter)="sendMessage()"
+        rows="1"
+        pInputTextarea
+        [autoResize]="true"
+      ></textarea>
+      <div class="action-btn">
+        <!-- <audio-recorder
+          (onRecordComplete)="sendMessage($event)"
+        ></audio-recorder> -->
+        <button alt="img" class="send-icon" [class.enable]="userMessage !== ''" (click)="sendMessage()"></button>
+      </div>
+    </div>
+  </div>
+</div>

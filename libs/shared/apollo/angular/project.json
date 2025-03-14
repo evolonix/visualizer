@@ -1,0 +1,70 @@
+{
+  "name": "lib-shared-apollo-angular",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/apollo/angular/src",
+  "prefix": "da",
+  "tags": ["type:ui", "scope:shared"],
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/angular:package",
+      "outputs": ["{workspaceRoot}/dist/{projectRoot}"],
+      "options": {
+        "project": "libs/shared/apollo/angular/ng-package.json"
+      },
+      "configurations": {
+        "production": {
+          "tsConfig": "libs/shared/apollo/angular/tsconfig.lib.prod.json"
+        },
+        "development": {
+          "tsConfig": "libs/shared/apollo/angular/tsconfig.lib.json"
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "build-publishable": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/apollo/angular"],
+      "configurations": {
+        "production": {
+          "commands": ["nx run lib-shared-apollo-angular:build:production"],
+          "parallel": false
+        },
+        "development": {
+          "commands": ["nx run lib-shared-apollo-angular:build:development"],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/shared/apollo/angular/jest.config.ts"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "packageRoot": "./dist/libs/shared/apollo/angular",
+        "registry": "https://npm.pkg.github.com/"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "tagPrefix": "{projectName}@",
+        "skipRootChangelog": true,
+        "skipProjectChangelog": true,
+        "skipCommit": true,
+        "trackDeps": true
+      }
+    }
+  }
+}

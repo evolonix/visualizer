@@ -1,0 +1,14 @@
+<main class="grid-apollo pt-16">
+  <div class="col-span-full pt-16 md:col-span-10 md:col-start-2 lg:col-span-full">
+    <div class="grid place-items-center py-10 lg:py-12">
+      <img [src]="settings.assetUrl('2_Cat_Curious.png')" class="mx-auto h-40" alt="" />
+
+      <h3 class="text-2xl font-bold sm:mt-6">Unexpected Error</h3>
+      <p class="mb-6 mt-2 text-center">Something went wrong. Please try reloading the page or go back to the Home page.</p>
+      <div class="flex justify-end">
+        <button class="btn-primary" (click)="reloadPage()">Reload Page</button>
+        <a href="/" class="btn-secondary ml-4">Go Home</a>
+      </div>
+    </div>
+  </div>
+</main>

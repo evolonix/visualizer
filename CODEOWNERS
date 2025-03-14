@@ -1,0 +1,32 @@
+# This file is a CODEOWNERS file list your teams ownership areas here,
+# when a change is made to one of these domain areas the team will be added as requested on PRs
+
+# Domain - DevOps - Build and Deployments
+# ------------------------------------------------------------
+
+# These owners are the default owners for everything in
+# the repo. Unless a later match takes precedence,
+# these will be requested for
+# review when someone opens a pull request.
+*                                                                @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+
+# DevOps
+devops/                                                          @degreed/devops
+.github/                                                         @degreed/devops
+
+# Shared
+libs/shared/rsm/                                                 @ThomasBurleson @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+libs/shared/**/core/                                             @ThomasBurleson @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+
+# Web Designs
+apps/visualizer/                                                 @jasonruesch @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+libs/tailwind/                                                   @jasonruesch @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+
+# Engage
+apps/engage/                                                     @TylerRasor @jasonruesch @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+libs/engage/                                                     @TylerRasor @jasonruesch @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+libs/tinymce/                                                    @jasonruesch @TylerRasor @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+
+# Degreed Skills
+apps/skills-platform/                                            @jasonruesch @ThomasBurleson @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg
+libs/skills-platform/                                            @jasonruesch @ThomasBurleson @smcmurrin @endlist @prasad-degreed @akesari11 @rselvamdeg

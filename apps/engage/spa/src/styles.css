@@ -1,0 +1,12 @@
+@import '@angular/cdk/overlay-prebuilt.css';
+
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+.apollo-overlay-dark-backdrop {
+  @apply tw-bg-neutral-900/80;
+}
+
+.search-dialog-panel {
+  @apply tw-self-start tw-mt-4 sm:tw-mt-6 md:tw-mt-48;
+}

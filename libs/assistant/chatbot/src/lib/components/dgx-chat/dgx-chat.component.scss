@@ -1,0 +1,431 @@
+.chat-container {
+  width: 423px;
+  border: 1px solid #ccc;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  bottom: 70px;
+  right: 40%;
+  background-color: white;
+  box-shadow: 0px 4px 6px 0px #353c420d;
+  padding: 20px, 24px, 24px, 24px;
+  border-radius: 18px;
+  z-index: 200;
+  .journey_text {
+    text-align: center;
+    font-size: 11px;
+    color: #5b737f;
+    margin-top: 6px;
+  }
+
+  .suggestions_container {
+    display: flex;
+    gap: 13px;
+    justify-content: center;
+    flex-wrap: wrap;
+    .suggestion {
+      color: #44515a;
+      padding: 4px 6px;
+      cursor: pointer;
+      box-shadow: 0 4px 6px -1px #353c421a;
+      border-radius: 8px;
+      border: 1px solid #c9d3d8;
+      font-size: 12px;
+      font-weight: 600;
+      &:hover {
+        background-color: #f5f8fa;
+      }
+    }
+  }
+  .chat-header {
+    padding: 10px;
+    background-color: #0062e3;
+    color: white;
+    cursor: pointer;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    align-items: center;
+    .degreed_logo {
+      margin: 10px;
+      height: 40px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-image: url('data:image/svg+xml,%3Csvg width%3D%2232%22 height%3D%2232%22 viewBox%3D%220 0 32 32%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath fill-rule%3D%22evenodd%22 clip-rule%3D%22evenodd%22 d%3D%22M28.2624 15.1156L20.2595 10.6838L19.9913 10.5263C19.7677 10.4363 19.5218 10.3913 19.2759 10.3913C19.03 10.3913 18.7841 10.4363 18.5606 10.5263L18.2476 10.7063L16.9958 11.4037C16.9734 11.4262 16.9734 11.4486 16.9958 11.4711L17.5099 11.7411L20.5278 13.4059L22.3161 14.3957C22.3161 14.3957 19.6783 14.5082 17.2417 15.9255C16.7946 16.1954 16.2804 16.3304 15.7663 16.3304H15.6545C15.1404 16.3304 14.6262 16.1954 14.1791 15.9255C11.7425 14.5082 9.10468 14.3957 9.10468 14.3957L15.6992 10.7288L18.0464 9.40145C18.2923 9.26647 19.1418 8.72656 20.103 9.01901C20.5278 9.13149 21.2431 9.53643 21.8243 9.87388C22.2937 10.1438 22.875 10.0539 23.2326 9.62642C23.4115 9.40145 23.5009 9.15399 23.5009 8.88403C23.5009 8.50159 23.3221 8.14164 22.9644 7.91668C22.2043 7.44425 21.1537 6.88183 20.3042 6.74685C18.1135 6.36441 16.7275 7.44425 15.6769 8.00666C14.8721 7.35426 13.2402 6.38691 11.0719 6.74685C10.2 6.90433 9.17174 7.44425 8.4117 7.91668C7.83048 8.27662 7.69636 9.0865 8.14344 9.60392C8.36699 9.85139 8.67995 9.98637 8.99291 9.98637C9.1941 9.98637 9.37293 9.94137 9.55177 9.82889C10.133 9.49144 10.8483 9.0865 11.2731 8.97402C12.4131 8.65907 13.3967 9.40145 13.3967 9.40145L3.09136 15.1156C2.82311 15.2506 2.66663 15.543 2.66663 15.8355V17.2528C2.66663 17.5452 2.82311 17.8152 3.09136 17.9727C3.35961 18.1076 3.42667 18.1976 3.42667 18.7151C3.42667 19.6149 2.82311 24.5417 9.21645 24.5417C14.9615 24.5417 14.2462 18.895 15.6769 18.9175C17.1299 18.895 16.4146 24.5417 22.1373 24.5417C28.5306 24.5417 27.927 19.6149 27.927 18.7151C27.927 18.1976 27.9718 18.1301 28.24 17.9727C28.5083 17.8377 28.6647 17.5452 28.6647 17.2528V15.8355C28.6871 15.5205 28.5083 15.2506 28.2624 15.1156ZM12.1896 21.0997C11.5637 22.427 10.4683 22.6295 8.88114 22.562C7.69636 22.517 6.60099 22.1345 6.04213 21.4821C5.23738 20.5598 5.32679 17.7927 5.63976 17.1853C6.24332 16.0155 11.7872 16.3754 12.5249 17.8602C12.6143 18.0177 13.1061 19.1875 12.1896 21.0997ZM25.3116 21.4821C24.7527 22.1121 23.6574 22.4945 22.4726 22.562C20.9078 22.6295 19.8124 22.427 19.1641 21.0997C18.2476 19.1875 18.7394 18.0177 18.8065 17.8602C19.5442 16.3754 25.1104 16.0155 25.6916 17.1853C26.0269 17.8152 26.1163 20.5823 25.3116 21.4821Z%22 fill%3D%22%230062E3%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #edf9ff;
+    }
+
+    .header-content {
+      .header_title {
+        font-size: 16px; /* Adjust main header font size as needed */
+        font-weight: bold;
+      }
+      .sub-header {
+        margin-top: 5px;
+        font-size: 14px; /* Adjust subheader font size as needed */
+        display: block; /* Display as block to appear below the main header */
+        opacity: 0.8; /* Slightly reduce opacity for a subtle look */
+        .sub-header-ai {
+          background: #edf9ff;
+          color: black;
+          border-radius: 44%;
+          padding: 2px 5px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+  .chat-footer {
+    display: flex;
+    padding: 5px;
+    gap: 30px;
+    align-items: center;
+    border-top: 1px solid #ccc;
+    .chat-input-group {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      height: 100%;
+      border: none;
+
+      .chat-input {
+        flex-grow: 1; /* Allows input to take maximum available width */
+        padding: 10px;
+        border: none;
+        height: 100%;
+        font-size: 16px;
+        border-radius: 5px 0 0 5px; /* Round the left corners */
+        outline: none;
+      }
+      .action-btn {
+        border-radius: 5px;
+        color: gray;
+        display: flex;
+        gap: 12px;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 10px;
+        .send-icon {
+          pointer-events: none;
+          cursor: inherit;
+          background-image: url('data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M5.99972 12L3.2688 3.12451C9.88393 5.04617 16.0276 8.07601 21.4855 11.9997C16.0276 15.9235 9.884 18.9535 3.26889 20.8752L5.99972 12ZM5.99972 12L13.5 12%22 stroke%3D%22%235B737F%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+          background-repeat: no-repeat;
+          background-position: center;
+          height: 30px;
+          aspect-ratio: 1/1;
+          background-color: transparent;
+          border: none;
+          &.enable {
+            pointer-events: all;
+            background-image: url('data:image/svg+xml,%3Csvg width%3D%2221%22 height%3D%2220%22 viewBox%3D%220 0 21 20%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M1.47804 0.404304C1.2133 0.327399 0.92771 0.401934 0.734318 0.598403C0.540925 0.794873 0.470908 1.0816 0.551983 1.3451L2.98426 9.25H11.5C11.9142 9.25 12.25 9.58579 12.25 10C12.25 10.4142 11.9142 10.75 11.5 10.75H2.98427L0.552074 18.6546C0.470999 18.9181 0.541017 19.2049 0.734412 19.4013C0.927807 19.5978 1.2134 19.6723 1.47814 19.5954C8.17673 17.6494 14.3974 14.5814 19.9233 10.6087C20.1193 10.4678 20.2355 10.2412 20.2355 9.99975C20.2355 9.75835 20.1193 9.5317 19.9233 9.39079C14.3974 5.41817 8.17665 2.35021 1.47804 0.404304Z%22 fill%3D%22%230062E3%22%2F%3E%3C%2Fsvg%3E');
+            background-repeat: no-repeat;
+            background-position: center;
+            cursor: pointer;
+            color: #0062e3 !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+/* ... existing styles ... */
+
+.chat-content {
+  padding: 10px;
+  flex: 1;
+  width: 100%;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 13px;
+  &.landing_page {
+    background: linear-gradient(0deg, rgb(255 255 255) 35%, #0062e3 50%, #0062e3 100%);
+    .welcome_container {
+      margin-top: 48px;
+      margin-bottom: 32px;
+      font-size: 36px;
+      font-weight: bold;
+
+      .welcome_text {
+        color: #b5e7ff;
+      }
+      .welcome_sub_text {
+        color: white;
+      }
+      .default_prompts {
+        padding: 12px 0;
+        outline: 0 none;
+
+        background-color: #fbfbfb;
+        box-shadow: 0 4px 8px #0000001a;
+        border-radius: 10px;
+        font-size: 16px;
+        font-weight: 400;
+        max-height: 300px;
+        overflow: auto;
+        .starter_items {
+          padding: 12px 20px;
+          border: 0 none;
+          color: #495057;
+          transition: box-shadow 0.2s;
+          border-radius: 0;
+          list-style-type: none;
+          margin: 0;
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+          display: flex;
+          align-items: center;
+          i {
+            margin-right: 5px;
+          }
+          &:hover {
+            color: #495057;
+            background: #e9ecef;
+          }
+        }
+      }
+    }
+  }
+}
+
+.wrapper-user {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row-reverse;
+
+  .chat {
+    display: flex;
+    justify-content: flex-end;
+    width: fit-content;
+    .message {
+      color: #343a40;
+      font-style: normal;
+      font-weight: 400;
+      font-size: 15px;
+      flex: none;
+      order: 0;
+      flex-grow: 1;
+      word-break: break-all;
+      padding: 6px 8px;
+      border-radius: 5px;
+      background: rgb(214 216 219 / 77%);
+      width: fit-content;
+      p {
+        margin: 0 !important;
+      }
+    }
+  }
+}
+
+.wrapper-ai {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  gap: 8px;
+
+  .chat-ai {
+    display: grid;
+    grid-template-columns: 51px 1fr;
+    width: 100%;
+    .time-stamp {
+      font-size: 11px;
+      display: flex;
+      justify-content: flex-end;
+      align-self: flex-end;
+      color: #aaaaaa;
+    }
+    .degreed_logo {
+      margin: 8px 0px;
+      height: 40px;
+      aspect-ratio: 1/1;
+      border-radius: 50%;
+      background-image: url('data:image/svg+xml,%3Csvg width%3D%2232%22 height%3D%2232%22 viewBox%3D%220 0 32 32%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath fill-rule%3D%22evenodd%22 clip-rule%3D%22evenodd%22 d%3D%22M28.2624 15.1156L20.2595 10.6838L19.9913 10.5263C19.7677 10.4363 19.5218 10.3913 19.2759 10.3913C19.03 10.3913 18.7841 10.4363 18.5606 10.5263L18.2476 10.7063L16.9958 11.4037C16.9734 11.4262 16.9734 11.4486 16.9958 11.4711L17.5099 11.7411L20.5278 13.4059L22.3161 14.3957C22.3161 14.3957 19.6783 14.5082 17.2417 15.9255C16.7946 16.1954 16.2804 16.3304 15.7663 16.3304H15.6545C15.1404 16.3304 14.6262 16.1954 14.1791 15.9255C11.7425 14.5082 9.10468 14.3957 9.10468 14.3957L15.6992 10.7288L18.0464 9.40145C18.2923 9.26647 19.1418 8.72656 20.103 9.01901C20.5278 9.13149 21.2431 9.53643 21.8243 9.87388C22.2937 10.1438 22.875 10.0539 23.2326 9.62642C23.4115 9.40145 23.5009 9.15399 23.5009 8.88403C23.5009 8.50159 23.3221 8.14164 22.9644 7.91668C22.2043 7.44425 21.1537 6.88183 20.3042 6.74685C18.1135 6.36441 16.7275 7.44425 15.6769 8.00666C14.8721 7.35426 13.2402 6.38691 11.0719 6.74685C10.2 6.90433 9.17174 7.44425 8.4117 7.91668C7.83048 8.27662 7.69636 9.0865 8.14344 9.60392C8.36699 9.85139 8.67995 9.98637 8.99291 9.98637C9.1941 9.98637 9.37293 9.94137 9.55177 9.82889C10.133 9.49144 10.8483 9.0865 11.2731 8.97402C12.4131 8.65907 13.3967 9.40145 13.3967 9.40145L3.09136 15.1156C2.82311 15.2506 2.66663 15.543 2.66663 15.8355V17.2528C2.66663 17.5452 2.82311 17.8152 3.09136 17.9727C3.35961 18.1076 3.42667 18.1976 3.42667 18.7151C3.42667 19.6149 2.82311 24.5417 9.21645 24.5417C14.9615 24.5417 14.2462 18.895 15.6769 18.9175C17.1299 18.895 16.4146 24.5417 22.1373 24.5417C28.5306 24.5417 27.927 19.6149 27.927 18.7151C27.927 18.1976 27.9718 18.1301 28.24 17.9727C28.5083 17.8377 28.6647 17.5452 28.6647 17.2528V15.8355C28.6871 15.5205 28.5083 15.2506 28.2624 15.1156ZM12.1896 21.0997C11.5637 22.427 10.4683 22.6295 8.88114 22.562C7.69636 22.517 6.60099 22.1345 6.04213 21.4821C5.23738 20.5598 5.32679 17.7927 5.63976 17.1853C6.24332 16.0155 11.7872 16.3754 12.5249 17.8602C12.6143 18.0177 13.1061 19.1875 12.1896 21.0997ZM25.3116 21.4821C24.7527 22.1121 23.6574 22.4945 22.4726 22.562C20.9078 22.6295 19.8124 22.427 19.1641 21.0997C18.2476 19.1875 18.7394 18.0177 18.8065 17.8602C19.5442 16.3754 25.1104 16.0155 25.6916 17.1853C26.0269 17.8152 26.1163 20.5823 25.3116 21.4821Z%22 fill%3D%22%230062E3%22%2F%3E%3C%2Fsvg%3E');
+      background-repeat: no-repeat;
+      background-position: center;
+      background-color: #fbfbfb;
+      box-shadow: 0 4px 8px #0000001a;
+    }
+  }
+  .chat-profile-info {
+    margin-bottom: 8px;
+    grid-row: 1 / span 2;
+    align-self: end;
+  }
+
+  .message {
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 21px;
+    max-width: 100%;
+    white-space: normal;
+    background: #d6f0ff;
+    border-radius: 10px;
+    color: #0d4a9b;
+    position: relative;
+    padding: 16px;
+    margin-left: 8px;
+    .bot-message p {
+      margin: 0 !important;
+    }
+    .typing {
+      padding: 16px;
+      span {
+        content: '';
+        animation: blink 1.5s infinite;
+        animation-fill-mode: both;
+        height: 5px;
+        width: 5px;
+        background: #3b5998;
+        position: absolute;
+        left: 4%;
+        top: 48%;
+        border-radius: 50%;
+
+        &:nth-child(2) {
+          animation-delay: 0.2s;
+          margin-left: 5px * 1.5;
+        }
+
+        &:nth-child(3) {
+          animation-delay: 0.4s;
+          margin-left: 5px * 3;
+        }
+      }
+
+      @keyframes blink {
+        0% {
+          opacity: 0;
+        }
+        50% {
+          opacity: 1;
+        }
+        100% {
+          opacity: 0;
+        }
+      }
+    }
+  }
+  .card_items {
+    display: flex;
+    flex-direction: column;
+
+    .show_more_btn {
+      cursor: pointer;
+      color: #0062e3;
+      font-size: 16px;
+      outline: none;
+      border: none;
+      background: white;
+      align-self: end;
+    }
+  }
+
+  .rating_card {
+    display: flex;
+    overflow-x: auto;
+    width: 376px;
+  }
+}
+
+// Skeleton
+
+.loading-animation {
+  .item {
+    vertical-align: top;
+    background: #ffffff;
+    border-radius: 3px;
+    padding: 0px 16px;
+    width: 100%;
+  }
+
+  @keyframes placeHolderShimmer {
+    0% {
+      background-position: -500px 0;
+    }
+    100% {
+      background-position: 500px 0;
+    }
+  }
+
+  .skeleton {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 1200px 100px;
+  }
+
+  .title {
+    height: 20px;
+    width: 200px;
+    margin-top: 8px;
+    margin-bottom: 26px;
+    /*   border: 1px solid green; */
+  }
+  .content {
+    height: 20px;
+    width: 100%;
+    margin-bottom: 8px;
+    /*   border: 1px solid green; */
+  }
+}
+
+::ng-deep {
+  .p-progressbar {
+    margin-top: 10px;
+  }
+  .p-inputtextarea {
+    max-height: 40px;
+    min-height: 25px !important;
+    border: 1px solid gray;
+    overflow: auto !important;
+    &:focus {
+      box-shadow: none !important;
+    }
+  }
+  .p-listbox-list {
+    .p-listbox-item {
+      padding: 12px 20px !important;
+    }
+    .starter_items {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      .icon {
+        background-repeat: no-repeat;
+        background-position: center;
+        aspect-ratio: 1/1;
+        height: 20px;
+        margin-right: 6px;
+        &.search {
+          background-image: url('data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M21 21L15.8033 15.8033M15.8033 15.8033C17.1605 14.4461 18 12.5711 18 10.5C18 6.35786 14.6421 3 10.5 3C6.35786 3 3 6.35786 3 10.5C3 14.6421 6.35786 18 10.5 18C12.5711 18 14.4461 17.1605 15.8033 15.8033Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+        }
+        &.sparkles {
+          background-image: url('data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M9.8132 15.9038L9 18.75L8.1868 15.9038C7.75968 14.4089 6.59112 13.2403 5.09619 12.8132L2.25 12L5.09619 11.1868C6.59113 10.7597 7.75968 9.59112 8.1868 8.09619L9 5.25L9.8132 8.09619C10.2403 9.59113 11.4089 10.7597 12.9038 11.1868L15.75 12L12.9038 12.8132C11.4089 13.2403 10.2403 14.4089 9.8132 15.9038Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3Cpath d%3D%22M18.2589 8.71454L18 9.75L17.7411 8.71454C17.4388 7.50533 16.4947 6.56117 15.2855 6.25887L14.25 6L15.2855 5.74113C16.4947 5.43883 17.4388 4.49467 17.7411 3.28546L18 2.25L18.2589 3.28546C18.5612 4.49467 19.5053 5.43883 20.7145 5.74113L21.75 6L20.7145 6.25887C19.5053 6.56117 18.5612 7.50533 18.2589 8.71454Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3Cpath d%3D%22M16.8942 20.5673L16.5 21.75L16.1058 20.5673C15.8818 19.8954 15.3546 19.3682 14.6827 19.1442L13.5 18.75L14.6827 18.3558C15.3546 18.1318 15.8818 17.6046 16.1058 16.9327L16.5 15.75L16.8942 16.9327C17.1182 17.6046 17.6454 18.1318 18.3173 18.3558L19.5 18.75L18.3173 19.1442C17.6454 19.3682 17.1182 19.8954 16.8942 20.5673Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+        }
+        &.tag {
+          background-image: url('data:image/svg+xml,%3Csvg width%3D%2224%22 height%3D%2224%22 viewBox%3D%220 0 24 24%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M9.56802 3H5.25C4.00736 3 3 4.00736 3 5.25V9.56802C3 10.1648 3.23705 10.7371 3.65901 11.159L13.2401 20.7401C13.9388 21.4388 15.0199 21.6117 15.8465 21.0705C17.9271 19.7084 19.7084 17.9271 21.0705 15.8465C21.6117 15.0199 21.4388 13.9388 20.7401 13.2401L11.159 3.65901C10.7371 3.23705 10.1648 3 9.56802 3Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3Cpath d%3D%22M6 6H6.0075V6.0075H6V6Z%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+        }
+        &.arrow_up_tray {
+          background-image: url('data:image/svg+xml,%3Csvg width%3D%2220%22 height%3D%2220%22 viewBox%3D%220 0 20 20%22 fill%3D%22none%22 xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath d%3D%22M1 14.5V16.75C1 17.9926 2.00736 19 3.25 19H16.75C17.9926 19 19 17.9926 19 16.75V14.5M5.5 5.5L10 1M10 1L14.5 5.5M10 1L10 14.5%22 stroke%3D%22%2344515A%22 stroke-width%3D%221.5%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22%2F%3E%3C%2Fsvg%3E');
+        }
+      }
+    }
+  }
+}
+
+/* ... rest of the styles ... */

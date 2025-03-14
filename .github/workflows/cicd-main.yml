@@ -1,0 +1,241 @@
+# This workflow will test, build, and deploy a site to the Staging environment
+
+name: Main Branch CI/CD
+
+on:
+  push:
+    branches:
+      - 'main'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# However, do NOT cancel in-progress runs as we want to allow these deployments to complete.
+concurrency:
+  group: 'main'
+  cancel-in-progress: false
+
+jobs:
+  # Affected job
+  affected:
+    name: Affected
+    runs-on: ubuntu-latest
+    permissions: write-all
+    outputs:
+      libs-matrix: ${{ steps.libs.outputs.matrix }}
+      apps-matrix: ${{ steps.apps.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Set SHAs for Nx
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Run format check
+        run: npx nx format:check
+
+      - name: Run affected lint and tests
+        run: npx nx affected -t lint test e2e-ci
+
+      - name: Affected publishable libs
+        id: libs
+        run: |
+          projects=$(npx nx show projects --type lib --affected --with-target version --with-target build-publishable | tr '\n' ' ' | xargs)
+          list=($projects)
+          items="["
+          for project in "${list[@]}"; do
+            path=$(npx nx show project $project | jq -r .root)
+            items+="{\"project\":\"$project\",\"path\":\"$path\"},"
+          done
+          items=$(echo "$items" | sed 's/,$//g')
+          items+="]"
+          [[ $items = "[]" ]] && matrix="" || matrix="{\"include\":$items}"
+          echo "$projects"
+          echo "projects=$projects" >> $GITHUB_OUTPUT
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+      - name: Affected deployable apps
+        id: apps
+        run: |
+          projects=$(npx nx show projects --type app --affected --with-target version | tr '\n' ' ' | xargs)
+          list=($projects)
+          items="["
+          for project in "${list[@]}"; do
+            path=$(npx nx show project $project | jq -r .root)
+            dirname=${project##app-}
+            items+="{\"project\":\"$project\",\"path\":\"$path\",\"dirname\":\"$dirname\"},"
+          done
+          items=$(echo "$items" | sed 's/,$//g')
+          items+="]"
+          [[ $items = "[]" ]] && matrix="" || matrix="{\"include\":$items}"
+          echo "$projects"
+          echo "projects=$projects" >> $GITHUB_OUTPUT
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+      - name: Build affected non-deployable apps and non-publishable libs
+        run: |
+          projects=(${{ steps.libs.outputs.projects }})
+          projects+=(${{ steps.apps.outputs.projects }})
+          echo "$projects[@]"
+          npx nx affected -t build --exclude "$projects[@]"
+  
+  # Build job
+  build-lib:
+    name: Build Library
+    runs-on: ubuntu-latest
+    needs: affected
+    if: ${{ needs.affected.outputs.libs-matrix != '' }}
+    strategy:
+      matrix: ${{ fromJson(needs.affected.outputs.libs-matrix) }}
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Update version
+        run: npx nx run ${{ matrix.project }}:version
+
+      - name: Version
+        id: version
+        run: |
+          version=$(npm pkg get version --prefix=${{ matrix.path }})
+          version="${version//\"/}"
+          echo "$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
+
+      - name: Build
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        run: npx nx run ${{ matrix.project }}:build-publishable:production --skip-nx-cache
+
+      # Upload artifact for publishing to GitHub Packages
+      - name: Upload artifact
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ matrix.project }}@${{ steps.version.outputs.version }}'
+          path: ./dist/${{ matrix.path }}
+
+      # Remove the tag created by @jscutlery/semver (the version command above), since it causes an update workflow error when pushing the tag
+      # Create a new annotated tag using the same command that the nx release version command would use
+      - name: Push tags
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        run: |
+          git tag -d "${{ matrix.project }}@${{ steps.version.outputs.version }}"
+          git tag -a "${{ matrix.project }}@${{ steps.version.outputs.version }}" -m "${{ matrix.project }}@${{ steps.version.outputs.version }}"
+          git push --tags
+
+  # Build job
+  build-app:
+    name: Build App
+    runs-on: ubuntu-latest
+    needs: affected
+    if: ${{ needs.affected.outputs.apps-matrix != '' }}
+    strategy:
+      matrix: ${{ fromJson(needs.affected.outputs.apps-matrix) }}
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Configure Git Identity
+        run: |
+          git config user.name "${GITHUB_ACTOR}"
+          git config user.email "${GITHUB_ACTOR}@users.noreply.github.com"
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Update version
+        run: npx nx run ${{ matrix.project }}:version
+
+      - name: Version
+        id: version
+        run: |
+          version=$(npm pkg get version --prefix=${{ matrix.path }})
+          version="${version//\"/}"
+          echo "$version"
+          echo "version=$version" >> $GITHUB_OUTPUT
+
+      - name: Build
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        run: npx nx run ${{ matrix.project }}:build:production --skip-nx-cache
+
+      # Upload artifact for deployments
+      - name: Upload artifact
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ matrix.project }}@${{ steps.version.outputs.version }}'
+          path: ./dist/${{ matrix.path }}
+
+      # Remove the tag created by @jscutlery/semver (the version command above), since it causes an update workflow error when pushing the tag
+      # Create a new annotated tag using the same command that the nx release version command would use
+      - name: Push tags
+        if: ${{ !endsWith(steps.version.outputs.version, '-development') }}
+        run: |
+          git tag -d "${{ matrix.project }}@${{ steps.version.outputs.version }}"
+          git tag -a "${{ matrix.project }}@${{ steps.version.outputs.version }}" -m "${{ matrix.project }}@${{ steps.version.outputs.version }}"
+          git push --tags
+
+  # Deploy job
+  deploy-staging:
+    name: Deploy to Staging
+    needs:
+      - affected
+      - build-app
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    if: ${{ needs.affected.outputs.apps-matrix != '' && !endsWith(needs.build-app.outputs.version, '-development') }}
+    strategy:
+      matrix: ${{ fromJson(needs.affected.outputs.apps-matrix) }}
+    with:
+      app-version: ${{ needs.build-app.outputs.version }}
+      environment: 'Staging'
+      app-name: ${{ matrix.dirname }}
+      artifact-name: '${{ matrix.project }}@${{ needs.build-app.outputs.version }}'
+      artifacts-json: "[\"${{ matrix.dirname }}\"]"

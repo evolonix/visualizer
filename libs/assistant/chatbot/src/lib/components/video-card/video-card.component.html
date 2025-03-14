@@ -1,0 +1,20 @@
+<card>
+  <div class="video_card_item">
+    <img [src]="getImageUrl()" #imgEl (error)="setFallBackImage(imgEl)" alt="" />
+    <div class="metainfo">
+      <span pTooltip="{{ data.title }}" tooltipPosition="top" class="title" (click)="onClick()">{{ data.title }}</span>
+      <div class="description">{{ getDuration() }}</div>
+    </div>
+    <!-- <div class="actions">
+      <i
+        class="pi"
+        [class.pi-check-circle]="video.isAdded"
+        [class.pi-check]="!video.isAdded"
+        [class.added]="video.isAdded"
+        aria-hidden="true"
+        (click)="onClick('add')"
+      ></i>
+      <i class="pi pi-times" aria-hidden="true" (click)="onClick('remove')"></i>
+    </div> -->
+  </div>
+</card>

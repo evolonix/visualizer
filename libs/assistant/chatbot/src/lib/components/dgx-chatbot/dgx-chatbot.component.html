@@ -1,0 +1,9 @@
+<div class="floating-button" [style]="aiButtonPos">
+  <dgx-chat
+    [showChat]="showChat"
+    [default_prompts]="default_prompts"
+    [height]="height"
+    (onUserAction)="onUserAction.emit($event)"
+  ></dgx-chat>
+  <button class="trigger_btn" [class.active]="showChat" (click)="toggleChat()"></button>
+</div>

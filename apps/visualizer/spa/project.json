@@ -1,0 +1,116 @@
+{
+  "name": "app-visualizer",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/visualizer/spa/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/visualizer/spa"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "app-visualizer:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "app-visualizer:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "app-visualizer:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "app-visualizer:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "app-visualizer:build:development"
+        },
+        "production": {
+          "buildTarget": "app-visualizer:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vite:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "passWithNoTests": true,
+        "reportsDirectory": "../../../coverage/apps/visualizer/spa"
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "app-visualizer:build"
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "defaultConfiguration": "production",
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["ghcr.io/degreed/visualizer"],
+          "load": true,
+          "push": true,
+          "tags": ["type=schedule", "type=ref,event=branch", "type=ref,event=tag", "type=ref,event=pr", "type=sha,prefix=sha-"]
+        }
+      },
+      "configurations": {
+        "development": {
+          "file": "apps/visualizer/spa/Dockerfile",
+          "metadata": {
+            "images": ["degreed/visualizer"],
+            "push": false,
+            "tags": ["type=sha,prefix=sha-"]
+          }
+        },
+        "production": {
+          "file": "apps/visualizer/spa/Dockerfile.prod",
+          "metadata": {
+            "images": ["ghcr.io/degreed/visualizer"],
+            "load": true,
+            "push": true,
+            "cache-from": ["type=gha"],
+            "cache-to": ["type=gha,mode=max"],
+            "tags": ["type=ref,event=branch", "type=ref,event=tag", "type=sha", "type=sha,format=long", "latest"]
+          }
+        }
+      }
+    },
+    "semantic-release": {
+      "executor": "@theunderscorer/nx-semantic-release:semantic-release",
+      "options": {
+        "npm": false,
+        "tagFormat": "visualizer-v${VERSION}"
+      }
+    }
+  },
+  "tags": ["type:app", "scope:visualizer"]
+}

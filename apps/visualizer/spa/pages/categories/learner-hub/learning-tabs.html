@@ -1,0 +1,2317 @@
+<html-component name="apollo/layout-learner" hide-component="true" title="Home">
+  <div class="tw-grid-apollo tw-has-sidebar tw-mt-4 md:tw-mt-24">
+    <!-- Tabs for screen sizes md, lg, xl, 2xl -->
+    <div class="tw-col-span-full tw-hidden tw-rounded-xl tw-bg-white tw-p-6 tw-shadow-md sm:tw-block">
+      <div
+        role="tablist"
+        aria-labelledby="tablist-1"
+        class="tw-mb-6 tw-flex tw-justify-between tw-gap-x-8 tw-border-b tw-border-neutral-200 md:tw-justify-start lg:tw-gap-x-20"
+      >
+        <button
+          id="tab-1"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tabpanel-1"
+          class="tw-group tw-relative tw-flex tw-items-center tw-gap-x-2 tw-pb-4 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-right-0 after:tw-block after:tw-h-1 after:tw-rounded-t-lg after:tw-bg-blue-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-800 group-hover:tw-text-neutral-800">Assigned Learning</span>
+          <span
+            class="tw-hidden tw-items-center tw-rounded-full tw-bg-blue-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-blue-800 tw-ring-1 tw-ring-blue-300 md:tw-inline-flex"
+            >20</span
+          >
+        </button>
+        <button
+          id="tab-2"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-2"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Continue Learning</span>
+          <span
+            class="tw-hidden tw-items-center tw-rounded-full tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 tw-ring-1 tw-ring-neutral-300 md:tw-inline-flex"
+            >14</span
+          >
+        </button>
+        <button
+          id="tab-3"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-3"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Personalized Learning</span>
+        </button>
+      </div>
+
+      <div class="tw-flex tw-flex-col tw-divide-y tw-divide-neutral-200" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+        <!--
+          Content Card - Pathway
+          Metadata - Type, Duration
+          Status - Started
+          Actions - Follow, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Measure Sales Force Effectiveness In Your Organization"
+              >
+                Measure Sales Force Effectiveness In Your Organization
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 tw-ring-1 tw-ring-neutral-300"
+              tabindex="0"
+              >Started</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <!-- Selected State -->
+                <button class="tw-btn-icon tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Pathway
+          Metadata - Type, Duration
+          Status - Due Soon
+          Actions - Following, Dismiss, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Measure Sales Force Effectiveness In Your Organization"
+              >
+                Measure Sales Force Effectiveness In Your Organization
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+              tabindex="0"
+              >Due Soon</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <!-- Selected State -->
+                <button class="tw-btn-icon tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Plan
+          Metadata - Type, Duration, Live Logo
+          Status - Overdue
+          Actions - Follow, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Sales Automation Strategy"
+              >
+                Sales Automation Strategy
+              </p>
+              <ul class="tw-flex tw-items-center tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Plan</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">57 minutes</li>
+                <li
+                  class="tw-border-primary-800 tw-flex tw-h-4 tw-w-4 tw-items-center tw-justify-center tw-rounded-full tw-border tw-p-0.5"
+                >
+                  <img src="/assets/live-logo.svg" alt="Live" />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-red-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-red-800 tw-ring-1 tw-ring-red-300"
+              tabindex="0"
+              >Overdue</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Event - Upcoming
+          Metadata - Type, Location
+          Status - None
+          Actions - Register, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="The Future of Skills is Now"
+              >
+                The Future of Skills is Now
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Event</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Online</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-primary">
+                  Register
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Event - Live
+          Metadata - Type, Location
+          Status - None
+          Actions - Join Event, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="The Future of Skills is Now"
+              >
+                The Future of Skills is Now
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Event</li>
+                <li class="tw-flex tw-items-center tw-gap-0.5 tw-text-xs tw-font-semibold tw-uppercase tw-text-red-800">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
+                  Live
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+                  Join Event
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Learning - Article
+          Metadata - Type, Duration, Source
+          Status - Due Soon
+          Actions - Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Insights and Research for Sales Development"
+              >
+                Insights and Research for Sales Development
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Article</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">83 minutes</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">LinkedIn Learning</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+              tabindex="0"
+              >Due Soon</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Learning - Video
+          Metadata - Type, Duration, Source
+          Status - None
+          Actions - Info, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Why Good Ideas Get Trapped In The Valley Of Death"
+              >
+                Why Good Ideas Get Trapped In The Valley Of Death
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Video</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">46 minutes</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">TED Talks</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+      <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="tw-hidden">
+        <p>
+          Maecenas aliquam est in arcu volutpat lobortis. Morbi pretium erat rhoncus aliquet finibus. Donec pellentesque neque neque,
+          bibendum dictum tortor euismod vitae.
+        </p>
+      </div>
+      <div id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" class="tw-hidden">
+        <p>
+          Fusce pharetra dapibus elit ac dictum. Vivamus id mi facilisis, congue neque non, ultricies urna. Suspendisse malesuada libero a
+          ex maximus, in laoreet mauris egestas. Nam quis eros lorem. Sed lorem odio, faucibus sed lobortis vitae, fermentum et nunc.
+          Aliquam vestibulum blandit dui, et iaculis turpis varius sit amet. Phasellus vitae urna risus.
+        </p>
+      </div>
+    </div>
+
+    <div class="tw-col-span-full tw-hidden tw-rounded-xl tw-bg-white tw-p-6 tw-shadow-md sm:tw-block">
+      <div
+        role="tablist"
+        aria-labelledby="tablist-1"
+        class="tw-mb-6 tw-flex tw-justify-between tw-gap-x-8 tw-border-b tw-border-neutral-200 md:tw-justify-start lg:tw-gap-x-20"
+      >
+        <button
+          id="tab-1"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-800 group-hover:tw-text-neutral-800">Assigned Learning</span>
+          <span
+            class="tw-hidden tw-items-center tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 md:tw-inline-flex"
+            >20</span
+          >
+        </button>
+        <button
+          id="tab-2"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-2"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Continue Learning</span>
+          <span
+            class="tw-hidden tw-items-center tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 md:tw-inline-flex"
+            >14</span
+          >
+        </button>
+        <button
+          id="tab-3"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tabpanel-3"
+          class="tw-group tw-relative tw-flex tw-items-center tw-gap-x-2 tw-pb-4 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-right-0 after:tw-block after:tw-h-1 after:tw-rounded-t-lg after:tw-bg-blue-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-800 group-hover:tw-text-neutral-800">Personalized Learning</span>
+        </button>
+      </div>
+
+      <div class="tw-flex tw-flex-col" id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3">
+        <!-- Skill Selector buttons with right overflow -->
+        <div class="tw-relative tw-mb-6 tw-h-[33.5px] tw-overflow-hidden tw-rounded-lg tw-border tw-border-neutral-300">
+          <div
+            role="group"
+            class="tw-flex tw-flex-grow tw-gap-1 tw-overflow-y-hidden tw-overflow-x-scroll tw-whitespace-nowrap md:tw-gap-7"
+          >
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-border tw-border-blue-200 tw-bg-blue-100 tw-px-3 tw-text-sm tw-font-semibold tw-text-blue-900 first:tw-ml-1 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales Strategy
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Negotiation
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Marketting
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales Leadership
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Critical Thinking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Public Speaking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Foreign Language Proficiency
+            </button>
+          </div>
+          <button
+            class="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-md tw-bg-white tw-text-sm tw-font-semibold tw-text-neutral-800 hover:tw-text-blue-900"
+          >
+            <!-- Icon: chevron-right -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Skill Selector buttons with left overflow -->
+        <div class="tw-relative tw-mb-6 tw-h-[33.5px] tw-overflow-hidden tw-rounded-lg tw-border tw-border-neutral-300">
+          <button
+            class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-md tw-bg-white tw-text-sm tw-font-semibold tw-text-neutral-800 hover:tw-text-blue-900"
+          >
+            <!-- Icon: chevron-left -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <div
+            role="group"
+            class="tw-flex tw-flex-grow tw-gap-1 tw-overflow-y-hidden tw-overflow-x-scroll tw-whitespace-nowrap md:tw-gap-7"
+          >
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-border tw-border-blue-200 tw-bg-blue-100 tw-px-3 tw-text-sm tw-font-semibold tw-text-blue-900 first:tw-ml-1 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales Strategy
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Negotiation
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Marketting
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales Leadership
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Critical Thinking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Public Speaking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Foreign Language Proficiency
+            </button>
+          </div>
+        </div>
+
+        <!-- Skill Selector buttons with both left and right overflow -->
+        <div class="tw-relative tw-mb-6 tw-h-[33.5px] tw-overflow-hidden tw-rounded-lg tw-border tw-border-neutral-300">
+          <button
+            class="tw-absolute tw-left-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-md tw-bg-white tw-text-sm tw-font-semibold tw-text-neutral-800 hover:tw-text-blue-900"
+          >
+            <!-- Icon: chevron-left -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5 8.25 12l7.5-7.5" />
+            </svg>
+          </button>
+          <div
+            role="group"
+            class="tw-flex tw-flex-grow tw-gap-1 tw-overflow-y-hidden tw-overflow-x-scroll tw-whitespace-nowrap md:tw-gap-7"
+          >
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-border tw-border-blue-200 tw-bg-blue-100 tw-px-3 tw-text-sm tw-font-semibold tw-text-blue-900 first:tw-ml-1 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales Strategy
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Negotiation
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="2"
+                stroke="currentColor"
+                class="tw-size-4"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+                />
+              </svg>
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Marketting
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales Leadership
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Sales
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Communication
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Critical Thinking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Public Speaking
+            </button>
+            <button
+              class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+            >
+              Foreign Language Proficiency
+            </button>
+          </div>
+          <button
+            class="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-md tw-bg-white tw-text-sm tw-font-semibold tw-text-neutral-800 hover:tw-text-blue-900"
+          >
+            <!-- Icon: chevron-right -->
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="tw-size-6"
+            >
+              <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="tw-divide-y tw-divide-neutral-200">
+          <!--
+            Content Card - Pathway
+            Metadata - Type, Duration
+            Status - Started
+            Actions - Follow, Save, Overflow Menu
+          -->
+          <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+            <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+              <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+              <div class="tw-grow tw-overflow-hidden">
+                <!-- TODO: Replace title attribute with tooltip component -->
+                <p
+                  class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                  title="Measure Sales Force Effectiveness In Your Organization"
+                >
+                  Measure Sales Force Effectiveness In Your Organization
+                </p>
+                <ul class="tw-flex tw-items-center tw-gap-3">
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+                  <li class="tw-hidden md:tw-list-item">
+                    <span
+                      class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800"
+                      tabindex="0"
+                      >Started</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+              <span
+                class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 md:tw-hidden"
+                tabindex="0"
+                >Started</span
+              >
+              <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+                <li>
+                  <button class="tw-btn-secondary-filled">Follow</button>
+                </li>
+                <li>
+                  <button class="tw-btn-secondary-filled">Save</button>
+                </li>
+                <li>
+                  <button class="tw-btn-icon tw-btn-secondary-filled">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="tw-h-4 tw-w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                      />
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!--
+            Content Card - Pathway
+            Metadata - Type, Duration
+            Status - Due Soon
+            Actions - Mark Complete, Dismiss, Overflow Menu
+          -->
+          <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+            <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+              <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+              <div class="tw-grow tw-overflow-hidden">
+                <!-- TODO: Replace title attribute with tooltip component -->
+                <p
+                  class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                  title="Measure Sales Force Effectiveness In Your Organization"
+                >
+                  Measure Sales Force Effectiveness In Your Organization
+                </p>
+                <ul class="tw-flex tw-items-center tw-gap-3">
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+                  <li class="tw-hidden md:tw-list-item">
+                    <span
+                      class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-yellow-300 tw-bg-yellow-50 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800"
+                      tabindex="0"
+                      >Due Soon</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+              <span
+                class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-yellow-300 tw-bg-yellow-50 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 md:tw-hidden"
+                tabindex="0"
+                >Due Soon</span
+              >
+              <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+                <li>
+                  <button class="tw-btn-secondary-filled">Mark Complete</button>
+                </li>
+                <li>
+                  <button class="tw-btn-icon tw-btn-secondary-filled">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="tw-h-4 tw-w-4"
+                    >
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </li>
+                <li>
+                  <button class="tw-btn-icon tw-btn-secondary-filled">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="tw-h-4 tw-w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                      />
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!--
+            Content Card - Pathway
+            Metadata - Type, Duration
+            Status - Started
+            Actions - Save, Info, Overflow Menu
+          -->
+          <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 md:tw-flex-row md:tw-items-center">
+            <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+              <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+              <div class="tw-grow tw-overflow-hidden">
+                <!-- TODO: Replace title attribute with tooltip component -->
+                <p
+                  class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                  title="Measure Sales Force Effectiveness In Your Organization"
+                >
+                  Measure Sales Force Effectiveness In Your Organization
+                </p>
+                <ul class="tw-flex tw-items-center tw-gap-3">
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                  <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+                  <li class="tw-hidden md:tw-list-item">
+                    <span
+                      class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800"
+                      tabindex="0"
+                      >Started</span
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+              <span
+                class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 md:tw-hidden"
+                tabindex="0"
+                >Started</span
+              >
+              <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+                <li>
+                  <button class="tw-btn-secondary-filled">Save</button>
+                </li>
+                <li>
+                  <button class="tw-btn-icon tw-btn-secondary-filled">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="tw-h-4 tw-w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                      />
+                    </svg>
+                  </button>
+                </li>
+                <li>
+                  <button class="tw-btn-icon tw-btn-secondary-filled">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="1.5"
+                      stroke="currentColor"
+                      class="tw-h-4 tw-w-4"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                      />
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </div>
+
+        <button class="tw-btn-secondary-filled tw-btn-medium tw-mt-3 tw-self-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-4"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+          </svg>
+          View More
+        </button>
+      </div>
+      <div id="tabpanel-2" role="tabpanel" aria-labelledby="tab-2" class="tw-hidden">
+        <p>
+          Maecenas aliquam est in arcu volutpat lobortis. Morbi pretium erat rhoncus aliquet finibus. Donec pellentesque neque neque,
+          bibendum dictum tortor euismod vitae.
+        </p>
+      </div>
+      <div id="tabpanel-3" role="tabpanel" aria-labelledby="tab-3" class="tw-hidden">
+        <p>
+          Fusce pharetra dapibus elit ac dictum. Vivamus id mi facilisis, congue neque non, ultricies urna. Suspendisse malesuada libero a
+          ex maximus, in laoreet mauris egestas. Nam quis eros lorem. Sed lorem odio, faucibus sed lobortis vitae, fermentum et nunc.
+          Aliquam vestibulum blandit dui, et iaculis turpis varius sit amet. Phasellus vitae urna risus.
+        </p>
+      </div>
+    </div>
+
+    <!-- Containers with heading for screen size xs -->
+    <div class="tw-col-span-full tw-block tw-rounded-xl tw-bg-white tw-p-6 tw-shadow-md sm:tw-hidden">
+      <h4 class="tw-mb-5 tw-font-extrabold tw-text-neutral-800">Assigned Learning</h4>
+      <div class="tw-flex tw-flex-col tw-divide-y tw-divide-neutral-200" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+        <!--
+          Content Card - Pathway
+          Metadata - Type, Duration
+          Status - Started
+          Actions - Follow, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Measure Sales Force Effectiveness In Your Organization"
+              >
+                Measure Sales Force Effectiveness In Your Organization
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 tw-ring-1 tw-ring-neutral-300"
+              tabindex="0"
+              >Started</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <!-- Selected State -->
+                <button class="tw-btn-icon tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Pathway
+          Metadata - Type, Duration
+          Status - Due Soon
+          Actions - Following, Dismiss, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Measure Sales Force Effectiveness In Your Organization"
+              >
+                Measure Sales Force Effectiveness In Your Organization
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+              tabindex="0"
+              >Due Soon</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <!-- Selected State -->
+                <button class="tw-btn-icon tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18 18 6M6 6l12 12" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Plan
+          Metadata - Type, Duration, Live Logo
+          Status - Overdue
+          Actions - Follow, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Sales Automation Strategy"
+              >
+                Sales Automation Strategy
+              </p>
+              <ul class="tw-flex tw-items-center tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Plan</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">57 minutes</li>
+                <li
+                  class="tw-border-primary-800 tw-flex tw-h-4 tw-w-4 tw-items-center tw-justify-center tw-rounded-full tw-border tw-p-0.5"
+                >
+                  <img src="/assets/live-logo.svg" alt="Live" />
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-red-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-red-800 tw-ring-1 tw-ring-red-300"
+              tabindex="0"
+              >Overdue</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Event - Upcoming
+          Metadata - Type, Location
+          Status - None
+          Actions - Register, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="The Future of Skills is Now"
+              >
+                The Future of Skills is Now
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Event</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Online</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-primary">
+                  Register
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M13.5 6H5.25A2.25 2.25 0 0 0 3 8.25v10.5A2.25 2.25 0 0 0 5.25 21h10.5A2.25 2.25 0 0 0 18 18.75V10.5m-10.5 6L21 3m0 0h-5.25M21 3v5.25"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Event - Live
+          Metadata - Type, Location
+          Status - None
+          Actions - Join Event, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="The Future of Skills is Now"
+              >
+                The Future of Skills is Now
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Event</li>
+                <li class="tw-flex tw-items-center tw-gap-0.5 tw-text-xs tw-font-semibold tw-uppercase tw-text-red-800">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M9.348 14.652a3.75 3.75 0 0 1 0-5.304m5.304 0a3.75 3.75 0 0 1 0 5.304m-7.425 2.121a6.75 6.75 0 0 1 0-9.546m9.546 0a6.75 6.75 0 0 1 0 9.546M5.106 18.894c-3.808-3.807-3.808-9.98 0-13.788m13.788 0c3.808 3.807 3.808 9.98 0 13.788M12 12h.008v.008H12V12Zm.375 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Z"
+                    />
+                  </svg>
+                  Live
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-primary">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m15.75 10.5 4.72-4.72a.75.75 0 0 1 1.28.53v11.38a.75.75 0 0 1-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 0 0 2.25-2.25v-9a2.25 2.25 0 0 0-2.25-2.25h-9A2.25 2.25 0 0 0 2.25 7.5v9a2.25 2.25 0 0 0 2.25 2.25Z"
+                    />
+                  </svg>
+                  Join Event
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Learning - Article
+          Metadata - Type, Duration, Source
+          Status - Due Soon
+          Actions - Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Insights and Research for Sales Development"
+              >
+                Insights and Research for Sales Development
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Article</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">83 minutes</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">LinkedIn Learning</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-yellow-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-yellow-800 tw-ring-1 tw-ring-yellow-300"
+              tabindex="0"
+              >Due Soon</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+
+        <!--
+          Content Card - Learning - Video
+          Metadata - Type, Duration, Source
+          Status - None
+          Actions - Info, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Why Good Ideas Get Trapped In The Valley Of Death"
+              >
+                Why Good Ideas Get Trapped In The Valley Of Death
+              </p>
+              <ul class="tw-flex tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Video</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">46 minutes</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">TED Talks</li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="m11.25 11.25.041-.02a.75.75 0 0 1 1.063.852l-.708 2.836a.75.75 0 0 0 1.063.853l.041-.021M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9-3.75h.008v.008H12V8.25Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="tw-col-span-full tw-block tw-rounded-xl tw-bg-white tw-p-6 tw-shadow-md sm:tw-hidden">
+      <h4 class="tw-mb-5 tw-font-extrabold tw-text-neutral-800">Personalized Learning</h4>
+
+      <!-- Skill Selector buttons with right overflow -->
+      <div class="tw-relative tw-mb-6 tw-h-[33.5px] tw-overflow-hidden tw-rounded-lg tw-border tw-border-neutral-300">
+        <div role="group" class="tw-flex tw-flex-grow tw-gap-1 tw-overflow-y-hidden tw-overflow-x-scroll tw-whitespace-nowrap md:tw-gap-7">
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+              />
+            </svg>
+            Communication
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-border tw-border-blue-200 tw-bg-blue-100 tw-px-3 tw-text-sm tw-font-semibold tw-text-blue-900 first:tw-ml-1 sm:tw-px-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+              />
+            </svg>
+            Sales Strategy
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+              />
+            </svg>
+            Negotiation
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="2"
+              stroke="currentColor"
+              class="tw-size-4"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M11.48 3.499a.562.562 0 0 1 1.04 0l2.125 5.111a.563.563 0 0 0 .475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 0 0-.182.557l1.285 5.385a.562.562 0 0 1-.84.61l-4.725-2.885a.562.562 0 0 0-.586 0L6.982 20.54a.562.562 0 0 1-.84-.61l1.285-5.386a.562.562 0 0 0-.182-.557l-4.204-3.602a.562.562 0 0 1 .321-.988l5.518-.442a.563.563 0 0 0 .475-.345L11.48 3.5Z"
+              />
+            </svg>
+            Sales
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Marketting
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Sales Leadership
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Sales
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Communication
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Critical Thinking
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Public Speaking
+          </button>
+          <button
+            class="tw-my-1 tw-flex tw-h-6 tw-items-center tw-gap-1.5 tw-rounded-md tw-px-3 tw-text-sm tw-font-semibold tw-text-neutral-800 first:tw-ml-1 last:tw-mr-10 hover:tw-border-blue-200 hover:tw-bg-blue-100 hover:tw-text-blue-900 sm:tw-px-4"
+          >
+            Foreign Language Proficiency
+          </button>
+        </div>
+        <button
+          class="tw-absolute tw-right-0 tw-top-0 tw-flex tw-h-full tw-w-9 tw-items-center tw-justify-center tw-gap-1.5 tw-rounded-md tw-bg-white tw-text-sm tw-font-semibold tw-text-neutral-800 hover:tw-text-blue-900"
+        >
+          <!-- Icon: chevron-right -->
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke-width="1.5"
+            stroke="currentColor"
+            class="tw-size-6"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m8.25 4.5 7.5 7.5-7.5 7.5" />
+          </svg>
+        </button>
+      </div>
+
+      <div class="tw-flex tw-flex-col tw-divide-y tw-divide-neutral-200" id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+        <!--
+          Content Card - Pathway
+          Metadata - Type, Duration
+          Status - Started
+          Actions - Follow, Save, Overflow Menu
+        -->
+        <section class="tw-flex tw-flex-col tw-gap-y-4 tw-py-3 first:tw-pt-0 last:tw-pb-0 md:tw-flex-row md:tw-items-center">
+          <div class="tw-flex tw-grow tw-items-center tw-gap-3">
+            <img class="tw-h-10 tw-w-16 tw-rounded" src="/assets/content-card.png" alt="" height="40" width="64" />
+            <div class="tw-grow tw-overflow-hidden">
+              <!-- TODO: Replace title attribute with tooltip component -->
+              <p
+                class="tw-mb-1 tw-truncate tw-text-xs tw-font-semibold tw-text-neutral-800 sm:tw-text-sm"
+                title="Measure Sales Force Effectiveness In Your Organization"
+              >
+                Measure Sales Force Effectiveness In Your Organization
+              </p>
+              <ul class="tw-flex tw-items-center tw-gap-3">
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">Pathway</li>
+                <li class="tw-text-xs tw-font-semibold tw-text-neutral-600">103 minutes</li>
+                <li class="tw-hidden md:tw-list-item">
+                  <span
+                    class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800"
+                    tabindex="0"
+                    >Started</span
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="tw-flex tw-items-center tw-justify-between tw-gap-3 md:tw-ml-4">
+            <span
+              class="tw-inline-flex tw-h-5 tw-items-center tw-whitespace-nowrap tw-rounded-full tw-border tw-border-neutral-300 tw-bg-neutral-100 tw-px-2 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 md:tw-hidden"
+              tabindex="0"
+              >Started</span
+            >
+            <ul class="tw-flex tw-flex-1 tw-justify-end tw-gap-2 tw-leading-none">
+              <li>
+                <button class="tw-btn-secondary-filled">Follow</button>
+              </li>
+              <li>
+                <button class="tw-btn-secondary-filled">Save</button>
+              </li>
+              <li>
+                <button class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="1.5"
+                    stroke="currentColor"
+                    class="tw-h-4 tw-w-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M6.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM12.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0ZM18.75 12a.75.75 0 1 1-1.5 0 .75.75 0 0 1 1.5 0Z"
+                    />
+                  </svg>
+                </button>
+              </li>
+            </ul>
+          </div>
+        </section>
+      </div>
+    </div>
+
+    <div class="tw-col-span-full tw-block tw-rounded-xl tw-p-6 tw-shadow-md sm:tw-hidden">
+      <h4 class="tw-mb-5 tw-font-extrabold tw-text-neutral-800">Continue Learning</h4>
+      <!-- Skeleton State for Content Cards on xs -->
+      <div class="tw-flex tw-animate-pulse tw-items-center">
+        <div class="tw-h-10 tw-w-16 tw-rounded tw-bg-neutral-300"></div>
+        <div class="tw-ml-3 tw-grow">
+          <div class="tw-mb-1 tw-h-4 tw-w-full tw-rounded-full tw-bg-neutral-300"></div>
+          <div class="tw-h-2 tw-w-32 tw-rounded-full tw-bg-neutral-300"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tw-col-span-full tw-block tw-rounded-xl tw-p-6 tw-shadow-md sm:tw-hidden">
+      <h4 class="tw-mb-5 tw-font-extrabold tw-text-neutral-800">Personalized Learning</h4>
+      <!-- Empty State for Learning Tabs on xs -->
+      <div class="tw-flex tw-flex-col tw-items-center tw-justify-center">
+        <img class="tw-mb-4 tw-h-32 tw-w-40" src="/assets/empty-state-cats.png" alt="" />
+        <p class="tw-text-center tw-text-sm tw-text-neutral-600">You don’t have any learning content in progress</p>
+      </div>
+    </div>
+
+    <!-- Skeleton State -->
+    <div class="tw-col-span-full tw-hidden tw-rounded-xl tw-bg-white tw-p-6 tw-shadow-md sm:tw-block">
+      <div
+        role="tablist"
+        aria-labelledby="tablist-1"
+        class="tw-mb-6 tw-flex tw-justify-between tw-gap-x-8 tw-border-b tw-border-neutral-200 md:tw-justify-start lg:tw-gap-x-20"
+      >
+        <button
+          id="tab-1"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tabpanel-1"
+          class="tw-group tw-relative tw-flex tw-items-center tw-gap-x-2 tw-pb-4 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-right-0 after:tw-block after:tw-h-1 after:tw-rounded-t-lg after:tw-bg-blue-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-800 group-hover:tw-text-neutral-800">Assigned Learning</span>
+          <span
+            class="tw-hidden tw-h-6 tw-animate-pulse tw-rounded-full tw-bg-neutral-300 md:tw-inline-flex md:tw-min-w-8 lg:tw-min-w-16"
+          ></span>
+        </button>
+        <button
+          id="tab-2"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-2"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4 tw-text-neutral-600 hover:tw-text-neutral-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Continue Learning</span>
+          <span
+            class="tw-hidden tw-h-6 tw-animate-pulse tw-rounded-full tw-bg-neutral-300 md:tw-inline-flex md:tw-min-w-8 lg:tw-min-w-16"
+          ></span>
+        </button>
+        <button
+          id="tab-3"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-3"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4 tw-text-neutral-600 hover:tw-text-neutral-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Personalized Learning</span>
+        </button>
+      </div>
+
+      <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+        <div class="tw-flex tw-animate-pulse tw-items-center">
+          <div class="tw-h-10 tw-w-16 tw-rounded tw-bg-neutral-300"></div>
+          <div class="tw-ml-3">
+            <div class="tw-mb-1 tw-h-4 tw-w-96 tw-rounded-full tw-bg-neutral-300"></div>
+            <div class="tw-h-2 tw-w-52 tw-rounded-full tw-bg-neutral-300"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div class="tw-col-span-full tw-hidden tw-rounded-xl tw-p-6 tw-shadow-md sm:tw-block">
+      <div
+        role="tablist"
+        aria-labelledby="tablist-1"
+        class="tw-mb-6 tw-flex tw-justify-between tw-gap-x-8 tw-border-b tw-border-neutral-200 md:tw-justify-start lg:tw-gap-x-20"
+      >
+        <button
+          id="tab-1"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-1"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Assigned Learning</span>
+          <span
+            class="tw-hidden tw-h-6 tw-min-w-8 tw-items-center tw-rounded-full tw-bg-neutral-100 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-800 tw-ring-1 tw-ring-inset tw-ring-neutral-300 md:tw-inline-flex"
+            >20</span
+          >
+        </button>
+        <button
+          id="tab-2"
+          type="button"
+          role="tab"
+          aria-selected="true"
+          aria-controls="tabpanel-2"
+          class="tw-group tw-relative tw-flex tw-items-center tw-gap-x-2 tw-pb-4 after:tw-absolute after:tw-bottom-0 after:tw-left-0 after:tw-right-0 after:tw-block after:tw-h-1 after:tw-rounded-t-lg after:tw-bg-blue-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-800 group-hover:tw-text-neutral-800">Continue Learning</span>
+        </button>
+        <button
+          id="tab-3"
+          type="button"
+          role="tab"
+          aria-selected="false"
+          aria-controls="tabpanel-3"
+          tabindex="-1"
+          class="tw-group tw-flex tw-items-center tw-gap-x-2 tw-pb-4 tw-text-neutral-600 hover:tw-text-neutral-800"
+        >
+          <span class="tw-font-extrabold tw-text-neutral-600 group-hover:tw-text-neutral-800">Personalized Learning</span>
+        </button>
+      </div>
+
+      <div id="tabpanel-1" role="tabpanel" aria-labelledby="tab-1">
+        <div class="tw-flex tw-flex-col tw-items-center tw-justify-center">
+          <img class="tw-mb-4 tw-h-32 tw-w-40" src="/assets/empty-state-cats.png" alt="" />
+          <p class="tw-text-sm tw-text-neutral-600">You don’t have any learning content in progress</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</html-component>

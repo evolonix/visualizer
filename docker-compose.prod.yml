@@ -1,0 +1,18 @@
+services:
+  visualizer:
+    image: degreed/visualizer:latest
+    container_name: visualizer
+    build:
+      context: .
+      dockerfile: ./apps/visualizer/spa/Dockerfile.prod
+    ports:
+      - '8080:80'
+
+  skills-platform:
+    image: degreed/skills-platform:latest
+    container_name: skills-platform
+    build:
+      context: .
+      dockerfile: ./apps/skills-platform/spa/Dockerfile.prod
+    ports:
+      - '8083:80'

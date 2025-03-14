@@ -1,0 +1,17 @@
+{
+  "name": "@degreed/apollo-angular",
+  "version": "0.0.0-development",
+  "peerDependencies": {
+    "@angular/common": "^15.2.0",
+    "@angular/core": "^15.2.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/degreed/fe-workspace.git",
+    "directory": "libs/shared/apollo/angular"
+  }
+}

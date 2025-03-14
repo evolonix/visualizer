@@ -1,0 +1,354 @@
+<div class="tw-relative tw-left-0 tw-top-0 tw-z-[100] tw-min-h-screen tw-w-full tw-bg-white">
+  <!-- Header -->
+  <div
+    class="tw-sticky tw-top-0 tw-z-40 tw-flex tw-h-16 tw-shrink-0 tw-items-center tw-gap-x-4 tw-border-b tw-border-neutral-200 tw-bg-white tw-px-4 sm:tw-h-20 sm:tw-gap-x-6 sm:tw-px-6 lg:tw-px-10"
+  >
+    <div class="tw-absolute tw-inset-y-0 tw-left-3 tw-flex tw-items-center">
+      <button type="button" onclick="" class="tw-p-3 tw-text-neutral-700">
+        <span class="tw-sr-only">Go back</span>
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="tw-h-6 tw-w-6"
+          aria-hidden="true"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="tw-ml-12 tw-flex tw-flex-1 tw-items-center md:tw-ml-0 md:tw-justify-center">
+      <p class="tw-font-semibold">Add Skill</p>
+    </div>
+
+    <div class="tw-absolute tw-inset-y-0 tw-right-6 tw-flex tw-items-center tw-gap-x-4">
+      <button disabled class="tw-btn-primary tw-btn-medium tw-ml-4">Save</button>
+    </div>
+  </div>
+  <div class="tw-flex">
+    <main class="tw-w-full tw-pb-12 tw-pt-8 sm:tw-pt-12">
+      <div class="tw-px-4 sm:tw-px-6 lg:tw-px-10">
+        <!-- Content -->
+        <form>
+          <div class="tw-grid-apollo tw-gap-y-6 sm:tw-gap-y-8 sm:tw-px-16 xl:tw-px-0">
+            <div
+              class="tw-col-span-full tw-flex tw-flex-wrap tw-items-center tw-gap-2 md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-flex-1">
+                <div class="tw-flex tw-items-center tw-gap-2">
+                  <label for="skillId" class="tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-600">Skill ID</label>
+                  <span id="skillId" name="skillId" class="tw-text-xs">********************</span>
+                  <span>
+                    <!-- Icon: eye-slash -->
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 16 16"
+                      fill="none"
+                      xmlns="http://www.w3.org/2000/svg"
+                      class="tw-text-neutral-600"
+                    >
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M2.62426 1.77535C2.38995 1.54103 2.01005 1.54103 1.77574 1.77535C1.54142 2.00966 1.54142 2.38956 1.77574 2.62387L13.3757 14.2239C13.61 14.4582 13.9899 14.4582 14.2243 14.2239C14.4586 13.9896 14.4586 13.6097 14.2243 13.3753L12.8281 11.9792C14.0051 11.0871 14.9276 9.87679 15.4675 8.47635C15.5852 8.1711 15.5853 7.83262 15.4678 7.52731C14.3136 4.52801 11.4048 2.39961 7.99887 2.39961C6.62566 2.39961 5.33325 2.7456 4.20408 3.35516L2.62426 1.77535ZM6.20155 5.35263L7.07494 6.22602C7.35161 6.08139 7.66633 5.99961 8.00015 5.99961C9.10471 5.99961 10.0001 6.89504 10.0001 7.99961C10.0001 8.33343 9.91836 8.64815 9.77374 8.92482L10.6473 9.79836C10.9963 9.28576 11.2003 8.66651 11.2003 7.99961C11.2003 6.2323 9.76761 4.79961 8.0003 4.79961C7.3334 4.79961 6.71415 5.00362 6.20155 5.35263Z"
+                        fill="currentColor"
+                      />
+                      <path
+                        d="M8.59871 11.1438L10.6169 13.1619C9.79699 13.4455 8.91663 13.5996 8.0003 13.5996C4.59438 13.5996 1.68558 11.4712 0.531404 8.47191C0.413913 8.16659 0.414015 7.82812 0.531688 7.52287C0.924827 6.50306 1.52086 5.58407 2.27033 4.81536L4.85616 7.40119C4.81948 7.59505 4.8003 7.79509 4.8003 7.99961C4.8003 9.76692 6.23299 11.1996 8.0003 11.1996C8.20482 11.1996 8.40486 11.1804 8.59871 11.1438Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </span>
+                </div>
+              </div>
+              <div class="tw-h-8">
+                <html-component
+                  name="apollo/dropdown"
+                  id="skillVisibility"
+                  onload="selectDropdownItemById('skillVisibility', 'Show', true)"
+                >
+                  <!-- Active: "font-semibold", Not Active: "" -->
+                  <a
+                    href="#"
+                    class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    Show
+                    <!-- Active: show, Not Active: hide -->
+                    <!-- Icon: check-circle -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                        class="tw-fill-green-600"
+                      />
+                    </svg>
+                  </a>
+                  <!-- Active: "font-semibold", Not Active: "" -->
+                  <a
+                    href="#"
+                    class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    Hide
+                    <!-- Active: show, Not Active: hide -->
+                    <!-- Icon: check-circle -->
+                    <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                        class="tw-fill-green-600"
+                      />
+                    </svg>
+                  </a>
+                </html-component>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full sm:tw-col-span-7 md:tw-col-span-5 md:tw-col-start-2 lg:tw-col-span-8 lg:tw-col-start-2 xl:tw-col-span-6 xl:tw-col-start-3"
+            >
+              <div class="tw-group tw-relative tw-z-0 tw-w-full">
+                <input
+                  type="text"
+                  id="skillTitle"
+                  class="tw-peer tw-mt-4 tw-block tw-w-full tw-appearance-none tw-border-0 tw-border-b-2 tw-border-neutral-200 tw-bg-transparent tw-px-0 tw-py-1 tw-text-3xl tw-font-bold tw-text-neutral-800 tw-placeholder-neutral-600 placeholder:tw-opacity-0 focus:tw-border-blue-700 focus:tw-outline-none focus:tw-ring-0 focus:placeholder:tw-opacity-100 disabled:tw-cursor-not-allowed disabled:tw-border-dashed disabled:tw-bg-neutral-100 group-[.has-error]:tw-border-red-200 group-[.has-error]:tw-text-red-800 group-[.has-error]:tw-placeholder-red-600 focus:group-[.has-error]:tw-border-red-800 dark:tw-border-neutral-700 dark:tw-text-neutral-100 dark:tw-placeholder-neutral-400 dark:focus:tw-border-blue-600 dark:disabled:tw-bg-neutral-800 dark:group-[.has-error]:tw-border-red-700 dark:group-[.has-error]:tw-text-red-100 dark:group-[.has-error]:tw-placeholder-red-400 dark:focus:group-[.has-error]:tw-border-red-700 group-[.has-error]:[&:not(:focus)]:tw-pr-6 focus:[&:not(:placeholder-shown)]:tw-pr-6 group-hover:[&:not(:placeholder-shown)]:tw-pr-6"
+                  placeholder="Skill Title"
+                  required
+                  value=""
+                  maxlength="300"
+                />
+                <label
+                  for="skillTitle"
+                  class="tw-absolute tw-top-1 tw-origin-[0] -tw-translate-y-5 tw-transform tw-text-xs tw-font-semibold tw-text-neutral-600 tw-duration-300 group-hover:tw-text-neutral-800 group-[.has-error]:tw-text-red-600 group-hover:group-[.has-error]:tw-text-red-800 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-text-3xl peer-placeholder-shown:tw-font-bold peer-focus:tw-left-0 peer-focus:-tw-translate-y-5 peer-focus:tw-text-xs peer-focus:tw-font-semibold peer-focus:tw-text-blue-700 group-[.has-error]:peer-focus:tw-text-red-800 peer-disabled:tw-cursor-not-allowed dark:tw-text-neutral-300 dark:group-hover:tw-text-neutral-200 dark:group-[.has-error]:tw-text-red-400 dark:group-hover:group-[.has-error]:tw-text-red-300 dark:peer-focus:tw-text-blue-600 dark:group-[.has-error]:peer-focus:tw-text-red-400"
+                >
+                  Skill Title <span aria-hidden="true" class="tw-text-red-800">*</span>
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-group tw-relative tw-z-0 tw-w-full">
+                <textarea
+                  class="tw-peer tw-mt-4 tw-block tw-w-full tw-appearance-none tw-border-0 tw-border-b-2 tw-border-neutral-200 tw-bg-transparent tw-px-0 tw-py-1 tw-placeholder-neutral-600 placeholder:tw-opacity-0 focus:tw-border-blue-700 focus:tw-outline-none focus:tw-ring-0 focus:placeholder:tw-opacity-100 disabled:tw-cursor-not-allowed disabled:tw-border-dashed disabled:tw-bg-neutral-100 dark:tw-border-neutral-700 dark:tw-text-neutral-100 dark:tw-placeholder-neutral-400 dark:focus:tw-border-blue-600 dark:disabled:tw-bg-neutral-800 group-[.has-error]:[&:not(:focus)]:tw-pr-6 focus:[&:not(:placeholder-shown)]:tw-pr-6 group-hover:[&:not(:placeholder-shown)]:tw-pr-6"
+                  placeholder="Skill Description"
+                  rows="1"
+                  maxlength="900"
+                  id="skillDescription"
+                ></textarea>
+                <label
+                  for="skillDescription"
+                  class="tw-absolute tw-top-1 tw-origin-[0] -tw-translate-y-5 tw-transform tw-text-xs tw-text-neutral-600 tw-duration-300 group-hover:tw-text-neutral-800 peer-placeholder-shown:tw-translate-y-0 peer-placeholder-shown:tw-text-base peer-placeholder-shown:tw-font-normal peer-focus:tw-left-0 peer-focus:-tw-translate-y-5 peer-focus:tw-text-xs peer-focus:tw-font-semibold peer-focus:tw-text-blue-700 peer-disabled:tw-cursor-not-allowed dark:tw-text-neutral-300 dark:group-hover:tw-text-neutral-200 dark:peer-focus:tw-text-blue-600"
+                >
+                  Skill Description
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="tw-mb-2 tw-mt-6 sm:tw-col-span-8 md:tw-col-span-12 md:tw-col-start-2 lg:tw-col-start-2 xl:tw-col-span-4 xl:tw-col-start-3"
+            >
+              <div
+                class="tw-hidden tw-h-8 tw-items-center tw-gap-2 tw-rounded-lg tw-border tw-border-neutral-300 tw-bg-white tw-px-1 tw-py-2 md:tw-inline-flex"
+              >
+                <button
+                  type="button"
+                  class="tw-inline-flex tw-h-6 tw-items-center tw-gap-3 tw-rounded-md tw-border tw-border-transparent tw-px-4 tw-text-sm tw-font-semibold hover:tw-border-blue-300 hover:tw-text-blue-800 focus:tw-border-blue-800 focus:tw-bg-blue-100 focus:tw-text-blue-900 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-blue-800 disabled:tw-border-dashed disabled:tw-border-neutral-300 disabled:tw-bg-neutral-100 disabled:tw-text-neutral-600"
+                >
+                  Details
+                </button>
+                <button
+                  type="button"
+                  class="tw-inline-flex tw-h-6 tw-items-center tw-gap-3 tw-rounded-md tw-border tw-border-blue-200 tw-border-transparent tw-bg-blue-100 tw-px-4 tw-text-sm tw-font-semibold tw-text-blue-900 hover:tw-border-blue-300 hover:tw-text-blue-800 focus:tw-border-blue-800 focus:tw-bg-blue-100 focus:tw-text-blue-900 focus:tw-outline-none focus:tw-ring-1 focus:tw-ring-blue-800 disabled:tw-border-dashed disabled:tw-border-neutral-300 disabled:tw-bg-neutral-100 disabled:tw-text-neutral-600"
+                >
+                  Settings
+                </button>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full tw-flex tw-flex-wrap tw-items-center tw-gap-2 md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-flex-1">
+                <label for="proprietaryCompany" class="tw-font-semibold tw-text-neutral-800"
+                  >Proprietary to {Company Name}
+                  <p class="tw-text-xs tw-font-normal tw-text-neutral-600">
+                    Proprietary skills will not have recommended descriptions, synonyms, or related skills.
+                  </p>
+                </label>
+              </div>
+              <div class="">
+                <label class="tw-inline-flex tw-cursor-pointer tw-items-center">
+                  <input id="proprietaryCompany" type="checkbox" value="" class="tw-peer tw-sr-only" checked />
+                  <div
+                    class="tw-peer tw-relative tw-h-6 tw-w-11 tw-rounded-full tw-bg-neutral-300 after:tw-absolute after:tw-start-[2px] after:tw-top-0.5 after:tw-h-5 after:tw-w-5 after:tw-rounded-full after:tw-border after:tw-border-neutral-300 after:tw-bg-white after:tw-transition-all after:tw-content-[''] peer-checked:tw-bg-blue-800 peer-checked:after:tw-translate-x-full peer-checked:after:tw-border-white rtl:peer-checked:after:-tw-translate-x-full dark:tw-border-blue-800 dark:tw-bg-blue-800"
+                  ></div>
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full tw-mt-2 tw-flex tw-flex-wrap tw-items-center tw-gap-2 md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-flex-1">
+                <label for="endorseSkill" class="tw-font-semibold tw-text-neutral-800"
+                  >Endorse Skill
+                  <p class="tw-text-xs tw-font-normal tw-text-neutral-600">
+                    If enabled, an icon appears on the card to show you endorsed this skill.
+                  </p>
+                </label>
+              </div>
+              <div class="">
+                <label class="tw-inline-flex tw-cursor-pointer tw-items-center">
+                  <input id="endorseSkill" type="checkbox" value="" class="tw-peer tw-sr-only" />
+                  <div
+                    class="tw-peer tw-relative tw-h-6 tw-w-11 tw-rounded-full tw-bg-neutral-300 after:tw-absolute after:tw-start-[2px] after:tw-top-0.5 after:tw-h-5 after:tw-w-5 after:tw-rounded-full after:tw-border after:tw-border-neutral-300 after:tw-bg-white after:tw-transition-all after:tw-content-[''] peer-checked:tw-bg-blue-800 peer-checked:after:tw-translate-x-full peer-checked:after:tw-border-white rtl:peer-checked:after:-tw-translate-x-full dark:tw-border-blue-800 dark:tw-bg-blue-800"
+                  ></div>
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full tw-mt-2 tw-flex tw-flex-wrap tw-items-center tw-gap-2 md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-flex-1">
+                <label for="enableSkillReview" class="tw-font-semibold tw-text-neutral-800"
+                  >Enable for Skill Review
+                  <p class="tw-text-xs tw-font-normal tw-text-neutral-600">
+                    Allow Skill Review in this skill for learners who belong to this organization.
+                  </p>
+                </label>
+              </div>
+              <div class="">
+                <label class="tw-inline-flex tw-cursor-pointer tw-items-center">
+                  <input id="enableSkillReview" type="checkbox" value="" class="tw-peer tw-sr-only" checked />
+                  <div
+                    class="tw-peer tw-relative tw-h-6 tw-w-11 tw-rounded-full tw-bg-neutral-300 after:tw-absolute after:tw-start-[2px] after:tw-top-0.5 after:tw-h-5 after:tw-w-5 after:tw-rounded-full after:tw-border after:tw-border-neutral-300 after:tw-bg-white after:tw-transition-all after:tw-content-[''] peer-checked:tw-bg-blue-800 peer-checked:after:tw-translate-x-full peer-checked:after:tw-border-white rtl:peer-checked:after:-tw-translate-x-full dark:tw-border-blue-800 dark:tw-bg-blue-800"
+                  ></div>
+                </label>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full tw-flex tw-flex-wrap tw-items-center tw-gap-2 md:tw-col-span-7 md:tw-col-start-2 lg:tw-col-span-10 lg:tw-col-start-2 xl:tw-col-span-8 xl:tw-col-start-3"
+            >
+              <div class="tw-flex-1">
+                <label class="tw-font-semibold tw-text-neutral-800"
+                  >Skill Review Visibility
+                  <p class="tw-text-xs tw-font-normal tw-text-neutral-600">Define who has access to skill review ratings</p>
+                </label>
+              </div>
+              <div class="">
+                <html-component
+                  name="apollo/dropdown"
+                  id="suggestedMappings"
+                  onload="selectDropdownItemById('suggestedMappings', 'Group', true)"
+                >
+                  <!-- Active: "font-semibold", Not Active: "" -->
+                  <a
+                    href="#"
+                    class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    Group
+                    <!-- Active: show, Not Active: hide -->
+                    <!-- Icon: check-circle -->
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                        class="tw-fill-green-600"
+                      />
+                    </svg>
+                  </a>
+                  <!-- Active: "font-semibold", Not Active: "" -->
+                  <a
+                    href="#"
+                    class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+                    role="menuitem"
+                    tabindex="-1"
+                  >
+                    Organization
+                    <!-- Active: show, Not Active: hide -->
+                    <!-- Icon: check-circle -->
+                    <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path
+                        fill-rule="evenodd"
+                        clip-rule="evenodd"
+                        d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                        class="tw-fill-green-600"
+                      />
+                    </svg>
+                  </a>
+                </html-component>
+              </div>
+            </div>
+
+            <div
+              class="tw-col-span-full sm:tw-col-span-8 md:tw-col-span-10 md:tw-col-start-2 lg:tw-col-start-2 xl:tw-col-span-10 xl:tw-col-start-3"
+            >
+              <label for="groupVisibility" class="tw-mb-4 tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-900"
+                >Limit visibility to these</label
+              >
+              <div class="tw-flex">
+                <div class="tw-mr-6 tw-flex tw-flex-col tw-items-start tw-gap-4 tw-relative tw-mt-4 tw-w-2/3 md:tw-w-1/3 xl:tw-w-1/4">
+                  <input
+                    id="groupVisibility"
+                    type="search"
+                    placeholder="Search groups"
+                    class="tw-align-middle tw-flex tw-h-10 tw-w-full tw-flex-col tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-neutral-200 tw-bg-white tw-pl-9 tw-placeholder-neutral-500 focus:tw-border-blue-800 focus:tw-outline-none focus:tw-ring-blue-800"
+                  />
+                  <!-- Icon: magnifying-glass -->
+                  <svg
+                    class="tw-mt-1 tw-absolute tw-left-3 tw-top-2 tw-align-middle tw-fill-neutral-500"
+                    width="16"
+                    height="16"
+                    viewBox="0 0 16 16"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      fill="currentColor"
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M7.20001 2.80001C4.76995 2.80001 2.80001 4.76995 2.80001 7.20001C2.80001 9.63006 4.76995 11.6 7.20001 11.6C8.4152 11.6 9.51437 11.1082 10.3113 10.3113C11.1082 9.51437 11.6 8.4152 11.6 7.20001C11.6 4.76995 9.63006 2.80001 7.20001 2.80001ZM1.60001 7.20001C1.60001 4.10721 4.10721 1.60001 7.20001 1.60001C10.2928 1.60001 12.8 4.10721 12.8 7.20001C12.8 8.53002 12.3358 9.75245 11.5614 10.7129L14.2243 13.3757C14.4586 13.6101 14.4586 13.99 14.2243 14.2243C13.99 14.4586 13.6101 14.4586 13.3757 14.2243L10.7129 11.5614C9.75245 12.3358 8.53002 12.8 7.20001 12.8C4.10721 12.8 1.60001 10.2928 1.60001 7.20001Z"
+                    />
+                  </svg>
+                </div>
+                <div class="tw-flex tw-flex-row tw-gap-3 tw-font-semibold tw-flex-wrap tw-flex-1 tw-w-full tw-my-4">
+                  <span class="tw-mr-3 tw-whitespace-nowrap tw-rounded-lg tw-bg-neutral-200 tw-px-2 tw-py-1 tw-text-xs tw-text-neutral-800"
+                    >{Group Name}
+                    <button class="tw-ml-1 tw-align-middle">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                        <path
+                          fill-rule="evenodd"
+                          clip-rule="evenodd"
+                          d="M1.71967 1.71967C2.01256 1.42678 2.48744 1.42678 2.78033 1.71967L6 4.93934L9.21967 1.71967C9.51256 1.42678 9.98744 1.42678 10.2803 1.71967C10.5732 2.01256 10.5732 2.48744 10.2803 2.78033L7.06066 6L10.2803 9.21967C10.5732 9.51256 10.5732 9.98744 10.2803 10.2803C9.98744 10.5732 9.51256 10.5732 9.21967 10.2803L6 7.06066L2.78033 10.2803C2.48744 10.5732 2.01256 10.5732 1.71967 10.2803C1.42678 9.98744 1.42678 9.51256 1.71967 9.21967L4.93934 6L1.71967 2.78033C1.42678 2.48744 1.42678 2.01256 1.71967 1.71967Z"
+                          fill="currentColor"
+                        />
+                      </svg>
+                    </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </main>
+    <html-component name="skills-platform/drawers/suggestions-drawer-skills"></html-component>
+  </div>
+  <html-component name="apollo/footer"></html-component>
+</div>

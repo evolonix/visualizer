@@ -1,0 +1,118 @@
+{
+  "name": "app-skills-platform",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/skills-platform/spa/src",
+  "projectType": "application",
+  "targets": {
+    "build-app": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/skills-platform/spa"
+      },
+      "configurations": {
+        "production": {
+          "mode": "production"
+        },
+        "development": {
+          "mode": "development"
+        }
+      }
+    },
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "commands": ["nx run app-skills-platform:build-app"],
+        "parallel": false
+      },
+      "configurations": {
+        "production": {
+          "commands": ["nx run app-skills-platform:build-app:production"]
+        },
+        "development": {
+          "commands": ["nx run app-skills-platform:build-app:development"]
+        },
+        "lxp": {
+          "commands": ["nx run app-skills-platform:build-app:development --skip-nx-cache && ts-node tools/copy-skills-platform-to-lxp.ts"],
+          "cache": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "app-skills-platform:build-app"
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "app-skills-platform:build-app:production",
+          "hmr": false
+        },
+        "development": {
+          "buildTarget": "app-skills-platform:build-app:development",
+          "hmr": true
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "outputs": ["{options.outputFile}"]
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "apps/skills-platform/spa/jest.config.ts"
+      }
+    },
+    "container": {
+      "executor": "@nx-tools/nx-container:build",
+      "defaultConfiguration": "production",
+      "options": {
+        "engine": "docker",
+        "metadata": {
+          "images": ["ghcr.io/degreed/skills-platform"],
+          "load": true,
+          "push": true,
+          "tags": ["type=schedule", "type=ref,event=branch", "type=ref,event=tag", "type=ref,event=pr", "type=sha,prefix=sha-"]
+        }
+      },
+      "configurations": {
+        "development": {
+          "file": "apps/skills-platform/spa/Dockerfile",
+          "metadata": {
+            "images": ["degreed/skills-platform"],
+            "push": false,
+            "tags": ["type=sha,prefix=sha-"]
+          }
+        },
+        "production": {
+          "file": "apps/skills-platform/spa/Dockerfile.prod",
+          "metadata": {
+            "images": ["ghcr.io/degreed/skills-platform"],
+            "load": true,
+            "push": true,
+            "cache-from": ["type=gha"],
+            "cache-to": ["type=gha,mode=max"],
+            "tags": ["type=ref,event=branch", "type=ref,event=tag", "type=sha", "type=sha,format=long", "latest"]
+          }
+        }
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "tagPrefix": "{projectName}@",
+        "skipRootChangelog": true,
+        "skipProjectChangelog": true,
+        "skipCommit": true,
+        "trackDeps": true
+      }
+    }
+  },
+  "tags": ["type:app", "scope:skills-platform"]
+}

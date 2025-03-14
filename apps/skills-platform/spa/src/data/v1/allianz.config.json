@@ -1,0 +1,190 @@
+{
+  "theme": {
+    "colors": {
+      "background": "#053285",
+      "highlight": "white"
+    },
+    "text": "light"
+  },
+  "logos": [
+    {
+      "url": "/logos/allianz-small.png",
+      "size": "small"
+    },
+    {
+      "url": "/logos/allianz-wide.png",
+      "size": "wide"
+    }
+  ],
+  "features": {
+    "search": true,
+    "addContent": true
+  },
+  "navigation": {
+    "top": [
+      {
+        "text": "Home",
+        "title": "Home",
+        "icon": "HomeIcon",
+        "subItems": [
+          {
+            "text": "Dashboard",
+            "href": "/home"
+          },
+          {
+            "text": "Assignments",
+            "href": "/assignments"
+          },
+          {
+            "text": "Saved",
+            "href": "/saved"
+          },
+          {
+            "text": "Shared",
+            "href": "/shared"
+          },
+          {
+            "text": "Pathways",
+            "href": "/pathways"
+          },
+          {
+            "text": "Plans",
+            "href": "/plans"
+          },
+          {
+            "text": "Groups",
+            "href": "/groups"
+          }
+        ]
+      },
+      {
+        "text": "Featured",
+        "title": "Featured",
+        "icon": "StarIcon",
+        "href": "/featured"
+      },
+      {
+        "text": "Discover",
+        "title": "Discover",
+        "icon": "MagnifyingGlassIcon",
+        "href": "/search"
+      },
+      {
+        "text": "Notifications",
+        "title": "Notifications",
+        "icon": "BellIcon",
+        "href": "/notifications"
+      },
+      {
+        "text": "Profile",
+        "title": "Profile",
+        "image": "/images/profile.jpg",
+        "subItems": [
+          {
+            "text": "Overview",
+            "href": "/overview"
+          },
+          {
+            "text": "Skills",
+            "href": "/skills"
+          },
+          {
+            "text": "Collection",
+            "href": "/collection"
+          },
+          {
+            "text": "Activity",
+            "href": "/activity"
+          },
+          {
+            "text": "FlexED",
+            "href": "/flexed"
+          },
+          {
+            "text": "Log Out",
+            "href": "/logout"
+          }
+        ]
+      }
+    ],
+    "bottom": [
+      {
+        "text": "Help",
+        "title": "Help",
+        "svg": "<svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\"><path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M8.44818 4.55102L10.9992 7.6122C11.6574 7.4626 12.3426 7.4626 13.0008 7.6122L15.5518 4.55102C13.3118 3.48299 10.6882 3.48299 8.44818 4.55102ZM16.8561 5.32899L14.4456 8.22161C14.7066 8.39086 14.9537 8.58973 15.182 8.81802C15.4103 9.04631 15.6091 9.29342 15.7784 9.55444L18.671 7.14392C18.4217 6.80234 18.1426 6.47532 17.8336 6.16637C17.5247 5.85742 17.1977 5.57834 16.8561 5.32899ZM19.449 8.44818L16.3878 10.9992C16.5374 11.6574 16.5374 12.3426 16.3878 13.0008L19.449 15.5518C20.517 13.3118 20.517 10.6882 19.449 8.44818ZM18.671 16.8561L15.7784 14.4456C15.6091 14.7066 15.4103 14.9537 15.182 15.182C14.9537 15.4103 14.7066 15.6091 14.4456 15.7784L16.8561 18.671C17.1977 18.4217 17.5247 18.1426 17.8336 17.8336C18.1426 17.5247 18.4217 17.1977 18.671 16.8561ZM15.5518 19.449L13.0008 16.3878C12.3426 16.5374 11.6574 16.5374 10.9992 16.3878L8.44818 19.449C10.6882 20.517 13.3118 20.517 15.5518 19.449ZM7.14392 18.671L9.55444 15.7784C9.29342 15.6091 9.04631 15.4103 8.81802 15.182C8.58973 14.9537 8.39086 14.7066 8.22161 14.4456L5.32899 16.8561C5.57834 17.1977 5.85742 17.5247 6.16637 17.8336C6.47532 18.1426 6.80234 18.4217 7.14392 18.671ZM4.55102 15.5518L7.6122 13.0008C7.4626 12.3426 7.4626 11.6574 7.6122 10.9992L4.55102 8.44818C3.48299 10.6882 3.48299 13.3118 4.55102 15.5518ZM5.32899 7.14392L8.22161 9.55444C8.39086 9.29342 8.58973 9.04631 8.81802 8.81802C9.04631 8.58973 9.29342 8.39086 9.55444 8.22161L7.14392 5.32899C6.80234 5.57834 6.47532 5.85742 6.16637 6.16637C5.85742 6.47532 5.57834 6.80234 5.32899 7.14392ZM6.89448 3.6912C10.0163 1.7696 13.9837 1.7696 17.1055 3.6912C17.7424 4.08325 18.3435 4.55492 18.8943 5.10571C19.4451 5.65649 19.9167 6.25755 20.3088 6.89448C22.2304 10.0163 22.2304 13.9837 20.3088 17.1055C19.9167 17.7424 19.4451 18.3435 18.8943 18.8943C18.3435 19.4451 17.7424 19.9167 17.1055 20.3088C13.9837 22.2304 10.0163 22.2304 6.89448 20.3088C6.25755 19.9167 5.65649 19.4451 5.10571 18.8943C4.55492 18.3435 4.08325 17.7424 3.6912 17.1055C1.7696 13.9837 1.7696 10.0163 3.6912 6.89448C4.08325 6.25755 4.55493 5.65649 5.10571 5.10571C5.65649 4.55492 6.25755 4.08325 6.89448 3.6912ZM13.0115 9.17471C12.359 8.94176 11.641 8.94176 10.9885 9.17471C10.5842 9.31907 10.2042 9.55313 9.87868 9.87868C9.55313 10.2042 9.31907 10.5842 9.17471 10.9885C8.94176 11.641 8.94176 12.359 9.17471 13.0114C9.31907 13.4158 9.55313 13.7958 9.87868 14.1213C10.2042 14.4469 10.5842 14.6809 10.9885 14.8253C11.641 15.0582 12.359 15.0582 13.0115 14.8253C13.4158 14.6809 13.7958 14.4469 14.1213 14.1213C14.4469 13.7958 14.6809 13.4158 14.8253 13.0114C15.0582 12.359 15.0582 11.641 14.8253 10.9885C14.6809 10.5842 14.4469 10.2042 14.1213 9.87868C13.7958 9.55313 13.4158 9.31907 13.0115 9.17471Z\" fill=\"currentColor\"/></svg>",
+        "subItems": [
+          {
+            "text": "Knowledge Center",
+            "href": "/knowledge-center"
+          },
+          {
+            "text": "Privacy Policy",
+            "href": "/privacy-policy"
+          },
+          {
+            "text": "Cookie Notice",
+            "href": "/cookie-notice"
+          },
+          {
+            "text": "FAQ",
+            "href": "faq"
+          }
+        ]
+      }
+    ]
+  },
+  "productSwitcherNavigation": [
+    {
+      "text": "LXP",
+      "title": "LXP",
+      "product": "lxp",
+      "selected": true,
+      "subItems": [
+        {
+          "text": "Home",
+          "href": "/me",
+          "icon": "HomeIcon"
+        },
+        {
+          "text": "Manage LXP",
+          "href": "/admin",
+          "icon": "Cog6ToothIcon"
+        },
+        {
+          "text": "Advanced Analytics",
+          "href": "/analytics",
+          "icon": "ChartPieIcon"
+        },
+        {
+          "text": "Extended Enterprise",
+          "href": "/extended-enterprise",
+          "icon": "BuildingOffice2Icon"
+        }
+      ]
+    },
+    {
+      "text": "Academies & Content Parketplace",
+      "title": "Academies",
+      "product": "academies",
+      "subItems": [
+        {
+          "text": "Home",
+          "href": "/home",
+          "icon": "HomeIcon"
+        }
+      ]
+    },
+    {
+      "text": "Degreed Skills",
+      "title": "Degreed Skills",
+      "product": "skills-platform",
+      "subItems": [
+        {
+          "text": "Home",
+          "href": "/home",
+          "icon": "HomeIcon"
+        }
+      ]
+    }
+  ]
+}

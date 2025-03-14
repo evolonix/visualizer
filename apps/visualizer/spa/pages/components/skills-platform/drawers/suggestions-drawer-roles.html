@@ -1,0 +1,147 @@
+<div
+  id="suggestions-drawer-roles"
+  class="tw-fixed tw-right-0 tw-h-full tw-w-0 tw-translate-x-full tw-transform tw-items-center tw-justify-center tw-gap-10 tw-self-stretch tw-overflow-auto tw-bg-white tw-ring-1 tw-ring-neutral-200 tw-transition-transform tw-duration-500 md:tw-relative md:tw-h-auto"
+>
+  <html-component title="Role Suggestions" name="apollo/drawers/suggestions-drawer-header"></html-component>
+
+  <div class="tw-flex tw-flex-col tw-items-start tw-p-6 tw-gap-12 tw-flex-1 tw-self-stretch tw-mb-12">
+    <div class="tw-flex tw-flex-col tw-gap-2 tw-w-full">
+      <p class="tw-text-xs tw-font-extrabold tw-uppercase tw-text-neutral-900">Role Name</p>
+      <div class="tw-flex-row tw-gap-4 tw-flex tw-w-full tw-items-center tw-justify-between">
+        <h3 class="tw-font-bold tw-text-2xl" id="skillName">{Role Name}</h3>
+      </div>
+    </div>
+
+    <div class="tw-flex tw-flex-col tw-gap-2 tw-w-full">
+      <p class="tw-uppercase tw-text-xs tw-font-extrabold tw-block tw-mb-4">ROLE DESCRIPTION</p>
+      <div class="tw-flex-row tw-gap-2 tw-flex tw-w-full tw-items-start tw-justify-between">
+        <p id="skillName">
+          {Suggested Description} Lorem ipsum dolor sit amet consectetur. Viverra pharetra ut velit arcu urna dictum sed tincidunt. Leo
+          tortor lectus odio et.
+        </p>
+      </div>
+      <p class="tw-text-xs tw-text-neutral-600">
+        <strong>Current Description:</strong> {Current Description} Lorem ipsum dolor sit amet consectetur. Viverra pharetra ut velit arcu
+        urna dictum sed tincidunt. Leo tortor lectus odio et.
+      </p>
+    </div>
+
+    <div class="tw-flex tw-flex-col tw-gap-4 tw-w-full">
+      <p class="tw-uppercase tw-text-xs tw-font-extrabold tw-block">SUGGESTED ROLE SKILLS</p>
+      <div>
+        <div
+          class="tw-flex tw-h-16 tw-w-full tw-justify-between tw-items-center tw-gap-4 tw-self-stretch tw-border-t-neutral-300 tw-border-b-neutral-300 tw-border-y-2"
+        >
+          <div class="tw-flex tw-items-center tw-gap-2">
+            <p class="tw-text-xs">{Skill Title}</p>
+            <span
+              class="tw-uppercase tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-purple-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-text-purple-800 tw-ring-1 tw-ring-purple-300"
+              tabindex="0"
+              >Add</span
+            >
+          </div>
+          <div class="tw-flex tw-gap-2">
+            <button class="tw-m-2 tw-btn-icon tw-btn-tertiary" onclick="">
+              <!-- Icon: check -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.3636 3.32272C13.6272 3.52355 13.6781 3.90003 13.4773 4.16361L7.07725 12.5636C6.97232 12.7013 6.81301 12.787 6.64026 12.7986C6.46751 12.8102 6.29816 12.7467 6.17573 12.6242L2.57573 9.02425C2.34142 8.78993 2.34142 8.41003 2.57573 8.17572C2.81004 7.9414 3.18994 7.9414 3.42426 8.17572L6.5388 11.2903L12.5227 3.43636C12.7236 3.17277 13.1 3.1219 13.3636 3.32272Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button class="tw-m-2 tw-btn-icon tw-btn-destructive" onclick="">
+              <!-- Icon: x-mark -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2.46967 2.46967C2.76256 2.17678 3.23744 2.17678 3.53033 2.46967L8 6.93934L12.4697 2.46967C12.7626 2.17678 13.2374 2.17678 13.5303 2.46967C13.8232 2.76256 13.8232 3.23744 13.5303 3.53033L9.06066 8L13.5303 12.4697C13.8232 12.7626 13.8232 13.2374 13.5303 13.5303C13.2374 13.8232 12.7626 13.8232 12.4697 13.5303L8 9.06066L3.53033 13.5303C3.23744 13.8232 2.76256 13.8232 2.46967 13.5303C2.17678 13.2374 2.17678 12.7626 2.46967 12.4697L6.93934 8L2.46967 3.53033C2.17678 3.23744 2.17678 2.76256 2.46967 2.46967Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <div
+          class="tw-flex tw-h-16 tw-w-full tw-justify-between tw-items-center tw-gap-4 tw-self-stretch tw-border-t-neutral-300 tw-border-b-neutral-300 tw-border-b-2"
+        >
+          <div class="tw-flex tw-items-center tw-gap-2">
+            <p class="tw-text-xs">{Skill Title}</p>
+            <span
+              class="tw-uppercase tw-inline-flex tw-items-center tw-whitespace-nowrap tw-rounded-full tw-bg-purple-50 tw-px-2 tw-py-1 tw-text-xs tw-font-extrabold tw-text-purple-800 tw-ring-1 tw-ring-purple-300"
+              tabindex="0"
+              >Add</span
+            >
+          </div>
+          <div class="tw-flex tw-gap-2">
+            <button class="tw-m-2 tw-btn-icon tw-btn-tertiary" onclick="">
+              <!-- Icon: check -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.3636 3.32272C13.6272 3.52355 13.6781 3.90003 13.4773 4.16361L7.07725 12.5636C6.97232 12.7013 6.81301 12.787 6.64026 12.7986C6.46751 12.8102 6.29816 12.7467 6.17573 12.6242L2.57573 9.02425C2.34142 8.78993 2.34142 8.41003 2.57573 8.17572C2.81004 7.9414 3.18994 7.9414 3.42426 8.17572L6.5388 11.2903L12.5227 3.43636C12.7236 3.17277 13.1 3.1219 13.3636 3.32272Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+            <button class="tw-m-2 tw-btn-icon tw-btn-destructive" onclick="">
+              <!-- Icon: x-mark -->
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M2.46967 2.46967C2.76256 2.17678 3.23744 2.17678 3.53033 2.46967L8 6.93934L12.4697 2.46967C12.7626 2.17678 13.2374 2.17678 13.5303 2.46967C13.8232 2.76256 13.8232 3.23744 13.5303 3.53033L9.06066 8L13.5303 12.4697C13.8232 12.7626 13.8232 13.2374 13.5303 13.5303C13.2374 13.8232 12.7626 13.8232 12.4697 13.5303L8 9.06066L3.53033 13.5303C3.23744 13.8232 2.76256 13.8232 2.46967 13.5303C2.17678 13.2374 2.17678 12.7626 2.46967 12.4697L6.93934 8L2.46967 3.53033C2.17678 3.23744 2.17678 2.76256 2.46967 2.46967Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p class="tw-text-xs tw-text-neutral-600"><strong>Current Role Skills:</strong> {Skill Name}, {Skill Name}</p>
+    </div>
+  </div>
+
+  <div class="tw-flex tw-items-start tw-justify-between tw-self-stretch tw-gap-3 tw-w-full tw-p-6 tw-border-t-2 tw-border-t-neutral-300">
+    <button class="tw-btn-medium tw-btn-tertiary">
+      <!-- Icon: check -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M13.3636 3.32272C13.6272 3.52355 13.6781 3.90003 13.4773 4.16361L7.07726 12.5636C6.97233 12.7013 6.81302 12.787 6.64027 12.7986C6.46752 12.8102 6.29817 12.7467 6.17574 12.6242L2.57574 9.02425C2.34142 8.78993 2.34142 8.41003 2.57574 8.17572C2.81005 7.9414 3.18995 7.9414 3.42427 8.17572L6.53881 11.2903L12.5227 3.43636C12.7236 3.17277 13.1 3.1219 13.3636 3.32272Z"
+          fill="currentColor"
+        />
+      </svg>
+      Approve All
+    </button>
+    <button class="tw-btn-medium tw-btn-destructive">
+      <!-- Icon: x-mark -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="17" height="16" viewBox="0 0 17 16" fill="none">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3.14645 2.64645C3.34171 2.45118 3.65829 2.45118 3.85355 2.64645L8.5 7.29289L13.1464 2.64645C13.3417 2.45118 13.6583 2.45118 13.8536 2.64645C14.0488 2.84171 14.0488 3.15829 13.8536 3.35355L9.20711 8L13.8536 12.6464C14.0488 12.8417 14.0488 13.1583 13.8536 13.3536C13.6583 13.5488 13.3417 13.5488 13.1464 13.3536L8.5 8.70711L3.85355 13.3536C3.65829 13.5488 3.34171 13.5488 3.14645 13.3536C2.95118 13.1583 2.95118 12.8417 3.14645 12.6464L7.79289 8L3.14645 3.35355C2.95118 3.15829 2.95118 2.84171 3.14645 2.64645Z"
+          fill="currentColor"
+        />
+      </svg>
+      Decline All
+    </button>
+    <button class="tw-btn-icon tw-btn-secondary-filled tw-py-2 tw-px-1">
+      <!-- Icon: ellipsis-horizontal -->
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path
+          fill-rule="evenodd"
+          clip-rule="evenodd"
+          d="M3 8C3 7.44772 3.44772 7 4 7C4.55228 7 5 7.44772 5 8C5 8.55228 4.55228 9 4 9C3.44772 9 3 8.55228 3 8ZM7 8C7 7.44772 7.44772 7 8 7C8.55229 7 9 7.44772 9 8C9 8.55228 8.55229 9 8 9C7.44772 9 7 8.55228 7 8ZM11 8C11 7.44772 11.4477 7 12 7C12.5523 7 13 7.44772 13 8C13 8.55228 12.5523 9 12 9C11.4477 9 11 8.55228 11 8Z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+  </div>
+</div>

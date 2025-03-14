@@ -1,0 +1,63 @@
+<div class="relative z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+  <div class="fixed inset-0 bg-neutral-400 bg-opacity-75 transition-opacity"></div>
+
+  <div class="fixed inset-0 z-10 overflow-y-auto">
+    <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+      <!-- Modal starts here -->
+      <div
+        class="relative transform overflow-hidden rounded-lg bg-white px-4 pb-4 pt-5 text-left shadow-sm transition-all sm:my-8 sm:w-full sm:max-w-lg sm:p-6 dark:shadow-black"
+      >
+        <form [formGroup]="featureFlagsForm" (ngSubmit)="onSubmit()" autocomplete="off" class="">
+          <div class="mb-6 mt-6 text-center sm:ml-4 sm:mt-0 sm:text-left">
+            <h3 class="pt-6 text-2xl font-bold leading-6 text-neutral-900" id="modal-title">Feature Flags</h3>
+            <div class="mt-2">
+              <p class="text-sm text-neutral-500">Toggle the Engage features you wish to enable/disable</p>
+            </div>
+          </div>
+          <div class="mb-3 border-b-[2px] border-neutral-200 px-6 pb-3 pt-6">
+            <div class="mb-6 flex items-center">
+              <div class="ml-3 flex h-5 items-center">
+                <input
+                  formControlName="enableRuleSelection"
+                  name="enableRuleSelection"
+                  id="enableRuleSelection"
+                  type="checkbox"
+                  class="focus:ring-3 focus:ring-primary border-ebony-18 h-4 w-4 rounded border font-semibold"
+                />
+              </div>
+              <label for="enableRuleSelection" class="text-md ml-5 font-semibold text-neutral-700">Enable Rule Selection</label>
+            </div>
+            <div class="mb-6 flex items-center">
+              <div class="ml-3 flex h-5 items-center">
+                <input
+                  id="enableAutoNavigation"
+                  name="enableAutoNavigation"
+                  formControlName="enableAutoNavigation"
+                  type="checkbox"
+                  class="focus:ring-3 focus:ring-primary border-ebony-18 h-4 w-4 rounded border font-semibold"
+                />
+              </div>
+              <label for="enableAutoNavigation" class="text-md ml-5 font-semibold text-neutral-700">Enable AutoNavigation</label>
+            </div>
+          </div>
+
+          <div class="flex justify-between px-6 pb-3 pt-[14px]">
+            <button
+              class="w-[100px] rounded-md border border-neutral-300 border-transparent bg-white px-3 py-[9px] text-base font-medium text-neutral-500 shadow-sm hover:text-neutral-500 hover:ring-2 hover:ring-offset-2 focus:text-neutral-500 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              type="reset"
+              (click)="onCancel()"
+            >
+              Cancel
+            </button>
+            <button
+              class="bg-red hover:bg-red hover:ring-red focus:ring-red w-[200px] rounded-md border border-transparent px-3 py-[9px] text-base font-medium text-white shadow-sm hover:ring-2 hover:ring-offset-2 focus:outline-none focus:ring-2 focus:ring-offset-2"
+              type="submit"
+            >
+              Update
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

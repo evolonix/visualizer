@@ -1,0 +1,168 @@
+# This workflow will build and upload an artifact
+
+name: Build Artifact CI/CD
+
+on:
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+    inputs:
+      deploy:
+        description: 'Deploy to Staging'
+        type: boolean
+        required: false
+        default: false
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
+permissions:
+  contents: write
+  id-token: write
+  pages: write
+
+# Allow only one concurrent run, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: 'build-artifact-${{ github.ref_name }}'
+  cancel-in-progress: true
+
+jobs:
+  # Project Details job
+  project-details:
+    # Only run this job if the branch is a tag
+    if: ${{ startsWith(github.ref, 'refs/tags/') }}
+    name: Project Details
+    runs-on: ubuntu-latest
+    outputs:
+      project: ${{ steps.details.outputs.project }}
+      version: ${{ steps.details.outputs.version }}
+      path: ${{ steps.details.outputs.path }}
+      publishable: ${{ steps.details.outputs.publishable }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Project details
+        id: details
+        run: |
+          project=${GITHUB_REF_NAME%%@*}
+          version=${GITHUB_REF_NAME##*@}
+          path=$(npx nx show project $project | jq -r .root)
+          publishable=$(npx nx show project $project | jq -r '.targets."build-publishable" != null')
+          echo "$project"
+          echo "$version"
+          echo "$path"
+          echo "project=$project" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "path=$path" >> $GITHUB_OUTPUT
+          echo "publishable=$publishable" >> $GITHUB_OUTPUT
+
+  # Build job
+  build-lib:
+    name: Build Library
+    runs-on: ubuntu-latest
+    needs: project-details
+    if: ${{ startsWith(needs.project-details.outputs.path, 'libs') }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Update version
+        run: |
+          npm pkg set version="${{ needs.project-details.outputs.version }}" --prefix=${{ needs.project-details.outputs.path }}
+
+      - name: Build Publishable
+        if: ${{ needs.project-details.outputs.publishable == 'true' }}
+        run: npx nx run ${{ needs.project-details.outputs.project }}:build-publishable:production --skip-nx-cache
+
+      - name: Build
+        if: ${{ needs.project-details.outputs.publishable != 'true' }}
+        run: npx nx run ${{ needs.project-details.outputs.project }}:build:production --skip-nx-cache
+
+      # Upload artifact for publishing to GitHub Packages
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+          path: ./dist/${{ needs.project-details.outputs.path }}
+
+  # Build job
+  build-app:
+    name: Build App
+    runs-on: ubuntu-latest
+    needs: project-details
+    if: ${{ startsWith(needs.project-details.outputs.path, 'apps') }}
+    outputs:
+      dirname: ${{ steps.dirname.outputs.dirname }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Update version
+        run: |
+          npm pkg set version="${{ needs.project-details.outputs.version }}" --prefix=${{ needs.project-details.outputs.path }}
+
+      - name: Build
+        run: npx nx run ${{ needs.project-details.outputs.project }}:build:production --skip-nx-cache
+
+      # Upload artifact for Production deployment to another repository
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+          path: ./dist/${{ needs.project-details.outputs.path }}
+
+      - name: Directory name
+        id: dirname
+        run: |
+          project=${GITHUB_REF_NAME%%@*}
+          dirname=${project##app-}
+          echo "dirname=$dirname" >> $GITHUB_OUTPUT
+
+  # Deploy job
+  deploy-staging:
+    if: ${{ inputs.deploy == true }}
+    name: Deploy to Staging
+    needs:
+      - project-details
+      - build-app
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: ${{ needs.project-details.outputs.version }}
+      environment: 'Staging'
+      app-name: ${{ needs.build-app.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "[\"${{ needs.build-app.outputs.dirname }}\"]"
+  

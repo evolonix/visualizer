@@ -1,0 +1,58 @@
+{
+  "name": "lib-shared-apollo-tailwind",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/apollo/tailwind/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint",
+      "options": {
+        "lintFilePatterns": ["{projectRoot}/**/*.ts", "{projectRoot}/package.json"]
+      }
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/apollo/tailwind",
+        "main": "libs/shared/apollo/tailwind/src/index.ts",
+        "tsConfig": "libs/shared/apollo/tailwind/tsconfig.lib.json",
+        "assets": ["libs/shared/apollo/tailwind/*.md"]
+      }
+    },
+    "build-publishable": {
+      "executor": "nx:run-commands",
+      "outputs": ["{workspaceRoot}/dist/libs/shared/apollo/tailwind"],
+      "configurations": {
+        "production": {
+          "commands": ["nx run lib-shared-apollo-tailwind:build:production"],
+          "parallel": false
+        },
+        "development": {
+          "commands": ["nx run lib-shared-apollo-tailwind:build:development"],
+          "parallel": false
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "nx-release-publish": {
+      "executor": "@nx/js:release-publish",
+      "options": {
+        "packageRoot": "./dist/libs/shared/apollo/tailwind",
+        "registry": "https://npm.pkg.github.com/"
+      }
+    },
+    "version": {
+      "executor": "@jscutlery/semver:version",
+      "options": {
+        "preset": "conventionalcommits",
+        "tagPrefix": "{projectName}@",
+        "skipRootChangelog": true,
+        "skipProjectChangelog": true,
+        "skipCommit": true,
+        "trackDeps": true
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:ui"]
+}

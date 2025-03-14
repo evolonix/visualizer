@@ -1,0 +1,133 @@
+# This workflow will test and build
+# It could also be configured to deploy a site to the Preview environment
+
+name: Pull Request CI/CD
+
+on:
+  pull_request:
+    branches:
+      - main
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+permissions:
+  actions: read
+  contents: read
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+# Cancel in-progress runs.
+concurrency:
+  group: ${{ github.head_ref }}
+  cancel-in-progress: true
+
+jobs:
+  # Affected job
+  affected:
+    name: Affected
+    runs-on: ubuntu-latest
+    permissions: write-all
+    outputs:
+      apps-matrix: ${{ steps.apps.outputs.matrix }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      # Connect your workspace on nx.app and uncomment this to enable task distribution.
+      # The "--stop-agents-after" is optional, but allows idle agents to shut down once the "e2e-ci" targets have been requested
+      # - run: npx nx-cloud start-ci-run --distribute-on="5 linux-medium-js" --stop-agents-after="e2e-ci"
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --force
+
+      - name: Set SHAs for Nx
+        uses: nrwl/nx-set-shas@v4
+
+      - name: Run format check
+        run: npx nx format:check
+
+      - name: Run affected lint and tests
+        run: npx nx affected -t lint test e2e-ci
+
+      - name: Affected deployable apps
+        id: apps
+        run: |
+          projects=$(npx nx show projects --type app --affected --with-target version | tr '\n' ' ' | xargs)
+          list=($projects)
+          items="["
+          for project in "${list[@]}"; do
+            path=$(npx nx show project $project | jq -r .root)
+            dirname=${project##app-}
+            items+="{\"project\":\"$project\",\"path\":\"$path\",\"dirname\":\"$dirname\"},"
+          done
+          items=$(echo "$items" | sed 's/,$//g')
+          items+="]"
+          [[ $items = "[]" ]] && matrix="" || matrix="{\"include\":$items}"
+          echo "$projects"
+          echo "projects=$projects" >> $GITHUB_OUTPUT
+          echo "matrix=$matrix" >> $GITHUB_OUTPUT
+
+      - name: Build affected non-deployable apps and all affected libs
+        run: |
+          projects+=(${{ steps.apps.outputs.projects }})
+          echo "$projects[@]"
+          npx nx affected -t build --exclude "$projects[@]" --skip-nx-cache
+
+  # Build job
+  build-app:
+    name: Build App
+    runs-on: ubuntu-latest
+    needs: affected
+    if: ${{ needs.affected.outputs.apps-matrix != '' }}
+    strategy:
+      matrix: ${{ fromJson(needs.affected.outputs.apps-matrix) }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Build
+        run: npx nx run ${{ matrix.project }}:build:production --skip-nx-cache
+
+      # Upload artifact for deployments
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: '${{ matrix.project }}'
+          path: ./dist/${{ matrix.path }}
+
+  # TODO: Needs to be configured
+  # Deploy job
+  # deploy-preview:
+  #   name: Deploy to Preview
+  #   needs:
+  #     - affected
+  #     - build-app
+  #   uses: ./.github/workflows/_cd-deploy.yml
+  #   secrets: inherit
+  #   permissions: write-all
+  #   if: ${{ needs.affected.outputs.apps-matrix != '' }}
+  #   strategy:
+  #     matrix: ${{ fromJson(needs.affected.outputs.apps-matrix) }}
+  #   with:
+  #     app-version: ${{ needs.build-app.outputs.version }}
+  #     environment: 'Preview'
+  #     app-name: ${{ matrix.dirname }}
+  #     artifact-name: '${{ matrix.project }}@${{ needs.build-app.outputs.version }}'
+  #     artifacts-json: "[\"${{ matrix.dirname }}\"]"

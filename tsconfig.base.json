@@ -1,0 +1,40 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "noEmit": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "useDefineForClassFields": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2019", "dom", "dom.iterable"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@assistant/chatbot": ["libs/assistant/chatbot/src/index.ts"],
+      "@degreed/apollo-angular": ["libs/shared/apollo/angular/src/index.ts"],
+      "@degreed/apollo-react-cdk": ["libs/shared/apollo/react/cdk/src/index.ts"],
+      "@degreed/apollo-react-cdk-v1": ["libs/shared/apollo/react/cdk/src/v1/index.ts"],
+      "@degreed/apollo-react-data-access": ["libs/shared/apollo/react/data-access/src/index.ts"],
+      "@degreed/core-angular": ["libs/shared/core/angular/src/index.ts"],
+      "@degreed/core-react": ["libs/shared/core/react/src/index.ts"],
+      "@degreed/rsm": ["libs/shared/rsm/src/index.ts"],
+      "@degreed/tinymce": ["libs/shared/tinymce/src/index.ts"],
+      "@engage/data-access": ["libs/engage/data-access/src/index.ts"],
+      "@engage/remote-api": ["libs/engage/remote-api/src/index.ts"],
+      "@engage/ui-common": ["libs/engage/ui-common/src/index.ts"],
+      "@engage/ui-rules": ["libs/engage/ui-rules/src/index.ts"],
+      "@skills/data-access": ["libs/skills-platform/data-access/src/index.ts"],
+      "@skills/ui-common": ["libs/skills-platform/ui-common/src/index.ts"],
+      "@skills/ui-scales": ["libs/skills-platform/ui-scales/src/index.ts"],
+      "@skills/ui-skills": ["libs/skills-platform/ui-skills/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

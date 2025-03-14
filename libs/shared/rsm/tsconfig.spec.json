@@ -1,0 +1,12 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../../../dist/out-tsc",
+    "module": "ES6",
+    "target": "ES2020",
+    "types": ["jest", "node"],
+    "esModuleInterop": true
+  },
+  "include": ["src/**/*.test.ts", "src/**/*.spec.ts", "src/**/*.d.ts", "jest.config.ts"],
+  "files": ["src/test-setup.ts", "../../../jest.reactive-matchers.ts"]
+}

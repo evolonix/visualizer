@@ -1,0 +1,730 @@
+<html-component name="apollo/layout-admin" hide-component="true" title="Skills Catalog">
+  <!-- Toolbar (Catalog Source, Language, Download) -->
+  <div class="tw-bg-neutral-100">
+    <div class="tw-grid-apollo tw-has-sidebar">
+      <div class="tw-col-span-full tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-gap-3 tw-py-4">
+        <div class="tw-flex tw-items-center tw-gap-3">
+          <label class="tw-text-xs tw-font-extrabold tw-uppercase">Catalog Source</label>
+          <html-component
+            name="apollo/dropdown"
+            id="catalog-source-dropdown"
+            onload="selectDropdownItemById('catalog-source-dropdown', 'Unicorn, Inc.', true)"
+          >
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Degreed
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Unicorn, Inc.
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Workday
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+          </html-component>
+        </div>
+
+        <div class="tw-flex tw-items-center tw-gap-3">
+          <html-component
+            name="apollo/dropdown"
+            id="language-dropdown"
+            onload="selectDropdownItemById('language-dropdown', 'English', true)"
+          >
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              English
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              Spanish
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+            <!-- Active: "font-semibold", Not Active: "" -->
+            <a
+              href="#"
+              class="tw-flex tw-items-center tw-justify-between tw-px-4 tw-py-2 hover:tw-bg-neutral-100 focus:tw-bg-neutral-100 focus:tw-outline-none"
+              role="menuitem"
+              tabindex="-1"
+            >
+              French
+              <!-- Active: show, Not Active: hide -->
+              <!-- Icon: check-circle -->
+              <svg class="tw-hidden" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M12 2.25C6.61522 2.25 2.25 6.61522 2.25 12C2.25 17.3848 6.61522 21.75 12 21.75C17.3848 21.75 21.75 17.3848 21.75 12C21.75 6.61522 17.3848 2.25 12 2.25ZM15.0588 10.3123C15.3694 10.0382 15.3989 9.56425 15.1248 9.2537C14.8507 8.94315 14.3768 8.9136 14.0662 9.1877C12.7083 10.3862 11.6072 11.8701 10.857 13.5463L9.53033 12.2197C9.23744 11.9268 8.76256 11.9268 8.46967 12.2197C8.17678 12.5126 8.17678 12.9874 8.46967 13.2803L10.6054 15.4161C10.7887 15.5993 11.0535 15.675 11.3059 15.6162C11.5583 15.5574 11.7624 15.3725 11.8459 15.1271C12.4835 13.2513 13.6034 11.5969 15.0588 10.3123Z"
+                  class="tw-fill-green-600"
+                />
+              </svg>
+            </a>
+          </html-component>
+
+          <button type="button" class="tw-btn-secondary-outline tw-hidden sm:tw-inline-flex">
+            Download
+            <!-- Icon: arrow-down-tray -->
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M2 11V12.5C2 13.3284 2.67157 14 3.5 14H12.5C13.3284 14 14 13.3284 14 12.5V11M11 8L8 11M8 11L5 8M8 11V2"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tw-grid-apollo tw-has-sidebar tw-mt-4 md:tw-mt-8">
+    <!-- Table Actions (Search, Add Skill) -->
+    <div class="tw-col-span-full tw-flex tw-items-center tw-gap-4">
+      <div class="tw-relative tw-flex-1">
+        <input
+          type="search"
+          placeholder="Search"
+          class="tw-flex tw-h-8 tw-w-full tw-max-w-[252px] tw-flex-col tw-justify-center tw-gap-2 tw-rounded-lg tw-border tw-border-neutral-200 tw-bg-white tw-pl-9 tw-placeholder-neutral-500 focus:tw-border-blue-800 focus:tw-outline-none focus:tw-ring-blue-800 sm:tw-max-w-sm"
+        />
+        <!-- Icon: magnifying-glass -->
+        <svg
+          class="tw-absolute tw-left-3 tw-top-2"
+          width="16"
+          height="16"
+          viewBox="0 0 16 16"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M7.20001 2.80001C4.76995 2.80001 2.80001 4.76995 2.80001 7.20001C2.80001 9.63006 4.76995 11.6 7.20001 11.6C8.4152 11.6 9.51437 11.1082 10.3113 10.3113C11.1082 9.51437 11.6 8.4152 11.6 7.20001C11.6 4.76995 9.63006 2.80001 7.20001 2.80001ZM1.60001 7.20001C1.60001 4.10721 4.10721 1.60001 7.20001 1.60001C10.2928 1.60001 12.8 4.10721 12.8 7.20001C12.8 8.53002 12.3358 9.75245 11.5614 10.7129L14.2243 13.3757C14.4586 13.6101 14.4586 13.99 14.2243 14.2243C13.99 14.4586 13.6101 14.4586 13.3757 14.2243L10.7129 11.5614C9.75245 12.3358 8.53002 12.8 7.20001 12.8C4.10721 12.8 1.60001 10.2928 1.60001 7.20001Z"
+            class="tw-fill-neutral-500"
+          />
+        </svg>
+      </div>
+      <button type="button" class="tw-btn-primary tw-btn-medium">
+        <!-- Icon: plus -->
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M8.75 2.75C8.75 2.33579 8.41421 2 8 2C7.58579 2 7.25 2.33579 7.25 2.75V7.25H2.75C2.33579 7.25 2 7.58579 2 8C2 8.41421 2.33579 8.75 2.75 8.75L7.25 8.75V13.25C7.25 13.6642 7.58579 14 8 14C8.41421 14 8.75 13.6642 8.75 13.25V8.75L13.25 8.75C13.6642 8.75 14 8.41421 14 8C14 7.58579 13.6642 7.25 13.25 7.25H8.75V2.75Z"
+            class="tw-fill-white"
+          />
+        </svg>
+        Add Skill
+      </button>
+    </div>
+
+    <table class="tw-col-span-full tw-mb-6 tw-mt-5 tw-w-full tw-overflow-hidden tw-rounded-lg tw-text-xs tw-ring-1 tw-ring-neutral-200">
+      <thead>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr class="tw-border-b tw-border-neutral-200 tw-bg-white">
+          <th class="tw-px-4 tw-py-6 tw-text-left sm:tw-w-[448px] md:tw-w-[224px] xl:tw-w-[240px]">
+            <button type="button" class="tw-group tw-flex tw-w-full tw-items-center tw-pr-6">
+              <span class="tw-pr-2 tw-font-extrabold tw-uppercase">Skill</span>
+              <!-- Current: "", Default: "opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100" -->
+              <div class="-tw-mr-6">
+                <div class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M3 7L8 2M8 2L13 7M8 2V14"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </th>
+          <th class="tw-hidden tw-w-[400px] tw-px-4 tw-py-6 tw-text-left md:tw-table-cell lg:tw-w-[600px] xl:tw-w-[720px]">
+            <button type="button" class="tw-group tw-flex tw-w-full tw-items-center tw-pr-6">
+              <span class="tw-pr-2 tw-font-extrabold tw-uppercase">Description</span>
+              <!-- Current: "", Default: "opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100" -->
+              <div class="-tw-mr-6 tw-opacity-0 tw-transition-opacity hover:tw-opacity-100 group-hover:tw-opacity-100">
+                <div class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13 9L8 14M8 14L3 9M8 14L8 2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </th>
+          <th class="tw-hidden tw-w-[140px] tw-px-4 tw-py-6 tw-text-center lg:tw-table-cell" align="center">
+            <button type="button" class="tw-group tw-flex tw-w-full tw-items-center tw-px-6">
+              <span class="tw-px-2 tw-font-extrabold tw-uppercase">Proprietary</span>
+              <!-- Current: "", Default: "opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100" -->
+              <div class="-tw-mr-6 tw-opacity-0 tw-transition-opacity hover:tw-opacity-100 group-hover:tw-opacity-100">
+                <div class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13 9L8 14M8 14L3 9M8 14L8 2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </th>
+          <th class="tw-hidden tw-px-4 tw-py-6 tw-text-left sm:tw-table-cell">
+            <button type="button" class="tw-group tw-flex tw-w-full tw-items-center tw-pr-6">
+              <span class="tw-pr-2 tw-font-extrabold tw-uppercase">Updated</span>
+              <!-- Current: "", Default: "opacity-0 transition-opacity hover:opacity-100 group-hover:opacity-100" -->
+              <div class="-tw-mr-6 tw-opacity-0 tw-transition-opacity hover:tw-opacity-100 group-hover:tw-opacity-100">
+                <div class="tw-btn-icon tw-btn-secondary-filled">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M13 9L8 14M8 14L3 9M8 14L8 2"
+                      stroke="currentColor"
+                      stroke-width="1.5"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </button>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr class="tw-cursor-pointer tw-bg-blue-200 focus-within:tw-outline-none" tabindex="0">
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-100 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-100 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-100 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-100 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center"></td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-100 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr
+          class="tw-cursor-pointer tw-bg-neutral-50 focus-within:tw-outline-none hover:tw-bg-blue-100 focus:tw-bg-blue-100 active:tw-bg-blue-200"
+          tabindex="0"
+        >
+          <td class="tw-h-20 tw-px-4 md:tw-h-16">
+            <span class="tw-font-semibold">{Skill name}</span>
+            <div class="tw-mt-4 tw-line-clamp-2 md:tw-hidden">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-table-cell md:tw-h-16">
+            <div class="tw-line-clamp-2">
+              {Skill description goes here. Even if it’s really long we keep showing the description until we get to the place where we get
+              to two lines, and then we truncate the rest...}
+            </div>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 md:tw-h-16 lg:tw-table-cell" align="center">
+            <!-- Icon: check-circle -->
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" class="tw-fill-green-50 tw-text-green-300" />
+              <path
+                fill-rule="evenodd"
+                clip-rule="evenodd"
+                d="M17.3637 7.32279C17.6272 7.52361 17.6781 7.90009 17.4773 8.16367L11.0773 16.5637C10.9724 16.7014 10.813 16.7871 10.6403 16.7987C10.4675 16.8103 10.2982 16.7467 10.1758 16.6243L6.57576 13.0243C6.34145 12.79 6.34145 12.4101 6.57576 12.1758C6.81008 11.9415 7.18997 11.9415 7.42429 12.1758L10.5388 15.2903L16.5228 7.43642C16.7236 7.17284 17.1001 7.12196 17.3637 7.32279Z"
+                class="tw-fill-green-800"
+              />
+              <rect x="0.5" y="0.5" width="23" height="23" rx="11.5" stroke="currentColor" />
+            </svg>
+          </td>
+          <td class="tw-hidden tw-h-20 tw-px-4 tw-text-neutral-800 sm:tw-table-cell md:tw-h-16">{mm/dd/yyyy}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <!-- Current: "bg-blue-200", Default: "hover:bg-blue-100 focus:bg-blue-100 active:bg-blue-200" and alternate "bg-neutral-100" and "bg-neutral-50" -->
+        <tr class="tw-border-t tw-border-neutral-200">
+          <td colspan="4" class="tw-bg-white">
+            <div class="tw-flex tw-h-16 tw-items-center">
+              <div class="tw-hidden tw-flex-1 tw-px-6 sm:tw-block">Showing {x} to {x} of {x} results</div>
+              <div class="tw-flex tw-flex-1 tw-items-center tw-justify-center tw-gap-1 tw-px-6">
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  <!-- Icon: chevron-double-left -->
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M10.0744 10.0618C9.90213 10.241 9.61726 10.2466 9.43811 10.0743L5.53811 6.32433C5.44988 6.23948 5.40001 6.12236 5.40001 5.99995C5.40001 5.87754 5.44988 5.76042 5.53811 5.67558L9.43811 1.92558C9.61726 1.75332 9.90213 1.75891 10.0744 1.93805C10.2466 2.1172 10.2411 2.40207 10.0619 2.57433L6.49926 5.99995L10.0619 9.42558C10.2411 9.59783 10.2466 9.8827 10.0744 10.0618ZM6.47439 10.0618C6.30213 10.241 6.01726 10.2466 5.83811 10.0743L1.93811 6.32433C1.84988 6.23949 1.80001 6.12236 1.80001 5.99995C1.80001 5.87754 1.84988 5.76042 1.93811 5.67558L5.83811 1.92558C6.01726 1.75332 6.30213 1.75891 6.47439 1.93805C6.64664 2.1172 6.64106 2.40207 6.46191 2.57433L2.89926 5.99995L6.46191 9.42558C6.64106 9.59783 6.64664 9.8827 6.47439 10.0618Z"
+                      class="tw-fill-neutral-800"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  <!-- Icon: chevron-left -->
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M8.2744 1.93815C8.44666 2.1173 8.44107 2.40217 8.26192 2.57442L4.69927 6.00005L8.26192 9.42567C8.44107 9.59793 8.44666 9.8828 8.2744 10.0619C8.10214 10.2411 7.81727 10.2467 7.63812 10.0744L3.73812 6.32442C3.64989 6.23958 3.60002 6.12246 3.60002 6.00005C3.60002 5.87764 3.64989 5.76052 3.73812 5.67567L7.63812 1.92567C7.81727 1.75342 8.10214 1.759 8.2744 1.93815Z"
+                      class="tw-fill-neutral-800"
+                    />
+                  </svg>
+                </button>
+                <!-- Selected: "bg-neutral-200 font-semibold", Default: "hover:bg-neutral-100 focus:bg-neutral-100 focus:outline-none" -->
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg tw-bg-neutral-200 tw-font-semibold active:tw-bg-neutral-200"
+                >
+                  1
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  2
+                </button>
+                <button
+                  type="button"
+                  class="tw-hidden tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200 lg:tw-flex"
+                >
+                  3
+                </button>
+                <span class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg">
+                  <!-- Icon: ellipsis-horizontal -->
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M1.79999 5.99998C1.79999 5.50292 2.20293 5.09998 2.69999 5.09998C3.19704 5.09998 3.59999 5.50292 3.59999 5.99998C3.59999 6.49703 3.19704 6.89998 2.69999 6.89998C2.20293 6.89998 1.79999 6.49703 1.79999 5.99998Z"
+                      class="tw-fill-neutral-800"
+                    />
+                    <path
+                      d="M5.09999 5.99998C5.09999 5.50292 5.50293 5.09998 5.99999 5.09998C6.49704 5.09998 6.89999 5.50292 6.89999 5.99998C6.89999 6.49703 6.49704 6.89998 5.99999 6.89998C5.50293 6.89998 5.09999 6.49703 5.09999 5.99998Z"
+                      class="tw-fill-neutral-800"
+                    />
+                    <path
+                      d="M9.29999 5.09998C8.80293 5.09998 8.39999 5.50292 8.39999 5.99998C8.39999 6.49703 8.80293 6.89998 9.29999 6.89998C9.79704 6.89998 10.2 6.49703 10.2 5.99998C10.2 5.50292 9.79704 5.09998 9.29999 5.09998Z"
+                      class="tw-fill-neutral-800"
+                    />
+                  </svg>
+                </span>
+                <button
+                  type="button"
+                  class="tw-hidden tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200 lg:tw-flex"
+                >
+                  8
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  9
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  10
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  <!-- Icon: chevron-right -->
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M3.7256 10.0618C3.55334 9.8827 3.55893 9.59783 3.73808 9.42558L7.30073 5.99995L3.73808 2.57433C3.55893 2.40207 3.55334 2.1172 3.7256 1.93805C3.89786 1.7589 4.18273 1.75332 4.36187 1.92558L8.26187 5.67558C8.35011 5.76042 8.39998 5.87754 8.39998 5.99995C8.39998 6.12236 8.35011 6.23948 8.26187 6.32433L4.36188 10.0743C4.18273 10.2466 3.89786 10.241 3.7256 10.0618Z"
+                      class="tw-fill-neutral-800"
+                    />
+                  </svg>
+                </button>
+                <button
+                  type="button"
+                  class="tw-flex tw-h-6 tw-w-6 tw-items-center tw-justify-center tw-rounded-lg hover:tw-bg-neutral-100 active:tw-bg-neutral-200"
+                >
+                  <!-- Icon: chevron-double-right -->
+                  <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M5.52561 10.0619C5.35336 9.8828 5.35894 9.59793 5.53809 9.42567L9.10074 6.00005L5.53809 2.57442C5.35894 2.40217 5.35336 2.1173 5.52561 1.93815C5.69787 1.759 5.98274 1.75342 6.16189 1.92567L10.0619 5.67567C10.1501 5.76052 10.2 5.87764 10.2 6.00005C10.2 6.12246 10.1501 6.23958 10.0619 6.32442L6.16189 10.0744C5.98274 10.2467 5.69787 10.2411 5.52561 10.0619Z"
+                      class="tw-fill-neutral-800"
+                    />
+                    <path
+                      fill-rule="evenodd"
+                      clip-rule="evenodd"
+                      d="M1.92561 10.0619C1.75336 9.8828 1.75894 9.59793 1.93809 9.42567L5.50074 6.00005L1.93809 2.57442C1.75894 2.40217 1.75336 2.1173 1.92561 1.93815C2.09787 1.759 2.38274 1.75342 2.56189 1.92567L6.46189 5.67567C6.55012 5.76052 6.59999 5.87764 6.59999 6.00005C6.59999 6.12246 6.55012 6.23958 6.46189 6.32442L2.56189 10.0744C2.38274 10.2467 2.09787 10.2411 1.92561 10.0619Z"
+                      class="tw-fill-neutral-800"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <div class="tw-hidden tw-flex-1 lg:tw-block"></div>
+            </div>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+</html-component>

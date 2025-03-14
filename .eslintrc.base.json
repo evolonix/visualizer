@@ -1,9 +1,14 @@
 {
   "root": true,
-  "ignorePatterns": ["**/*"],
+  "ignorePatterns": ["**/*", "**/.next/*"],
   "plugins": ["@nx"],
   "overrides": [
     {
+      "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+      },
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
         "@nx/enforce-module-boundaries": [
@@ -15,6 +20,38 @@
               {
                 "sourceTag": "*",
                 "onlyDependOnLibsWithTags": ["*"]
+              },
+              {
+                "sourceTag": "type:app",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:core"]
+              },
+              {
+                "sourceTag": "type:server",
+                "onlyDependOnLibsWithTags": ["type:data-access", "type:core"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:data-access", "type:core"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["type:data-access", "type:core"]
+              },
+              {
+                "sourceTag": "scope:visualizer",
+                "onlyDependOnLibsWithTags": ["scope:visualizer", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:engage",
+                "onlyDependOnLibsWithTags": ["scope:engage", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:skills-platform",
+                "onlyDependOnLibsWithTags": ["scope:skills-platform", "scope:shared"]
+              },
+              {
+                "sourceTag": "scope:shared",
+                "onlyDependOnLibsWithTags": ["scope:shared"]
               }
             ]
           }
@@ -29,6 +66,13 @@
     {
       "files": ["*.js", "*.jsx"],
       "extends": ["plugin:@nx/javascript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.spec.ts", "*.spec.tsx", "*.spec.js", "*.spec.jsx"],
+      "env": {
+        "jest": true
+      },
       "rules": {}
     }
   ]

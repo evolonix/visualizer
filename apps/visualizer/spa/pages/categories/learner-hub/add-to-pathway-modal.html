@@ -1,0 +1,203 @@
+<div class="tw-grid tw-place-items-center tw-gap-6 tw-mt-10">
+  <!-- Create a Pathway -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Create a Pathway</h4>
+      <p class="tw-text-neutral-800">
+        It doesn’t look like you have created any pathways yet. Use pathways to connect learning resources together around a common theme or
+        skill.
+      </p>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+      <button class="tw-btn-primary tw-btn-medium">Create a Pathway</button>
+    </div>
+  </div>
+
+  <!-- Add to Pathway - No Notice -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Add to Pathway</h4>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="select-pathway-dropdown"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('select-pathway-dropdown', 'Select a pathway', true)"
+      >
+      </html-component>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+      <button class="tw-btn-primary tw-btn-medium" disabled>Add to Pathway</button>
+    </div>
+  </div>
+
+  <!-- Add to Pathway - With Notice -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Add to Pathway</h4>
+      <!-- Notice -->
+      <div
+        class="tw-relative tw-flex tw-items-center tw-gap-2 tw-min-h-10 tw-min-w-full tw-rounded-lg tw-bg-neutral-100 tw-px-3 tw-pl-4 tw-py-2 tw-overflow-hidden before:tw-absolute before:tw-inset-0 before:tw-block before:tw-w-1 before:tw-rounded-l-lg before:tw-bg-neutral-600"
+      >
+        <!-- Icon: information-circle solid -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-shrink-0 tw-size-4 tw-text-neutral-600">
+          <path
+            fill-rule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <p class="tw-text-xs tw-text-neutral-800">
+          Adding this item will make the selected pathway org-managed. Learn more about visibility settings in the
+          <a href="" class="tw-font-bold tw-text-blue-800">Degreed Knowledge Center.</a>
+        </p>
+      </div>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="select-pathway-dropdown-2"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('select-pathway-dropdown-2', 'Select a pathway', true)"
+      >
+      </html-component>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+      <button class="tw-btn-primary tw-btn-medium" disabled>Add to Pathway</button>
+    </div>
+  </div>
+
+  <!-- Add to Pathway - Pathway Selected -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Add to Pathway</h4>
+      <!-- Notice -->
+      <div
+        class="tw-relative tw-flex tw-items-center tw-gap-2 tw-min-h-10 tw-min-w-full tw-rounded-lg tw-bg-neutral-100 tw-px-3 tw-pl-4 tw-py-2 tw-overflow-hidden before:tw-absolute before:tw-inset-0 before:tw-block before:tw-w-1 before:tw-rounded-l-lg before:tw-bg-neutral-600"
+      >
+        <!-- Icon: information-circle solid -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-shrink-0 tw-size-4 tw-text-neutral-600">
+          <path
+            fill-rule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <p class="tw-text-xs tw-text-neutral-800">
+          Adding this item will make the selected pathway org-managed. Learn more about visibility settings in the
+          <a href="" class="tw-font-bold tw-text-blue-800">Degreed Knowledge Center.</a>
+        </p>
+      </div>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="pathway-name"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('pathway-name', '{Pathway Name}', true)"
+      >
+      </html-component>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="select-pathway-section-dropdown"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('select-pathway-section-dropdown', 'Select a pathway section', true)"
+      >
+      </html-component>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+      <button class="tw-btn-primary tw-btn-medium" disabled>Add to Pathway</button>
+    </div>
+  </div>
+
+  <!-- Add to Pathway - Section Selected -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Add to Pathway</h4>
+      <!-- Notice -->
+      <div
+        class="tw-relative tw-flex tw-items-center tw-gap-2 tw-min-h-10 tw-min-w-full tw-rounded-lg tw-bg-neutral-100 tw-px-3 tw-pl-4 tw-py-2 tw-overflow-hidden before:tw-absolute before:tw-inset-0 before:tw-block before:tw-w-1 before:tw-rounded-l-lg before:tw-bg-neutral-600"
+      >
+        <!-- Icon: information-circle solid -->
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="tw-shrink-0 tw-size-4 tw-text-neutral-600">
+          <path
+            fill-rule="evenodd"
+            d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm8.706-1.442c1.146-.573 2.437.463 2.126 1.706l-.709 2.836.042-.02a.75.75 0 0 1 .67 1.34l-.04.022c-1.147.573-2.438-.463-2.127-1.706l.71-2.836-.042.02a.75.75 0 1 1-.671-1.34l.041-.022ZM12 9a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Z"
+            clip-rule="evenodd"
+          />
+        </svg>
+        <p class="tw-text-xs tw-text-neutral-800">
+          Adding this item will make the selected pathway org-managed. Learn more about visibility settings in the
+          <a href="" class="tw-font-bold tw-text-blue-800">Degreed Knowledge Center.</a>
+        </p>
+      </div>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="pathway-name-2"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('pathway-name-2', '{Pathway Name}', true)"
+      >
+      </html-component>
+      <!-- Replace this dropdown with LXP specific components -->
+      <html-component
+        name="apollo/dropdown"
+        id="section-name"
+        className="tw-btn-medium tw-w-full tw-justify-between"
+        onload="selectDropdownItemById('section-name', '{Section Name}', true)"
+      >
+      </html-component>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Cancel</button>
+      <button class="tw-btn-primary tw-btn-medium">Add to Pathway</button>
+    </div>
+  </div>
+
+  <!-- Add to Pathway - Success -->
+  <div
+    class="tw-w-full tw-max-w-80 tw-rounded-2xl tw-bg-white tw-p-4 tw-shadow-lg sm:tw-max-w-sm md:tw-max-w-md md:tw-p-6 lg:tw-max-w-xl"
+    role="dialog"
+    aria-labelledby="title"
+    aria-describedby="description"
+  >
+    <div class="tw-mb-6 tw-flex tw-flex-col tw-gap-4">
+      <h4 class="tw-font-extrabold tw-text-neutral-900" id="title">Add to Pathway</h4>
+      <p class="tw-text-neutral-800"><span class="tw-font-semibold">{Assignment Name}</span> was successfully added to {Pathway Name}.</p>
+    </div>
+    <div class="tw-flex tw-flex-col tw-justify-end tw-gap-2 md:tw-flex-row md:tw-gap-4">
+      <button class="tw-btn-secondary-filled tw-btn-medium">Done</button>
+      <button class="tw-btn-primary tw-btn-medium">Go to Pathway</button>
+    </div>
+  </div>
+</div>
+<!-- Filler element to add some spacing at bottom -->
+<div class="tw-min-h-10"></div>

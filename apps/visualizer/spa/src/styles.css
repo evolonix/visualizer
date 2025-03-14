@@ -1,0 +1,7 @@
+@import url('https://unpkg.com/prismjs@1.29.0/themes/prism-tomorrow.min.css');
+
+@config '../tailwind.config.ts';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

@@ -1,0 +1,285 @@
+# This workflow will download an pre-built artifact and do one of the following when a release is published:
+# - Publish a package to GitHub Packages
+# - Deploy a site to higher environments
+
+name: Release CD
+
+on:
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# Sets permissions of the GITHUB_TOKEN to allow deployment
+permissions:
+  contents: write
+  id-token: write
+  packages: write
+
+# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
+concurrency:
+  group: 'release-${{ github.ref_name }}'
+  cancel-in-progress: true
+
+jobs:
+  # Project Details job
+  project-details:
+    name: Project Details
+    runs-on: ubuntu-latest
+    outputs:
+      project: ${{ steps.details.outputs.project }}
+      version: ${{ steps.details.outputs.version }}
+      path: ${{ steps.details.outputs.path }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Project details
+        id: details
+        run: |
+          project=${GITHUB_REF_NAME%%@*}
+          version=${GITHUB_REF_NAME##*@}
+          path=$(npx nx show project $project | jq -r .root)
+          echo "$project"
+          echo "$version"
+          echo "$path"
+          echo "project=$project" >> $GITHUB_OUTPUT
+          echo "version=$version" >> $GITHUB_OUTPUT
+          echo "path=$path" >> $GITHUB_OUTPUT
+
+  # GitHub Release job
+  github-release:
+    name: GitHub Release
+    runs-on: ubuntu-latest
+    needs: project-details
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Releases
+        id: releases
+        run: |
+          current=${{ github.ref_name }}
+          notes=$(gh release view $current --json body | jq -r .body)
+          tags=$(gh release list --exclude-drafts --exclude-pre-releases --json tagName | jq -r 'map(select(.tagName | contains("${{ needs.project-details.outputs.project }}"))) | .[].tagName')
+          previous=$(echo "$tags" | head -2 | tail -1)
+          echo "$notes"
+          echo "$current"
+          echo "$previous"
+          echo "notes=\"$notes\"" >> $GITHUB_OUTPUT
+          echo "current=$current" >> $GITHUB_OUTPUT
+          echo "previous=$previous" >> $GITHUB_OUTPUT
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Generate changelog
+        run: npx nx release changelog ${{ needs.project-details.outputs.version }} --projects ${{ needs.project-details.outputs.project }} --from ${{ steps.releases.outputs.previous }} --to ${{ steps.releases.outputs.current }} --git-commit=false --git-tag=false
+
+      # Upload changelog as an release asset and append the changelog to the release notes
+      - name: Update release
+        working-directory: ${{ needs.project-details.outputs.path }}
+        run: |
+          if [ -f CHANGELOG.md ]; then
+            gh release upload ${{ steps.releases.outputs.current }} CHANGELOG.md
+            notes="${{ steps.releases.outputs.notes }}"
+            # If notes are not empty, add two newlines before appending the changelog
+            [[ -n "$notes" ]] && notes+="
+
+            "
+            notes+=$(cat CHANGELOG.md)
+            gh release edit ${{ steps.releases.outputs.current }} --notes="$notes"
+          fi
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+  # Publish job
+  publish-npm:
+    name: Publish to GitHub Packages
+    permissions: write-all
+    runs-on: ubuntu-latest
+    needs:
+      - project-details
+    if: ${{ startsWith(needs.project-details.outputs.path, 'libs') }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          always-auth: true
+          registry-url: https://npm.pkg.github.com
+          scope: '@degreed'
+
+      - name: Download artifact
+        id: download
+        run: gh run download -n ${{ github.ref_name }} -D ./output
+        env:
+          GH_TOKEN: ${{ github.token }}
+
+      - name: Publish package for Degreed
+        working-directory: ./output
+        run: npm publish --registry https://npm.pkg.github.com/ --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Configure package for Learn In
+        working-directory: ./output
+        run: |
+          name=$(npm pkg get name)
+          name=${name//\"/}
+          name=${name/@degreed/@learnin-inc}
+          npm pkg set name=$name
+
+      - name: Publish package for Learn In
+        working-directory: ./output
+        run: npm publish --registry https://npm.pkg.github.com/ --tag latest
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.JASONRUESCH_PAT }}
+
+  # Prepare job
+  prepare-deployment:
+    name: Prepare Deployment
+    runs-on: ubuntu-latest
+    outputs:
+      dirname: ${{ steps.dirname.outputs.dirname }}
+    needs:
+      - project-details
+    if: ${{ startsWith(needs.project-details.outputs.path, 'apps') }}
+    steps:
+      - name: Directory name
+        id: dirname
+        run: |
+          project=${GITHUB_REF_NAME%%@*}
+          dirname=${project##app-}
+          echo "dirname=$dirname" >> $GITHUB_OUTPUT
+
+  # Deploy job
+  deploy-release:
+    name: Deploy to Release
+    needs:
+      - project-details
+      - prepare-deployment
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'Release'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"
+
+  # Deploy job
+  deploy-beta:
+    name: Deploy to Beta
+    needs:
+      - project-details
+      - prepare-deployment
+      - deploy-release
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'Beta'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"
+
+  # Deploy job
+  deploy-europe-beta:
+    name: Deploy to Europe Beta
+    needs:
+      - project-details
+      - prepare-deployment
+      - deploy-release
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'EuropeBeta'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"
+
+  # Deploy job
+  deploy-europe:
+    name: Deploy to Europe
+    needs:
+      - project-details
+      - prepare-deployment
+      - deploy-beta
+      - deploy-europe-beta
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'Europe'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"
+  
+  # Deploy job
+  deploy-canada:
+    name: Deploy to Canada
+    needs:
+      - project-details
+      - prepare-deployment
+      - deploy-beta
+      - deploy-europe-beta
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'Canada'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"
+
+  # Deploy job
+  deploy-production:
+    name: Deploy to Production
+    needs:
+      - project-details
+      - prepare-deployment
+      - deploy-beta
+      - deploy-europe-beta
+    uses: ./.github/workflows/_cd-deploy.yml
+    secrets: inherit
+    permissions: write-all
+    with:
+      app-version: '${{ needs.project-details.outputs.version }}'
+      environment: 'Production'
+      app-name: ${{ needs.prepare-deployment.outputs.dirname }}
+      artifact-name: '${{ needs.project-details.outputs.project }}@${{ needs.project-details.outputs.version }}'
+      artifacts-json: "['${{ needs.prepare-deployment.outputs.dirname }}']"

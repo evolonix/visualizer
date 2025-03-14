@@ -1,0 +1,25 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "runtimeExecutable": "/Users/thomasburleson/.nvm/versions/node/v18.12.1/bin/node",
+  "configurations": [
+    {
+      "name": "Attach",
+      "port": 9229,
+      "request": "attach",
+      "skipFiles": [
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
+      "name": "Launch Chrome for Degreed Skills",
+      "request": "launch",
+      "type": "chrome",
+      "url": "http://localhost:4203",
+      "webRoot": "${workspaceFolder}/apps/skills-platform/src"
+    }
+  ]
+}

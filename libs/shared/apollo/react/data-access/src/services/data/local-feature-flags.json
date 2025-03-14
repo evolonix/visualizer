@@ -1,0 +1,28 @@
+{
+  "degreedSkillsOctober2024": true,
+  "lxpDegreedAssistant": false,
+  "personalizedLearning": true,
+  "sessionManagement": true,
+  "useLearnerHub": true,
+  "orgManagement": {
+    "segmentsUI": true,
+    "showWebhooksAdmin": true
+  },
+  "insights": {
+    "insightsSkillAnalytics": true
+  },
+  "teams": {
+    "teamSpaceEnabled": false
+  },
+  "skillCoach": {
+    "managerAssignments": false
+  },
+  "apollo": {
+    "APOLLO_LAYOUT": true,
+    "APOLLO_LAYOUT_REFRESH": true,
+    "APOLLO_LAYOUT_LEARNER_V2": true,
+    "APOLLO_LAYOUT_LEARNER_V3": true,
+    "APOLLO_LAYOUT_ADMIN_V2": true,
+    "APOLLO_LAYOUT_ADMIN_V3": true
+  }
+}

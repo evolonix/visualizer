@@ -1,0 +1,56 @@
+::ng-deep {
+  .video_card_item {
+    display: grid;
+    grid-template-columns: 70px 1fr;
+    align-items: center;
+    img {
+      aspect-ratio: 1/1;
+      height: 60px;
+      object-fit: contain;
+    }
+    .metainfo {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      .description {
+        color: rgb(168, 167, 167);
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 5px;
+      }
+      .title {
+        font-size: 14px;
+        font-weight: 500;
+        line-height: 24px;
+        letter-spacing: 0em;
+        text-align: left;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        cursor: pointer;
+        &:hover {
+          color: blue;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .actions {
+      display: flex;
+      gap: 10px;
+      justify-self: flex-end;
+      i {
+        &:hover {
+          background-color: #d2cfcf;
+        }
+        background: #efefef;
+        cursor: pointer;
+        border-radius: 10px;
+        padding: 5px 7px;
+      }
+      .added {
+        color: green;
+      }
+    }
+  }
+}

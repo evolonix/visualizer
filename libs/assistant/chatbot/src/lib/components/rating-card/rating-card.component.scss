@@ -1,0 +1,35 @@
+::ng-deep {
+  .rating_content {
+    display: flex;
+    flex-direction: column;
+    padding: 13px;
+    border: 1px solid #c5c6d0;
+    margin: 12px;
+    border-radius: 10px;
+    width: 164px;
+    height: 152px;
+    justify-content: space-between;
+    align-items: center;
+    .course_title {
+      color: #0f1f2c;
+      font-weight: bold;
+      font-size: 14px;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      padding: 0px 8px;
+    }
+    .update_btn {
+      all: unset;
+      color: #0057cc;
+      font-size: 14px;
+      padding: 7px 12px;
+      cursor: pointer;
+      cursor: pointer;
+      &:hover {
+        font-weight: bold;
+      }
+    }
+  }
+}
